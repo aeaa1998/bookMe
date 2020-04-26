@@ -3,10 +3,12 @@
     <div class="uk-flex uk-flex-center uk-flex-wrap">
       <div class="uk-flex uk-flex-center uk-width-1-1 uk-flex-wrap uk-margin-medium-top">
         <img class="uk-width-small" src="images/bookMe-green-logo.svg" alt="Kiwi standing on oval" />
-        <h1 class="uk-width-1-1 text-center white">BookMe</h1>
+        <h2 class="uk-width-1-1 text-center white">BookMe</h2>
       </div>
 
-      <div class="uk-card uk-card-default uk-width-1-3 uk-margin-medium-top">
+      <div
+        class="uk-card uk-card-default uk-width-3-4 uk-width-2-3@s uk-width-1-3@m uk-margin-medium-top"
+      >
         <div class="uk-card-header">
           <h3 class="uk-card-title">Ingresa tus credenciales</h3>
         </div>

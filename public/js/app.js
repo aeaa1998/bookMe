@@ -1940,6 +1940,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log("Component mounted.");
@@ -37616,7 +37618,7 @@ var staticRenderFns = [
               }
             }),
             _vm._v(" "),
-            _c("h1", { staticClass: "uk-width-1-1 text-center white" }, [
+            _c("h2", { staticClass: "uk-width-1-1 text-center white" }, [
               _vm._v("BookMe")
             ])
           ]
@@ -37626,7 +37628,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "uk-card uk-card-default uk-width-1-3 uk-margin-medium-top"
+              "uk-card uk-card-default uk-width-3-4 uk-width-2-3@s uk-width-1-3@m uk-margin-medium-top"
           },
           [
             _c("div", { staticClass: "uk-card-header" }, [
