@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRentStatusesTable extends Migration
+class CreateBookTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRentStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('rent_statuses', function (Blueprint $table) {
+        Schema::create('book_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 15);
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateRentStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rent_statuses');
+        Schema::dropIfExists('book_types');
     }
 }

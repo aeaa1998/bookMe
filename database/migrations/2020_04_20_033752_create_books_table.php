@@ -20,12 +20,13 @@ class CreateBooksTable extends Migration
             $table->integer('edition_number');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('book_type_id');
             $table->unsignedBigInteger('publisher_id');
             $table->unsignedBigInteger('status_id');
-            /** Morph relation */
-            $table->morphs('bookeable');
+
             /** Foreign keys */
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('book_type_id')->references('id')->on('book_types');
             $table->foreign('status_id')->references('id')->on('book_statuses');
             $table->foreign('course_id')->references('id')->on('courses');
             $table->foreign('publisher_id')->references('id')->on('publishers');

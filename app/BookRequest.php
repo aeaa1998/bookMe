@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SaleBook extends Model
+class BookRequest extends Model
 {
     //
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSaleBooksTable extends Migration
+class CreateBookRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateSaleBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('sale_books', function (Blueprint $table) {
+        Schema::create('book_requests', function (Blueprint $table) {
             $table->id();
-            $table->double('price', 8, 2);
-            $table->unsignedBigInteger('sale_status_id');
+            $table->unsignedBigInteger('book_id');
+            $table->unsignedBigInteger('client_id');
+            $table->integer('accepted')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
-            $table->softDeletes('deleted_at', 0);
-
-            /** Foreign keys */
-            $table->foreign('sale_status_id')->references('id')->on('sale_statuses');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateSaleBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sale_books');
+        Schema::dropIfExists('book_requests');
     }
 }
