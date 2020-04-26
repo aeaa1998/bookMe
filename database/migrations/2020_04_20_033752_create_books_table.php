@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('title', 35);
             $table->unsignedInteger('year');
             $table->integer('edition_number');
+            $table->json('payment_detail');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('book_type_id');
