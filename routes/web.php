@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
 
 Route::post('/post/user', 'UserController@store');
 Route::get('/books', 'BooksController@index');
