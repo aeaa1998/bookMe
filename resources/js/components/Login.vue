@@ -57,8 +57,7 @@ export default {
         .then(response => {
           this.logging = false
           this.showSuccessAlert("Se inicio sesión correctamente.")
-          console.log(response)
-          // window.location.replace("/")
+          window.location.replace("/home")
         })
         .catch(e => {
           this.logging = false

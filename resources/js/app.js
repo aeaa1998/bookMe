@@ -48,7 +48,9 @@ Vue.mixin({
 
 Vue.component('login', require('./components/Login.vue').default);
 Vue.component('register', require('./components/Register.vue').default);
+Vue.component('home', require('./components/Home/Home.vue').default);
 Vue.component('v-input', require('./components/Utils/VInput.vue').default);
+Vue.component('navbar', require('./components/dashboard/navbar/NavBar.vue').default);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('ValidationObserver', ValidationObserver);
 

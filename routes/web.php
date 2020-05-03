@@ -14,13 +14,15 @@ use Illuminate\Support\Facades\Route;
  */
 
 // Route::view('/', 'auth.login');
-Route::group(['middleware' => ['web']], function () {
-	Route::view('/', 'auth.register');
-	Route::view('/login', 'auth.login')->middleware('guest');
-	Route::view('/register', 'auth.register')->middleware('guest');
 
-	Route::group(['namespace' => 'Auth'], function () {
-		Route::post('/register', 'RegisterController@create');
-		Route::post('/login', 'LoginController@login');
-	});
+Route::view('/login', 'auth.login')->middleware('guest');
+Route::view('/register', 'auth.register')->middleware('guest');
+
+Route::group(['namespace' => 'Auth'], function () {
+	Route::post('/register', 'RegisterController@create');
+	Route::post('/login', 'LoginController@login');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::view('/home', 'dashboard.home');
 });

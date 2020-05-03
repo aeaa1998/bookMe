@@ -24,9 +24,9 @@
 
 <body>
     <div id="app">
-        <div>
-            @yield('navBar')
-        </div>
+
+        @yield('navBar')
+
 
         @yield('content')
 
