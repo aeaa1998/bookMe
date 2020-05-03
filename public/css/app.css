@@ -9,6 +9,22 @@
   background-size: cover;
 }
 
+.error-bg {
+  background: #983841;
+}
+
+.success-bg {
+  background: #155724;
+}
+
+.info-bg {
+  background: #0c5460;
+}
+
+.warning-bg {
+  background: #fff3cd;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -26325,5 +26341,14 @@ iframe.uk-cover {
 
 .white {
   color: white;
+}
+
+.uk-notification-message {
+  background: #f8f8f800 !important;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 

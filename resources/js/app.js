@@ -1,10 +1,7 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
+import UIkit from "uikit";
 require('./bootstrap');
+require('./VeeValidateRules/Rules');
 
 window.Vue = require('vue');
 
@@ -19,8 +16,41 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+
+Vue.mixin({
+  methods: {
+    showErrorAlert: function(message, body = { status: "danger", timeout: 3000 }) {
+      UIkit.notification(
+    		`<div class='uk-custom-centered-notification-message error-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+            body
+         );
+    },
+    showWarningAlert: function(message, body = { status: "warning", pos: 'top-center', timeout: 3000 }) {
+      UIkit.notification(
+            `<div class='uk-custom-centered-notification-message warning-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+            body
+         );
+    },
+    showSuccessAlert: function(message, body = { status: "success", timeout: 3000 }) {
+      UIkit.notification(
+            `<div class='uk-custom-centered-notification-message success-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+            body
+         );
+    },
+	showInfoAlert: function(message, body = { status: "primary", timeout: 3000 }) {
+      UIkit.notification(
+            `<div class='uk-custom-centered-notification-message info-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+            body
+         );
+    },
+  }
+});
+
 Vue.component('login', require('./components/Login.vue').default);
 Vue.component('register', require('./components/Register.vue').default);
+Vue.component('v-input', require('./components/Utils/VInput.vue').default);
+Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

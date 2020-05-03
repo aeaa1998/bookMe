@@ -10,6 +10,10 @@
 // background-images
 @import 'background-images';
 
+
+// backgrounds
+@import 'backgrounds';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
@@ -25,4 +29,11 @@
 
 .white {
     color: white;
+}
+
+.uk-notification-message {
+	background: #f8f8f800!important;
+	width: fit-content!important;
+	left: 50%;
+    transform: translate(-50%, 0);
 }

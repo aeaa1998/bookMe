@@ -12,22 +12,60 @@
         <div class="uk-card-header">
           <h3 class="uk-card-title">Ingresa tus credenciales</h3>
         </div>
-        <form action="/" method="post" class="uk-card-body">
+        <div class="uk-card-body">
           <div class="uk-margin">
-            <input class="uk-input" name="email" type="text" placeholder="Email" />
+            <input class="uk-input" v-model="email" name="email" type="text" placeholder="Email" />
           </div>
           <div class="uk-margin">
-            <input type="password" name="password" class="uk-input" placeholder="Password" />
+            <input type="password" v-model="password" name="password" class="uk-input" placeholder="Password" />
           </div>
           <div>
-            <input type="submit" class="uk-button uk-button-default" value="Ingresar" />
-            <a class="uk-button uk-button-default" href>Registrarse</a>
+            <button @click="logIn" class="uk-button uk-button-default" :disabled="!validLoginform || logging" >Ingresar</button>
+            <a href="/register" class="uk-button uk-button-default">Registrarse</a>
           </div>
           <div class="uk-margin-top">
             <a class="uk-link-muted" href>Olvidaste tu contraseña?</a>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data: () => {
+    return {
+      email: "",
+      password: "",
+      logging: false,
+    }
+  },
+  computed: {
+    validLoginform() {
+      return this.email != "" && this.password != ""
+    }
+  },
+  methods: {
+    logIn(){
+      this.logging = true
+      axios
+        .post("login", {
+            "email": this.email,
+            "password": this.password,
+        })
+        .then(response => {
+          this.logging = false
+          this.showSuccessAlert("Se inicio sesión correctamente.")
+          console.log(response)
+          // window.location.replace("/")
+        })
+        .catch(e => {
+          this.logging = false
+          this.showErrorAlert("Credenciales incorrectas.")
+        })
+    }
+  }
+};
+</script>
+
