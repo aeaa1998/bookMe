@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
  */
 
 // Route::view('/', 'auth.login');
-
-Route::view('/login', 'auth.login')->middleware('guest');
-Route::view('/register', 'auth.register')->middleware('guest');
+Route::group(['namespace' => 'guest'], function () {
+	Route::view('/login', 'auth.login')->name('login');
+	Route::view('/register', 'auth.register')->name('register');
+});
 
 Route::group(['namespace' => 'Auth'], function () {
 	Route::post('/register', 'RegisterController@create');

@@ -3,7 +3,7 @@
     <div class="uk-navbar-left">
 
         <a class="uk-navbar-item uk-logo" href="#">BookMe</a>
-        <ul class="uk-navbar-nav">
+<!--         <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="#">Active</a></li>
             <li>
                 <a href="#">Parent</a>
@@ -16,7 +16,7 @@
                 </div>
             </li>
             <li><a href="#">Item</a></li>
-        </ul>
+        </ul> -->
 
     </div>
 </nav>
