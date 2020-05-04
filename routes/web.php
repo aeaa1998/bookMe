@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 // Route::view('/', 'auth.login');
-Route::group(['namespace' => 'guest'], function () {
+Route::group(['middleware' => 'guest'], function () {
 	Route::view('/login', 'auth.login')->name('login');
 	Route::view('/register', 'auth.register')->name('register');
 });
@@ -22,8 +22,11 @@ Route::group(['namespace' => 'guest'], function () {
 Route::group(['namespace' => 'Auth'], function () {
 	Route::post('/register', 'RegisterController@create');
 	Route::post('/login', 'LoginController@login');
+	Route::get('/logout', 'LoginController@logout');
 });
 
 Route::group(['middleware' => 'auth'], function () {
+	Route::view('/sales', 'dashboard.sales');
+	Route::view('/rent', 'dashboard.rent');
 	Route::view('/home', 'dashboard.home');
 });

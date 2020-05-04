@@ -19,29 +19,29 @@ window.Vue = require('vue');
 
 Vue.mixin({
   methods: {
-    showErrorAlert: function(message, body = { status: "danger", timeout: 3000 }) {
+    showErrorAlert: function (message, body = { status: "danger", timeout: 3000 }) {
       UIkit.notification(
-    		`<div class='uk-custom-centered-notification-message error-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
-            body
-         );
+        `<div class='uk-custom-centered-notification-message error-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+        body
+      );
     },
-    showWarningAlert: function(message, body = { status: "warning", pos: 'top-center', timeout: 3000 }) {
+    showWarningAlert: function (message, body = { status: "warning", pos: 'top-center', timeout: 3000 }) {
       UIkit.notification(
-            `<div class='uk-custom-centered-notification-message warning-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
-            body
-         );
+        `<div class='uk-custom-centered-notification-message warning-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+        body
+      );
     },
-    showSuccessAlert: function(message, body = { status: "success", timeout: 3000 }) {
+    showSuccessAlert: function (message, body = { status: "success", timeout: 3000 }) {
       UIkit.notification(
-            `<div class='uk-custom-centered-notification-message success-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
-            body
-         );
+        `<div class='uk-custom-centered-notification-message success-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+        body
+      );
     },
-	showInfoAlert: function(message, body = { status: "primary", timeout: 3000 }) {
+    showInfoAlert: function (message, body = { status: "primary", timeout: 3000 }) {
       UIkit.notification(
-            `<div class='uk-custom-centered-notification-message info-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
-            body
-         );
+        `<div class='uk-custom-centered-notification-message info-bg uk-border-rounded uk-padding-small text-white'>${message}</div>`,
+        body
+      );
     },
   }
 });
@@ -51,6 +51,8 @@ Vue.component('register', require('./components/Register.vue').default);
 Vue.component('home', require('./components/Home/Home.vue').default);
 Vue.component('v-input', require('./components/Utils/VInput.vue').default);
 Vue.component('navbar', require('./components/dashboard/navbar/NavBar.vue').default);
+Vue.component('sales', require('./components/dashboard/Books/Sales.vue').default);
+Vue.component('rent', require('./components/dashboard/Books/Rent.vue').default);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('ValidationObserver', ValidationObserver);
 
@@ -61,5 +63,5 @@ Vue.component('ValidationObserver', ValidationObserver);
  */
 
 const app = new Vue({
-    el: '#app',
+  el: '#app',
 });

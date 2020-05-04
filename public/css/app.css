@@ -26352,3 +26352,7 @@ iframe.uk-cover {
   transform: translate(-50%, 0);
 }
 
+.p-pointer {
+  cursor: pointer !important;
+}
+

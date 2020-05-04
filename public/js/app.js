@@ -1949,6 +1949,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
@@ -2251,6 +2263,60 @@ __webpack_require__.r(__webpack_exports__);
     type: {
       type: String,
       "default": "text"
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    showItems: {
+      type: Boolean,
+      "default": true
     }
   }
 });
@@ -53611,7 +53677,7 @@ var render = function() {
           "url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg)"
       }
     },
-    [_c("navbar"), _vm._v(" "), _vm._m(0)],
+    [_c("navbar", { attrs: { showItems: false } }), _vm._v(" "), _vm._m(0)],
     1
   )
 }
@@ -53635,35 +53701,49 @@ var staticRenderFns = [
             attrs: { "uk-grid": "" }
           },
           [
-            _c("div", { staticClass: "uk-height-medium" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light ",
-                  staticStyle: {
-                    "background-image":
-                      "url(https://wallpaperaccess.com/full/969895.jpg)"
-                  }
-                },
-                [_c("h1", [_vm._v("Compra de libros")])]
-              )
-            ]),
+            _c(
+              "a",
+              {
+                staticClass: "uk-height-medium p-pointer",
+                attrs: { href: "\\sales" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light",
+                    staticStyle: {
+                      "background-image":
+                        "url(https://wallpaperaccess.com/full/969895.jpg)"
+                    }
+                  },
+                  [_c("h1", [_vm._v("Compra de libros")])]
+                )
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "uk-height-medium" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light ",
-                  staticStyle: {
-                    "background-image":
-                      "url(https://wallpaperaccess.com/full/93553.jpg)"
-                  }
-                },
-                [_c("h1", [_vm._v("Venta de libros")])]
-              )
-            ])
+            _c(
+              "a",
+              {
+                staticClass: "uk-height-medium p-pointer",
+                attrs: { href: "\\rent" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light",
+                    staticStyle: {
+                      "background-image":
+                        "url(https://wallpaperaccess.com/full/93553.jpg)"
+                    }
+                  },
+                  [_c("h1", [_vm._v("Venta de libros")])]
+                )
+              ]
+            )
           ]
         ),
         _vm._v(" "),
@@ -53675,12 +53755,12 @@ var staticRenderFns = [
             attrs: { "uk-grid": "" }
           },
           [
-            _c("div", { staticClass: "uk-height-medium" }, [
+            _c("div", { staticClass: "uk-height-medium p-pointer" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light ",
+                    "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light",
                   staticStyle: {
                     "background-image":
                       "url(https://image.freepik.com/foto-gratis/textura-negra_1160-804.jpg)"
@@ -53690,12 +53770,12 @@ var staticRenderFns = [
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "uk-height-medium" }, [
+            _c("div", { staticClass: "uk-height-medium p-pointer" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light ",
+                    "uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light",
                   staticStyle: {
                     "background-image":
                       "url(https://images.assetsdelivery.com/compings_v2/alexzaitsev/alexzaitsev1611/alexzaitsev161100001.jpg)"
@@ -54252,6 +54332,178 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Books/Rent.vue?vue&type=template&id=02dbce64&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Books/Rent.vue?vue&type=template&id=02dbce64& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "uk-background-cover",
+        staticStyle: {
+          "background-image":
+            "url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg)"
+        }
+      },
+      [
+        _c("navbar"),
+        _vm._v(" "),
+        _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "uk-child-width-1-2 uk-child-width-1-5@m uk-grid-small uk-grid-match uk-padding",
+              attrs: { "uk-grid": "" }
+            },
+            _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
+              return _c("div", { key: i }, [_vm._m(0, true)])
+            }),
+            0
+          )
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "uk-card uk-card-default" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light",
+          attrs: {
+            "data-src":
+              "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+            "uk-img": "",
+            alt: ""
+          }
+        },
+        [_c("div", { staticClass: "uk-card-media-top" })]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "uk-padding-small" }, [
+        _c("div", { staticClass: "uk-card-title" }, [
+          _vm._v("Titulo del libro")
+        ]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Autor, Edicion")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Precio Renta Mensual: 100Q")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Books/Sales.vue?vue&type=template&id=64b79a1e&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Books/Sales.vue?vue&type=template&id=64b79a1e& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "uk-background-cover",
+        staticStyle: {
+          "background-image":
+            "url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg)"
+        }
+      },
+      [
+        _c("navbar"),
+        _vm._v(" "),
+        _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "uk-child-width-1-2 uk-child-width-1-6@m uk-grid-small uk-grid-match uk-padding",
+              attrs: { "uk-grid": "" }
+            },
+            _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
+              return _c("div", { key: i }, [_vm._m(0, true)])
+            }),
+            0
+          )
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "uk-card uk-card-default" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light",
+          attrs: {
+            "data-src":
+              "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+            "uk-img": "",
+            alt: ""
+          }
+        },
+        [_c("div", { staticClass: "uk-card-media-top" })]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "uk-padding-small" }, [
+        _c("div", { staticClass: "uk-card-title" }, [
+          _vm._v("Titulo del libro")
+        ]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Autor, Edicion")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Precio Venta: 500Q")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=template&id=29c9e78e&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=template&id=29c9e78e& ***!
@@ -54267,29 +54519,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      attrs: {
+        "uk-sticky":
+          "sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"
+      }
+    },
+    [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "uk-navbar-container uk-margin uk-background-secondary uk-padding-small",
+          attrs: { "uk-navbar": "" }
+        },
+        [
+          _c("div", { staticClass: "uk-navbar-left" }, [
+            _c(
+              "a",
+              {
+                staticClass: "uk-navbar-item uk-logo",
+                attrs: { href: "/home" }
+              },
+              [_vm._v("BookMe")]
+            ),
+            _vm._v(" "),
+            _vm.showItems
+              ? _c("ul", { staticClass: "uk-navbar-nav" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3)
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm._m(4)
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass: "uk-navbar-container uk-margin uk-background-secondary",
-        attrs: { "uk-navbar": "" }
-      },
-      [
-        _c("div", { staticClass: "uk-navbar-left" }, [
-          _c(
-            "a",
-            { staticClass: "uk-navbar-item uk-logo", attrs: { href: "#" } },
-            [_vm._v("BookMe")]
-          )
-        ])
-      ]
-    )
+    return _c("li", {}, [
+      _c("a", { attrs: { href: "/sales" } }, [_vm._v("Venta")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("a", { attrs: { href: "/rent" } }, [_vm._v("Renta")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "/rent" } }, [_vm._v("Mi perfil")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "/rent" } }, [_vm._v("Mis libros")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "uk-navbar-right" }, [
+      _c("ul", { staticClass: "uk-navbar-nav" }, [
+        _c("li", [_c("a", { attrs: { href: "/logout" } }, [_vm._v("Logout")])])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -66583,6 +66898,8 @@ Vue.component('register', __webpack_require__(/*! ./components/Register.vue */ "
 Vue.component('home', __webpack_require__(/*! ./components/Home/Home.vue */ "./resources/js/components/Home/Home.vue")["default"]);
 Vue.component('v-input', __webpack_require__(/*! ./components/Utils/VInput.vue */ "./resources/js/components/Utils/VInput.vue")["default"]);
 Vue.component('navbar', __webpack_require__(/*! ./components/dashboard/navbar/NavBar.vue */ "./resources/js/components/dashboard/navbar/NavBar.vue")["default"]);
+Vue.component('sales', __webpack_require__(/*! ./components/dashboard/Books/Sales.vue */ "./resources/js/components/dashboard/Books/Sales.vue")["default"]);
+Vue.component('rent', __webpack_require__(/*! ./components/dashboard/Books/Rent.vue */ "./resources/js/components/dashboard/Books/Rent.vue")["default"]);
 Vue.component('ValidationProvider', vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"]);
 Vue.component('ValidationObserver', vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationObserver"]);
 /**
@@ -66987,6 +67304,112 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/dashboard/Books/Rent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/dashboard/Books/Rent.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Rent.vue?vue&type=template&id=02dbce64& */ "./resources/js/components/dashboard/Books/Rent.vue?vue&type=template&id=02dbce64&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dashboard/Books/Rent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/Books/Rent.vue?vue&type=template&id=02dbce64&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Books/Rent.vue?vue&type=template&id=02dbce64& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Rent.vue?vue&type=template&id=02dbce64& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Books/Rent.vue?vue&type=template&id=02dbce64&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/Books/Sales.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/dashboard/Books/Sales.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Sales_vue_vue_type_template_id_64b79a1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sales.vue?vue&type=template&id=64b79a1e& */ "./resources/js/components/dashboard/Books/Sales.vue?vue&type=template&id=64b79a1e&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Sales_vue_vue_type_template_id_64b79a1e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Sales_vue_vue_type_template_id_64b79a1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/dashboard/Books/Sales.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/Books/Sales.vue?vue&type=template&id=64b79a1e&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Books/Sales.vue?vue&type=template&id=64b79a1e& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Sales_vue_vue_type_template_id_64b79a1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Sales.vue?vue&type=template&id=64b79a1e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Books/Sales.vue?vue&type=template&id=64b79a1e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Sales_vue_vue_type_template_id_64b79a1e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Sales_vue_vue_type_template_id_64b79a1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/dashboard/navbar/NavBar.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/components/dashboard/navbar/NavBar.vue ***!
@@ -66997,15 +67420,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NavBar_vue_vue_type_template_id_29c9e78e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavBar.vue?vue&type=template&id=29c9e78e& */ "./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=template&id=29c9e78e&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavBar.vue?vue&type=script&lang=js& */ "./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _NavBar_vue_vue_type_template_id_29c9e78e___WEBPACK_IMPORTED_MODULE_0__["render"],
   _NavBar_vue_vue_type_template_id_29c9e78e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -67019,6 +67444,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/dashboard/navbar/NavBar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NavBar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/navbar/NavBar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NavBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -67058,8 +67497,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/tito/www/bookMe/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tito/www/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
