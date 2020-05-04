@@ -31,8 +31,21 @@
 					<h1>Mis libros</h1>
 		    	</div>
 			</div>
+
 		</div>
 	</div>
 </div>
 
 </template>
+
+<script>
+import BookCard from '../Utils/BookCard.vue';
+
+export default {
+	name: "Home",
+	components: {
+		BookCard,
+	},
+
+}
+</script>

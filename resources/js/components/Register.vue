@@ -43,7 +43,7 @@
             inputClass=" uk-form-small uk-input" 
             v-model="model.password"  
             placeholder="Contraseña"
-            rules="required|min:6""
+            rules="required|min:6"
             />
             <button type="submit" class="uk-button uk-button-default uk-display-block" :disabled="invalid || registering" >Registrarse</button>
             <a href="login" class="uk-link-muted uk-display-block uk-margin-top">¿Ya tienes usuario? Inicia sesión</a>
