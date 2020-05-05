@@ -1,4 +1,8 @@
 @extends('layouts.bookMe')
-@section('content')
-<sales />
-@endsection
+<div>
+    @section('navBar')
+    <navbar />
+    @section('content')
+    <sales />
+    @endsection
+</div>

@@ -2311,6 +2311,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -54347,39 +54354,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "uk-background-cover",
-        staticStyle: {
-          "background-image":
-            "url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg)"
-        }
-      },
-      [
-        _c("navbar"),
-        _vm._v(" "),
-        _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "uk-child-width-1-2 uk-child-width-1-5@m uk-grid-small uk-grid-match uk-padding",
-              attrs: { "uk-grid": "" }
-            },
-            _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
-              return _c("div", { key: i }, [_vm._m(0, true)])
-            }),
-            0
-          )
-        ])
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    [
+      _c("navbar"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-child-width-1-2 uk-child-width-1-6@m uk-grid-small uk-grid-match uk-padding",
+            attrs: { "uk-grid": "" }
+          },
+          _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
+            return _c("div", { key: i }, [_vm._m(1, true)])
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h1",
+      {
+        staticClass: "uk-heading-line uk-heading-small uk-light uk-text-center"
+      },
+      [_c("span", [_vm._v("Renta de libros")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -54389,15 +54401,32 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light",
+            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
           attrs: {
+            "uk-lightbox": "",
             "data-src":
               "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
             "uk-img": "",
             alt: ""
           }
         },
-        [_c("div", { staticClass: "uk-card-media-top" })]
+        [
+          _c("div", { staticClass: "uk-card-media-top" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small",
+                attrs: {
+                  href:
+                    "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+                  "data-caption": "Titulo del libro"
+                }
+              },
+              [_vm._v("Agrandar")]
+            )
+          ])
+        ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "uk-padding-small" }, [
@@ -54407,7 +54436,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", [_vm._v("Autor, Edicion")]),
         _vm._v(" "),
-        _c("div", [_vm._v("Precio Renta Mensual: 100Q")])
+        _c("div", [_vm._v("Precio Venta: 500Q")])
       ])
     ])
   }
@@ -54433,39 +54462,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "uk-background-cover",
-        staticStyle: {
-          "background-image":
-            "url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg)"
-        }
-      },
-      [
-        _c("navbar"),
-        _vm._v(" "),
-        _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "uk-child-width-1-2 uk-child-width-1-6@m uk-grid-small uk-grid-match uk-padding",
-              attrs: { "uk-grid": "" }
-            },
-            _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
-              return _c("div", { key: i }, [_vm._m(0, true)])
-            }),
-            0
-          )
-        ])
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    [
+      _c("navbar"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-child-width-1-2 uk-child-width-1-6@m uk-grid-small uk-grid-match uk-padding",
+            attrs: { "uk-grid": "" }
+          },
+          _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
+            return _c("div", { key: i }, [_vm._m(1, true)])
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h1",
+      {
+        staticClass: "uk-heading-line uk-heading-small uk-light uk-text-center"
+      },
+      [_c("span", [_vm._v("Venta de libros")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -54475,15 +54509,32 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light",
+            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
           attrs: {
+            "uk-lightbox": "",
             "data-src":
               "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
             "uk-img": "",
             alt: ""
           }
         },
-        [_c("div", { staticClass: "uk-card-media-top" })]
+        [
+          _c("div", { staticClass: "uk-card-media-top" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small",
+                attrs: {
+                  href:
+                    "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+                  "data-caption": "Titulo del libro"
+                }
+              },
+              [_vm._v("Agrandar")]
+            )
+          ])
+        ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "uk-padding-small" }, [
@@ -54552,14 +54603,12 @@ var render = function() {
                   _vm._v(" "),
                   _vm._m(1),
                   _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _vm._m(3)
+                  _vm._m(2)
                 ])
               : _vm._e()
           ]),
           _vm._v(" "),
-          _vm._m(4)
+          _vm._m(3)
         ]
       )
     ]
@@ -54570,15 +54619,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", {}, [
-      _c("a", { attrs: { href: "/sales" } }, [_vm._v("Venta")])
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Libros")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "uk-navbar-dropdown" }, [
+        _c("ul", { staticClass: "uk-nav uk-navbar-dropdown-nav" }, [
+          _c("li", {}, [
+            _c("a", { attrs: { href: "/sale" } }, [_vm._v("Venta")])
+          ]),
+          _vm._v(" "),
+          _c("li", [_c("a", { attrs: { href: "/rent" } }, [_vm._v("Renta")])])
+        ])
+      ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("a", { attrs: { href: "/rent" } }, [_vm._v("Renta")])])
   },
   function() {
     var _vm = this

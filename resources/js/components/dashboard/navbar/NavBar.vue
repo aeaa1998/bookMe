@@ -6,11 +6,18 @@
       <div class="uk-navbar-left">
         <a class="uk-navbar-item uk-logo" href="/home">BookMe</a>
         <ul v-if="showItems" class="uk-navbar-nav">
-          <li class>
-            <a href="/sales">Venta</a>
-          </li>
           <li>
-            <a href="/rent">Renta</a>
+            <a href="#">Libros</a>
+            <div class="uk-navbar-dropdown">
+              <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li class>
+                  <a href="/sale">Venta</a>
+                </li>
+                <li>
+                  <a href="/rent">Renta</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
             <a href="/rent">Mi perfil</a>
