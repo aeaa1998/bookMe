@@ -1,6 +1,5 @@
-@extends('layouts.bookMe')
+@extends('dashboard.base')
 
-@section('content')
-
+@section('dashboard-content')
 <rent />
 @endsection

@@ -2318,6 +2318,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -54354,30 +54364,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("navbar"),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "uk-child-width-1-2 uk-child-width-1-6@m uk-grid-small uk-grid-match uk-padding",
-            attrs: { "uk-grid": "" }
-          },
-          _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
-            return _c("div", { key: i }, [_vm._m(1, true)])
-          }),
-          0
-        )
-      ])
-    ],
-    1
-  )
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
+          attrs: { "uk-grid": "" }
+        },
+        _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
+          return _c("div", { key: i }, [_vm._m(1, true)])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -54462,30 +54466,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("navbar"),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "uk-child-width-1-2 uk-child-width-1-6@m uk-grid-small uk-grid-match uk-padding",
-            attrs: { "uk-grid": "" }
-          },
-          _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
-            return _c("div", { key: i }, [_vm._m(1, true)])
-          }),
-          0
-        )
-      ])
-    ],
-    1
-  )
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
+          attrs: { "uk-grid": "" }
+        },
+        _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
+          return _c("div", { key: i }, [_vm._m(1, true)])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -54570,49 +54568,73 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      attrs: {
-        "uk-sticky":
-          "sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"
-      }
-    },
-    [
-      _c(
-        "nav",
-        {
-          staticClass:
-            "uk-navbar-container uk-margin uk-background-secondary uk-padding-small",
-          attrs: { "uk-navbar": "" }
-        },
-        [
-          _c("div", { staticClass: "uk-navbar-left" }, [
-            _c(
-              "a",
-              {
-                staticClass: "uk-navbar-item uk-logo",
-                attrs: { href: "/home" }
-              },
-              [_vm._v("BookMe")]
-            ),
+  return _c("div", [
+    _c(
+      "div",
+      {
+        attrs: {
+          "uk-sticky":
+            "sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"
+        }
+      },
+      [
+        _c(
+          "nav",
+          {
+            staticClass:
+              "uk-navbar-container uk-margin uk-background-secondary uk-padding-small",
+            attrs: { "uk-navbar": "" }
+          },
+          [
+            _c("div", { staticClass: "uk-navbar-left" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "uk-navbar-item uk-logo",
+                  attrs: { href: "/home" }
+                },
+                [_vm._v("BookMe")]
+              ),
+              _vm._v(" "),
+              _vm.showItems
+                ? _c("ul", { staticClass: "uk-navbar-nav" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2)
+                  ])
+                : _vm._e()
+            ]),
             _vm._v(" "),
-            _vm.showItems
-              ? _c("ul", { staticClass: "uk-navbar-nav" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm._m(2)
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _vm._m(3)
-        ]
-      )
-    ]
-  )
+            _vm._m(3)
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "uk-background-cover",
+        staticStyle: {
+          "background-image":
+            "url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg)"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-container-expand uk-padding-small uk-position-relative content"
+          },
+          [_vm._t("content")],
+          2
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -54625,7 +54647,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "uk-navbar-dropdown" }, [
         _c("ul", { staticClass: "uk-nav uk-navbar-dropdown-nav" }, [
           _c("li", {}, [
-            _c("a", { attrs: { href: "/sale" } }, [_vm._v("Venta")])
+            _c("a", { attrs: { href: "/sales" } }, [_vm._v("Venta")])
           ]),
           _vm._v(" "),
           _c("li", [_c("a", { attrs: { href: "/rent" } }, [_vm._v("Renta")])])
