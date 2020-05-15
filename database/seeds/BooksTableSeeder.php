@@ -28,6 +28,8 @@ class BooksTableSeeder extends Seeder
         $faker->addProvider(new \Faker\Provider\Base($faker));
         $books = [];
         for ($i = 0; $i < 600; $i++) {
+            $timeStamp = \Carbon\Carbon::now()->subDays(rand(0, 2000));
+            $tArray = ["created_at" => $timeStamp, "updated_at" => $timeStamp];
             $saleDetail = ["price" => $faker->numberBetween(130, 562)];
             $rentDetail = ["price" => $faker->numberBetween(30, 80)];
 
@@ -52,7 +54,7 @@ class BooksTableSeeder extends Seeder
                 'publisher_id' => $publishers->random()->id,
                 'status_id' => 1,
             ];
-            array_push($books, $book);
+            array_push($books, array_merge($book, $tArray));
         }
         Book::insert($books);
     }

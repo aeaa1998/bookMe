@@ -13,16 +13,17 @@ class PublishersTableSeeder extends Seeder
      */
     public function run()
     {
-
         Publisher::truncate();
         $faker = \Faker\Factory::create();
         $faker->addProvider(new \CompanyNameGenerator\FakerProvider($faker));
         $publishers = [];
         for ($i = 0; $i < 25; $i++) {
+            $timeStamp = \Carbon\Carbon::now()->subDays(rand(0, 2000));
+            $tArray = ["created_at" => $timeStamp, "updated_at" => $timeStamp];
             $publisher = [
                 'name' => $faker->companyName
             ];
-            array_push($publishers, $publisher);
+            array_push($publishers, array_merge($publisher, $tArray));
         }
         Publisher::insert($publishers);
     }

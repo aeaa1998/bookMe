@@ -23,6 +23,8 @@ class UserReviewsTableSeeder extends Seeder
         $faker = \Faker\Factory::create();
         $faker->addProvider(new \Faker\Provider\en_US\Text($faker));
         for ($i = 0; $i < 350; $i++) {
+            $timeStamp = \Carbon\Carbon::now()->subDays(rand(0, 2000));
+            $tArray = ["created_at" => $timeStamp, "updated_at" => $timeStamp];
             $userReviewer = $usersToReviewAndBeReviewed->random();
             $userToBeReviewed = $usersToReviewAndBeReviewed->where('id', '!=', $userReviewer)->random();
             $userReview = [
@@ -32,7 +34,7 @@ class UserReviewsTableSeeder extends Seeder
                 'rating' => $reviewStars->random(),
                 'comment' => $faker->realText(35),
             ];
-            array_push($userReviews, $userReview);
+            array_push($userReviews, array_merge($userReview, $tArray));
         }
         UserReview::insert($userReviews);
     }
