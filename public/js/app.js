@@ -2220,14 +2220,71 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "BookCard",
+  props: ['book']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Utils/BookModal.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Utils/BookModal.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "BookCard",
-  props: []
+  name: "BookModal"
 });
 
 /***/ }),
@@ -2339,6 +2396,49 @@ __webpack_require__.r(__webpack_exports__);
       "default": "text"
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Books/Rent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Books/Rent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Utils/BookCard.vue */ "./resources/js/components/Utils/BookCard.vue");
+/* harmony import */ var _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Utils/BookModal.vue */ "./resources/js/components/Utils/BookModal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Rent",
+  components: {
+    BookCard: _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    BookModal: _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: ['books']
 });
 
 /***/ }),
@@ -75452,42 +75552,271 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "uk-card uk-card-default uk-width-1-5@m uk-card-hover" },
-      [
-        _c("div", { staticClass: "uk-card-header" }, [
-          _c(
-            "div",
-            {
-              staticClass: "uk-grid-small uk-flex-middle",
-              attrs: { "uk-grid": "" }
-            },
-            [
-              _c("div", { staticClass: "uk-width-expand text-center" }, [
+    return _c("div", { staticClass: "uk-width-medium" }, [
+      _c("div", { staticClass: "uk-card-media-top" }, [
+        _c("img", {
+          attrs: {
+            src:
+              "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+            alt: "Book Image"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "uk-card uk-card-default" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-grid-medium  uk-flex uk-flex-middle uk-flex-center",
+            attrs: { "uk-grid": "" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle"
+              },
+              [
                 _c(
-                  "h5",
+                  "h3",
                   { staticClass: "uk-card-title uk-margin-remove-bottom" },
-                  [_vm._v("Titulo")]
+                  [_vm._v("Título")]
                 ),
                 _vm._v(" "),
-                _c("h6", { staticClass: "uk-text-meta uk-margin-remove-top" }, [
-                  _vm._v("Autor "),
-                  _c("br"),
-                  _vm._v(" Edición")
-                ])
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
+                  },
+                  [_vm._v(" Autor "), _c("br"), _vm._v(" Edición ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "uk-button uk-button-text uk-margin-small-bottom",
+                    attrs: { href: "#modal-container", "uk-toggle": "" }
+                  },
+                  [_vm._v(" Más información ")]
+                )
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Utils/BookModal.vue?vue&type=template&id=4b5cbeab&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Utils/BookModal.vue?vue&type=template&id=4b5cbeab& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "uk-modal-container",
+        attrs: { id: "modal-container", "uk-modal": "" }
+      },
+      [
+        _c("div", { staticClass: "uk-modal-dialog" }, [
+          _c("button", {
+            staticClass: "uk-modal-close-default",
+            attrs: { type: "button", "uk-close": "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-modal-header uk-text-center" }, [
+            _c("h2", { staticClass: "uk-modal-title" }, [
+              _vm._v("Visualización de libro")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-modal-body" }, [
+            _c("div", { staticClass: "uk-flex uk-child-width-1-3" }, [
+              _c("img", {
+                staticClass: "uk-padding-large",
+                attrs: {
+                  src:
+                    "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-large uk-padding-medium-top"
+                },
+                [
+                  _c(
+                    "h1",
+                    {
+                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                    },
+                    [_vm._v(" Título")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                    },
+                    [_vm._v(" Edición")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                    },
+                    [_vm._v(" Dueño ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h4",
+                    {
+                      staticClass: "uk-margin-small-top uk-margin-small-bottom"
+                    },
+                    [_vm._v(" Descripción ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "uk-text-meta uk-margin-remove-top uk-text-justify uk-padding-small",
+                      staticStyle: { border: "0.5px solid" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, expedita iste impedit obcaecati quam delectus et molestiae sequi veritatis aliquid velit nihil laudantium. Officia reprehenderit numquam quo accusantium deleniti maiores.\n                    "
+                      )
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "uk-padding-large" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-medium",
+                    staticStyle: { border: "0.5px solid" }
+                  },
+                  [
+                    _c(
+                      "h2",
+                      {
+                        staticClass:
+                          "uk-margin-remove-top uk-margin-small-bottom"
+                      },
+                      [_vm._v(" Precios")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "uk-text-center",
+                        attrs: { "uk-margin": "" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "uk-text-light",
+                            staticStyle: { "font-size": "18px" }
+                          },
+                          [_vm._v(" Alquiler por semestre ")]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "uk-button uk-button-default" },
+                          [_vm._v("Q. Precio")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "uk-text-center",
+                        attrs: { "uk-margin": "" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "uk-text-light",
+                            staticStyle: { "font-size": "18px" }
+                          },
+                          [_vm._v(" Compra ")]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          { staticClass: "uk-button uk-button-default" },
+                          [_vm._v("Q. Precio")]
+                        )
+                      ]
+                    )
+                  ]
+                )
               ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "uk-card-body" }, [
-          _c("img", { attrs: { src: "", alt: "Book Image" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "uk-card-footer" }, [
-          _c("a", { staticClass: "uk-button uk-button-text" }, [
-            _vm._v("Información del libro")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-modal-footer uk-text-right" }, [
+            _c(
+              "button",
+              {
+                staticClass: "uk-button uk-button-default uk-modal-close",
+                attrs: { type: "button" }
+              },
+              [_vm._v("Cancel")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "uk-button uk-button-primary",
+                attrs: { type: "button" }
+              },
+              [_vm._v("Save")]
+            )
           ])
         ])
       ]
@@ -75674,24 +76003,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
-          attrs: { "uk-grid": "" }
-        },
-        _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
-          return _c("div", { key: i }, [_vm._m(1, true)])
-        }),
-        0
-      )
-    ])
-  ])
+  return _c(
+    "div",
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
+            attrs: { "uk-grid": "" }
+          },
+          _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
+            return _c("div", { key: i }, [_c("BookCard")], 1)
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("BookModal")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -75705,54 +76040,6 @@ var staticRenderFns = [
       },
       [_c("span", [_vm._v("Renta de libros")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "uk-card uk-card-default" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
-          attrs: {
-            "uk-lightbox": "",
-            "data-src":
-              "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
-            "uk-img": "",
-            alt: ""
-          }
-        },
-        [
-          _c("div", { staticClass: "uk-card-media-top" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small",
-                attrs: {
-                  href:
-                    "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
-                  "data-caption": "Titulo del libro"
-                }
-              },
-              [_vm._v("Agrandar")]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "uk-padding-small" }, [
-        _c("div", { staticClass: "uk-card-title" }, [
-          _vm._v("Titulo del libro")
-        ]),
-        _vm._v(" "),
-        _c("div", [_vm._v("Autor, Edicion")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("Precio Venta: 500Q")])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -89251,6 +89538,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Utils/BookModal.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Utils/BookModal.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BookModal_vue_vue_type_template_id_4b5cbeab___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BookModal.vue?vue&type=template&id=4b5cbeab& */ "./resources/js/components/Utils/BookModal.vue?vue&type=template&id=4b5cbeab&");
+/* harmony import */ var _BookModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BookModal.vue?vue&type=script&lang=js& */ "./resources/js/components/Utils/BookModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BookModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BookModal_vue_vue_type_template_id_4b5cbeab___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BookModal_vue_vue_type_template_id_4b5cbeab___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Utils/BookModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Utils/BookModal.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/Utils/BookModal.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BookModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./BookModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Utils/BookModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BookModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Utils/BookModal.vue?vue&type=template&id=4b5cbeab&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/Utils/BookModal.vue?vue&type=template&id=4b5cbeab& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BookModal_vue_vue_type_template_id_4b5cbeab___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./BookModal.vue?vue&type=template&id=4b5cbeab& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Utils/BookModal.vue?vue&type=template&id=4b5cbeab&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BookModal_vue_vue_type_template_id_4b5cbeab___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BookModal_vue_vue_type_template_id_4b5cbeab___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Utils/QVSelect.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/Utils/QVSelect.vue ***!
@@ -89399,15 +89755,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Rent.vue?vue&type=template&id=02dbce64& */ "./resources/js/components/dashboard/Books/Rent.vue?vue&type=template&id=02dbce64&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Rent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Rent.vue?vue&type=script&lang=js& */ "./resources/js/components/dashboard/Books/Rent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Rent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Rent_vue_vue_type_template_id_02dbce64___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -89421,6 +89779,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/dashboard/Books/Rent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/Books/Rent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Books/Rent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Rent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Rent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Books/Rent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Rent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
