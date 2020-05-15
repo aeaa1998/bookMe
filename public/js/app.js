@@ -76882,7 +76882,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c("a", { attrs: { href: "/rent" } }, [_vm._v("Mi perfil")])
+      _c("a", { attrs: { href: "/profile" } }, [_vm._v("Mi perfil")])
     ])
   },
   function() {

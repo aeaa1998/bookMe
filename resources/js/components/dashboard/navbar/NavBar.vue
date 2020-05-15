@@ -21,7 +21,7 @@
               </div>
             </li>
             <li>
-              <a href="/rent">Mi perfil</a>
+              <a href="/profile">Mi perfil</a>
             </li>
             <li>
               <a href="/rent">Mis libros</a>
