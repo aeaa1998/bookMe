@@ -11,7 +11,7 @@
           <p class="uk-card-title">Registrase</p>
         </div>
         <div class="uk-card-body">
-          <ValidationObserver v-slot="{ invalid, dirty, pristine }">
+          <ValidationObserver v-slot="{ invalid }">
             <form @submit.prevent="registerUser">
               <v-input
                 class="uk-margin-small-bottom"
