@@ -70,7 +70,7 @@
               <button
                 type="submit"
                 class="uk-button uk-button-default uk-display-block"
-                :disabled="!invalid || registering"
+                :disabled="invalid || registering"
               >Registrarse</button>
               <a
                 href="login"

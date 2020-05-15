@@ -1,11 +1,18 @@
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 import UIkit from "uikit";
 import vSelect from "vue-select";
+import moment from 'moment'
+import axios from 'axios'
+
+
 require('./bootstrap');
 require('./VeeValidateRules/Rules');
 
 window.Vue = require('vue');
 
+Vue.config.productionTip = false
+window.moment = moment
+window.axios = axios
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -13,6 +20,7 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
+Vue.prototype.moment = moment
 Vue.mixin({
   methods: {
     showErrorAlert: function (message, body = { status: "danger", timeout: 3000 }) {
@@ -48,10 +56,10 @@ Vue.component('register', require('./components/Register.vue').default);
 Vue.component('home', require('./components/Home/Home.vue').default);
 Vue.component('v-input', require('./components/Utils/VInput.vue').default);
 Vue.component('qv-select', require('./components/Utils/QVSelect.vue').default);
-
 Vue.component('navbar', require('./components/dashboard/navbar/NavBar.vue').default);
 Vue.component('sales', require('./components/dashboard/Books/Sales.vue').default);
 Vue.component('rent', require('./components/dashboard/Books/Rent.vue').default);
+Vue.component('profile', require('./components/dashboard/Profile/Profile.vue').default);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('ValidationObserver', ValidationObserver);
 

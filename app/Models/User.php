@@ -6,7 +6,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable {
+class User extends Authenticatable
+{
 	use Notifiable, HasApiTokens;
 
 	/**
@@ -19,7 +20,7 @@ class User extends Authenticatable {
 	];
 
 	/**
-	 * The attributes that should be hidden for arrays.
+	 * The attributes that should be hidden for arrays. 
 	 *
 	 * @var array
 	 */
@@ -35,4 +36,8 @@ class User extends Authenticatable {
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 	];
+	public function books()
+	{
+		return $this->hasMany('App\Models\Book');
+	}
 }

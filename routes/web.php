@@ -19,14 +19,20 @@ Route::group(['middleware' => 'guest'], function () {
 	Route::view('/register', 'auth.register')->name('register');
 });
 
-Route::group(['namespace' => 'Auth'], function () {
-	Route::post('/register', 'RegisterController@create');
-	Route::post('/login', 'LoginController@login');
-	Route::get('/logout', 'LoginController@logout');
-});
+
 
 Route::group(['middleware' => 'auth'], function () {
+	Route::get('/profile', 'ProfileController@index');
 	Route::view('/sales', 'dashboard.sales');
 	Route::view('/rent', 'dashboard.rent');
 	Route::view('/home', 'dashboard.home');
+	Route::group(['prefix' => 'user'], function () {
+		Route::post('update', 'ProfileController@updateUserFields');
+		Route::post('update/password', 'ProfileController@changePassword');
+	});
+	Route::group(['namespace' => 'Auth'], function () {
+		Route::post('/register', 'RegisterController@create');
+		Route::post('/login', 'LoginController@login');
+		Route::get('/logout', 'LoginController@logout');
+	});
 });
