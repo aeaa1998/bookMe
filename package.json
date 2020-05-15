@@ -26,6 +26,8 @@
     "dependencies": {
         "uikit": "^3.4.2",
         "uuid": "^8.0.0",
-        "vee-validate": "^3.3.0"
+        "v-select": "^0.0.1",
+        "vee-validate": "^3.3.0",
+        "vue-select": "^3.10.3"
     }
 }

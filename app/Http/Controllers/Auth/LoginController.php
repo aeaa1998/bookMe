@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Auth;
@@ -39,6 +40,8 @@ class LoginController extends Controller
 
 	public function login(Request $request)
 	{
+		// title_book //columan2
+
 		$request->validate([
 			'email'    => 'required|email',
 			'password' => 'required',

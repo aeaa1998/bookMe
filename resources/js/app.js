@@ -1,5 +1,6 @@
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 import UIkit from "uikit";
+import vSelect from "vue-select";
 require('./bootstrap');
 require('./VeeValidateRules/Rules');
 
@@ -12,11 +13,6 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-
 Vue.mixin({
   methods: {
     showErrorAlert: function (message, body = { status: "danger", timeout: 3000 }) {
@@ -45,11 +41,14 @@ Vue.mixin({
     },
   }
 });
+Vue.component("v-select", vSelect);
 
 Vue.component('login', require('./components/Login.vue').default);
 Vue.component('register', require('./components/Register.vue').default);
 Vue.component('home', require('./components/Home/Home.vue').default);
 Vue.component('v-input', require('./components/Utils/VInput.vue').default);
+Vue.component('qv-select', require('./components/Utils/QVSelect.vue').default);
+
 Vue.component('navbar', require('./components/dashboard/navbar/NavBar.vue').default);
 Vue.component('sales', require('./components/dashboard/Books/Sales.vue').default);
 Vue.component('rent', require('./components/dashboard/Books/Rent.vue').default);
