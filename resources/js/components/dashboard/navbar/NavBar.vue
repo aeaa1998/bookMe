@@ -12,7 +12,7 @@
               <div class="uk-navbar-dropdown">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
                   <li class>
-                    <a href="/sales">Venta</a>
+                    <a href="/sale">Venta</a>
                   </li>
                   <li>
                     <a href="/rent">Renta</a>
@@ -24,7 +24,7 @@
               <a href="/profile">Mi perfil</a>
             </li>
             <li>
-              <a href="/rent">Mis libros</a>
+              <a href="/user/books">Mis libros</a>
             </li>
           </ul>
         </div>

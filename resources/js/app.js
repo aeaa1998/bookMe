@@ -1,6 +1,7 @@
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 import UIkit from "uikit";
 import vSelect from "vue-select";
+import VeeSelect from './components/Utils/VeeSelect.vue'
 import moment from 'moment'
 import axios from 'axios'
 
@@ -49,7 +50,7 @@ Vue.mixin({
     },
   }
 });
-Vue.component("v-select", vSelect);
+Vue.component("v-select", VeeSelect);
 
 Vue.component('login', require('./components/Login.vue').default);
 Vue.component('register', require('./components/Register.vue').default);
@@ -60,7 +61,7 @@ Vue.component('navbar', require('./components/dashboard/navbar/NavBar.vue').defa
 Vue.component('sales', require('./components/dashboard/Books/Sales.vue').default);
 Vue.component('rent', require('./components/dashboard/Books/Rent.vue').default);
 Vue.component('profile', require('./components/dashboard/Profile/Profile.vue').default);
-Vue.component('my-books', require('./components/dashboard/Profile/MyBooks.vue').default);
+Vue.component('user-books', require('./components/dashboard/Profile/MyBooks.vue').default);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('ValidationObserver', ValidationObserver);
 

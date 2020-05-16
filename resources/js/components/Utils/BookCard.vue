@@ -1,19 +1,25 @@
 <template>
   <!-- <div href="#modal-container" uk-toggle> -->
   <div>
+    <!-- <div :id="`modal-book-${}`" class="uk-flex-top" uk-modal>
+      <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <img :src="resolveUrl(book.book_cover)" alt />
+      </div>
+    </div>-->
     <div class="uk-card uk-card-default p-pointer">
       <div class="uk-card-media-top">
         <div
           uk-lightbox
           class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative"
-          :data-src="book.book_cover"
+          :data-src="resolveUrl(book.book_cover)"
           uk-img
           alt
         >
           <div class="uk-card-media-top">
             <a
               class="uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small"
-              :href="book.book_cover"
+              :href="resolveUrl(book.book_cover)"
               data-caption="Titulo del libro"
             >Agrandar</a>
           </div>
@@ -38,6 +44,15 @@
 <script>
 export default {
   name: "BookCard",
-  props: ["book"]
+  props: ["book"],
+  methods: {
+    resolveUrl(url) {
+      if (url.indexOf("books/") > -1) {
+        return "../storage/" + url;
+      } else {
+        return url;
+      }
+    }
+  }
 };
 </script>

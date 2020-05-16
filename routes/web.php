@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +33,10 @@ Route::group(['middleware' => 'auth'], function () {
 	// Route::view('/sales', 'dashboard.sales');
 	// Route::view('/rent', 'dashboard.rent');
 	Route::view('/home', 'dashboard.home');
+	Route::view('/', 'dashboard.home');
 	Route::group(['prefix' => 'user'], function () {
-		Route::post('books', 'ProfileController@userBooks');
+		Route::get('books', 'ProfileController@getUserBooks');
+		Route::post('book', 'ProfileController@addUserBook');
 		Route::post('update', 'ProfileController@updateUserFields');
 		Route::post('update/password', 'ProfileController@changePassword');
 	});

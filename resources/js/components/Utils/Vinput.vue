@@ -1,13 +1,14 @@
 <template>
-  <div :class="className">
-    <ValidationProvider :name="name" :vid="vid" :mode="mode" :rules="rules" v-slot="{ errors }">
+  <div>
+    <ValidationProvider v-slot="{ failed, dirty, errors }" v-bind="$attrs">
       <input
-        :class="`${inputClass} ${errors.length > 0 ? 'uk-form-danger' : ''}`"
-        :type="type"
+        v-bind="$attrs"
+        class="uk-input"
+        :class="[{'uk-form-danger v-invalid': failed}]"
         v-bind:value="value"
-        v-on:input="$emit('input', $event.target.value)"
-        :placeholder="placeholder"
+        v-on:input="onInput($event)"
       />
+
       <span
         class="uk-text-small uk-form-danger"
         v-show="withErrors && errors.length > 0"
@@ -16,45 +17,29 @@
   </div>
 </template>
 <script>
-import { v4 as uuidv4 } from "uuid";
+import { ValidationProvider } from "vee-validate";
 export default {
+  inheritAttrs: false,
+  components: { ValidationProvider },
   props: {
-    vid: {
-      type: String,
-      default: uuidv4()
-    },
-    name: {
-      type: String,
-      default: uuidv4()
-    },
-    mode: {
-      type: String,
-      default: "aggressive"
-    },
-    rules: {
-      type: String,
-      default: "required"
-    },
-    value: String,
+    value: [String, Number, Object, File],
     withErrors: {
       type: Boolean,
       default: true
     },
-    placeholder: {
+    vclass: {
       type: String,
       default: ""
-    },
-    inputClass: {
-      type: String,
-      default: "uk-input"
-    },
-    className: {
-      type: String,
-      default: ""
-    },
-    type: {
-      type: String,
-      default: "text"
+    }
+  },
+  methods: {
+    onInput(event) {
+      if (this.$attrs["type"] != "file") {
+        this.$emit("input", event.target.value);
+      } else {
+        let file = event.target.files[0];
+        this.$emit("input", file);
+      }
     }
   }
 };

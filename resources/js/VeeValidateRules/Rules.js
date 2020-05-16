@@ -9,16 +9,16 @@ Object.keys(rules).forEach(rule => {
   });
 });
 
-// extend('numbers', value => {
-//   try {
-//     let i = Number(value)
-//     if (Number.isInteger(i)) {
-//       return true
-//     }
-//   } catch (e) {
-//     return 'Debe de ingresar únicamente números';
-//   }
+extend('required-file', value => {
+  try {
+
+    if (value !== undefined) {
+      return true
+    }
+  } catch (e) {
+    return 'Debe ingresar un archivo';
+  }
 
 
-//   return 'Debe de ingresar únicamente números';
-// })
+  return 'Debe ingresar un archivo';
+})

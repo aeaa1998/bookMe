@@ -14,35 +14,39 @@
           <ValidationObserver v-slot="{ invalid }">
             <form @submit.prevent="registerUser">
               <v-input
+                name="nombre"
                 class="uk-margin-small-bottom"
-                inputClass="uk-form-small uk-input "
+                vclass="uk-form-small uk-input "
                 v-model="model.firstName"
                 placeholder="Nombre"
               />
               <v-input
+                name="apellido"
                 class="uk-margin-small-bottom"
-                inputClass=" uk-form-small uk-input"
+                vclass=" uk-form-small uk-input"
                 v-model="model.lastName"
                 placeholder="Apellido"
               />
               <v-input
+                name="número de teléfono"
                 class="uk-margin-small-bottom"
-                inputClass=" uk-form-small uk-input"
+                vclass=" uk-form-small uk-input"
                 v-model="model.phoneNumber"
                 placeholder="Número de celular"
-                rules="required|digit"
+                rules="required|numeric"
               />
               <v-input
+                name="número de carnet"
                 class="uk-margin-small-bottom"
-                inputClass=" uk-form-small uk-input"
+                vclass=" uk-form-small uk-input"
                 v-model="model.licenseNumber"
                 placeholder="Número de carné"
-                rules="required|digit"
+                rules="required|numeric"
               />
               <v-input
                 name="email"
                 class="uk-margin-small-bottom"
-                inputClass=" uk-form-small uk-input"
+                vclass=" uk-form-small uk-input"
                 v-model="model.email"
                 placeholder="Email"
                 rules="required|email"
@@ -51,7 +55,7 @@
                 name="contraseña"
                 class="uk-margin-small-bottom"
                 type="password"
-                inputClass=" uk-form-small uk-input"
+                vclass=" uk-form-small uk-input"
                 v-model="model.password"
                 placeholder="Contraseña"
                 vid="confirmation"
@@ -62,7 +66,7 @@
                 class="uk-margin-small-bottom"
                 type="password"
                 mode="lazy"
-                inputClass=" uk-form-small uk-input"
+                vclass=" uk-form-small uk-input"
                 v-model="model.passwordConfirmation"
                 placeholder="Conformación Contraseña"
                 rules="required|min:6|confirmed:confirmation"
@@ -119,7 +123,9 @@ export default {
         })
         .catch(e => {
           this.registering = false;
-          this.showErrorAlert("Error al registrar el usuario.");
+          this.showErrorAlert(
+            "Error al registrar el usuario el correo o carnet ya han sido tomados."
+          );
         });
     }
   }
