@@ -1,5 +1,5 @@
 @extends('dashboard.base')
 
 @section('dashboard-content')
-<sales />
+<sales :payload="{{ $books }}" />
 @endsection

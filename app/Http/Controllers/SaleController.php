@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class SaleController extends Controller
 {
     public function index(Request $request)
     {
-        
-        $books = Book::where('is_on_sale', 1)->all();
-
-        return view('dashboard.rent')
-            ->with('books', $request->books());
+        $books = Book::with('publisher', 'course', 'user', 'status')
+            ->where('is_on_sale', 1)
+            ->where('status_id', 1)
+            ->paginate(12)
+            ->appends(['dataOnly' => 'true']);
+        // dd($books->items());
+        if (request()->has('dataOnly')) {
+            return response()->json([
+                'books' => $books,
+            ]);
+        }
+        return view('dashboard.sales')
+            ->with('books', json_encode($books));
     }
 }

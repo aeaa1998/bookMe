@@ -1,5 +1,4 @@
 <template>
-  <!-- <div href="#modal-container" uk-toggle> -->
   <div>
     <div class="uk-card uk-card-default p-pointer">
       <div class="uk-card-media-top">
@@ -10,13 +9,7 @@
           uk-img
           alt
         >
-          <div class="uk-card-media-top">
-            <a
-              class="uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small"
-              :href="book.book_cover"
-              data-caption="Titulo del libro"
-            >Agrandar</a>
-          </div>
+
         </div>
       </div>
       <div class="uk-grid-medium uk-flex uk-flex-middle uk-flex-center" uk-grid>
