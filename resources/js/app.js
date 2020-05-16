@@ -60,6 +60,7 @@ Vue.component('navbar', require('./components/dashboard/navbar/NavBar.vue').defa
 Vue.component('sales', require('./components/dashboard/Books/Sales.vue').default);
 Vue.component('rent', require('./components/dashboard/Books/Rent.vue').default);
 Vue.component('profile', require('./components/dashboard/Profile/Profile.vue').default);
+Vue.component('profile', require('./components/dashboard/Profile/MyBooks.vue').default);
 Vue.component('ValidationProvider', ValidationProvider);
 Vue.component('ValidationObserver', ValidationObserver);
 

@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 	// Route::view('/rent', 'dashboard.rent');
 	Route::view('/home', 'dashboard.home');
 	Route::group(['prefix' => 'user'], function () {
+		Route::post('books', 'ProfileController@userBooks');
 		Route::post('update', 'ProfileController@updateUserFields');
 		Route::post('update/password', 'ProfileController@changePassword');
 	});

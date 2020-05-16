@@ -89436,6 +89436,7 @@ Vue.component('navbar', __webpack_require__(/*! ./components/dashboard/navbar/Na
 Vue.component('sales', __webpack_require__(/*! ./components/dashboard/Books/Sales.vue */ "./resources/js/components/dashboard/Books/Sales.vue")["default"]);
 Vue.component('rent', __webpack_require__(/*! ./components/dashboard/Books/Rent.vue */ "./resources/js/components/dashboard/Books/Rent.vue")["default"]);
 Vue.component('profile', __webpack_require__(/*! ./components/dashboard/Profile/Profile.vue */ "./resources/js/components/dashboard/Profile/Profile.vue")["default"]);
+Vue.component('profile', __webpack_require__(/*! ./components/dashboard/Profile/MyBooks.vue */ "./resources/js/components/dashboard/Profile/MyBooks.vue")["default"]);
 Vue.component('ValidationProvider', vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationProvider"]);
 Vue.component('ValidationObserver', vee_validate__WEBPACK_IMPORTED_MODULE_0__["ValidationObserver"]);
 /**
@@ -90097,6 +90098,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Sales_vue_vue_type_template_id_64b79a1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/Profile/MyBooks.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/dashboard/Profile/MyBooks.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/dashboard/Profile/MyBooks.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

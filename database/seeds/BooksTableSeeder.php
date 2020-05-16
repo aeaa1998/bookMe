@@ -34,11 +34,17 @@ class BooksTableSeeder extends Seeder
             $rentDetail = ["price" => $faker->numberBetween(30, 80)];
 
             $paymentDetail = [];
+            $isOnSale = 0;
+            $isOnRent = 0;
             if ($i < 200) {
+                $isOnSale = 1;
                 $paymentDetail['sale'] = $saleDetail;
             } else if ($i < 400) {
+                $isOnRent = 1;
                 $paymentDetail['rent'] = $rentDetail;
             } else {
+                $isOnSale = 1;
+                $isOnRent = 1;
                 $paymentDetail['sale'] = $saleDetail;
                 $paymentDetail['rent'] = $rentDetail;
             }
@@ -52,8 +58,8 @@ class BooksTableSeeder extends Seeder
                 'user_id' => $users->random()->id,
                 'course_id' => $courses->random()->id,
                 'publisher_id' => $publishers->random()->id,
-                'is_on_sale' => rand(0, 1),
-                'is_on_rent' => rand(0, 1),
+                'is_on_sale' => $isOnSale,
+                'is_on_rent' => $isOnRent,
                 'status_id' => 1,
             ];
             array_push($books, array_merge($book, $tArray));
