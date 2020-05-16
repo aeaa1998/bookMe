@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'guest'], function () {
 	Route::view('/login', 'auth.login')->name('login');
 	Route::view('/register', 'auth.register')->name('register');
+	Route::group(['namespace' => 'Auth'], function () {
+		Route::post('/register', 'RegisterController@create');
+		Route::post('/login', 'LoginController@login');
+	});
 });
 
 
@@ -31,8 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('update/password', 'ProfileController@changePassword');
 	});
 	Route::group(['namespace' => 'Auth'], function () {
-		Route::post('/register', 'RegisterController@create');
-		Route::post('/login', 'LoginController@login');
 		Route::get('/logout', 'LoginController@logout');
 	});
 });

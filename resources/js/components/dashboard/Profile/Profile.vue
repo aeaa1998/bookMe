@@ -1,6 +1,5 @@
 <template>
-  <div v-if="user" class="mvh-100" uk-grid>
-    <!-- profile info -->
+  <div v-if="user" uk-grid uk-height-viewport="offset-top: true">
     <div class="uk-width-2-3@m uk-width-1-1">
       <h1 class="white uk-heading-small uk-heading-bullet uk-margin-top">Información del ususario</h1>
       <div class="uk-card uk-card-default uk-card-hover">
@@ -252,5 +251,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-</style>

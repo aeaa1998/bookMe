@@ -1,5 +1,5 @@
 <template>
-  <div class="vh-100 book-wallpaper">
+  <div class="book-wallpaper" uk-height-viewport="offset-top: true">
     <div class="uk-flex uk-flex-center uk-flex-wrap">
       <div class="uk-flex uk-flex-center uk-width-1-1 uk-flex-wrap uk-margin-medium-top">
         <img class="uk-width-small" src="images/bookMe-green-logo.svg" alt="Kiwi standing on oval" />
@@ -17,10 +17,20 @@
             <input class="uk-input" v-model="email" name="email" type="text" placeholder="Email" />
           </div>
           <div class="uk-margin">
-            <input type="password" v-model="password" name="password" class="uk-input" placeholder="Password" />
+            <input
+              type="password"
+              v-model="password"
+              name="password"
+              class="uk-input"
+              placeholder="Password"
+            />
           </div>
           <div>
-            <button @click="logIn" class="uk-button uk-button-default" :disabled="!validLoginform || logging" >Ingresar</button>
+            <button
+              @click="logIn"
+              class="uk-button uk-button-default"
+              :disabled="!validLoginform || logging"
+            >Ingresar</button>
             <a href="/register" class="uk-button uk-button-default">Registrarse</a>
           </div>
           <div class="uk-margin-top">
@@ -33,38 +43,38 @@
 </template>
 
 <script>
-import BookCard from './Utils/BookCard.vue';
+import BookCard from "./Utils/BookCard.vue";
 
 export default {
   data: () => {
     return {
       email: "",
       password: "",
-      logging: false,
-    }
+      logging: false
+    };
   },
   computed: {
     validLoginform() {
-      return this.email != "" && this.password != ""
+      return this.email != "" && this.password != "";
     }
   },
   methods: {
-    logIn(){
-      this.logging = true
+    logIn() {
+      this.logging = true;
       axios
         .post("login", {
-            "email": this.email,
-            "password": this.password,
+          email: this.email,
+          password: this.password
         })
         .then(response => {
-          this.logging = false
-          this.showSuccessAlert("Se inicio sesión correctamente.")
-          window.location.replace("/home")
+          this.logging = false;
+          this.showSuccessAlert("Se inicio sesión correctamente.");
+          window.location.replace("/home");
         })
         .catch(e => {
-          this.logging = false
-          this.showErrorAlert("Credenciales incorrectas.")
-        })
+          this.logging = false;
+          this.showErrorAlert("Credenciales incorrectas.");
+        });
     }
   }
 };

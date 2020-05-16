@@ -9,7 +9,7 @@
         uk-grid
       >
         <div v-for="i in [1,2,3,4,5,6,7,8,9,10]" v-bind:key="i">
-          <BookCard />
+          <BookCard class />
         </div>
       </div>
     </div>
@@ -18,15 +18,15 @@
 </template>
 
 <script>
-import BookCard from '../../Utils/BookCard.vue';
-import BookModal from '../../Utils/BookModal.vue';
+import BookCard from "../../Utils/BookCard.vue";
+import BookModal from "../../Utils/BookModal.vue";
 
 export default {
   name: "Rent",
-  components:{
+  components: {
     BookCard,
-    BookModal,
+    BookModal
   },
-  props: ['books']
-}
+  props: ["books"]
+};
 </script>

@@ -2015,6 +2015,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2035,8 +2045,8 @@ __webpack_require__.r(__webpack_exports__);
 
       this.logging = true;
       axios.post("login", {
-        "email": this.email,
-        "password": this.password
+        email: this.email,
+        password: this.password
       }).then(function (response) {
         _this.logging = false;
 
@@ -2220,9 +2230,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookCard",
-  props: ['book']
+  props: ["book"]
 });
 
 /***/ }),
@@ -2438,7 +2457,7 @@ __webpack_require__.r(__webpack_exports__);
     BookCard: _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     BookModal: _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ['books']
+  props: ["books"]
 });
 
 /***/ }),
@@ -2454,7 +2473,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
-//
 //
 //
 //
@@ -75132,99 +75150,106 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "vh-100 book-wallpaper" }, [
-    _c("div", { staticClass: "uk-flex uk-flex-center uk-flex-wrap" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "uk-card uk-card-default uk-width-3-4 uk-width-2-3@s uk-width-1-3@m uk-margin-medium-top"
-        },
-        [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-card-body" }, [
-            _c("div", { staticClass: "uk-margin" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.email,
-                    expression: "email"
-                  }
-                ],
-                staticClass: "uk-input",
-                attrs: { name: "email", type: "text", placeholder: "Email" },
-                domProps: { value: _vm.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.email = $event.target.value
-                  }
-                }
-              })
-            ]),
+  return _c(
+    "div",
+    {
+      staticClass: "book-wallpaper",
+      attrs: { "uk-height-viewport": "offset-top: true" }
+    },
+    [
+      _c("div", { staticClass: "uk-flex uk-flex-center uk-flex-wrap" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-card uk-card-default uk-width-3-4 uk-width-2-3@s uk-width-1-3@m uk-margin-medium-top"
+          },
+          [
+            _vm._m(1),
             _vm._v(" "),
-            _c("div", { staticClass: "uk-margin" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.password,
-                    expression: "password"
-                  }
-                ],
-                staticClass: "uk-input",
-                attrs: {
-                  type: "password",
-                  name: "password",
-                  placeholder: "Password"
-                },
-                domProps: { value: _vm.password },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c("div", { staticClass: "uk-card-body" }, [
+              _c("div", { staticClass: "uk-margin" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
                     }
-                    _vm.password = $event.target.value
+                  ],
+                  staticClass: "uk-input",
+                  attrs: { name: "email", type: "text", placeholder: "Email" },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
                   }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "button",
-                {
-                  staticClass: "uk-button uk-button-default",
-                  attrs: { disabled: !_vm.validLoginform || _vm.logging },
-                  on: { click: _vm.logIn }
-                },
-                [_vm._v("Ingresar")]
-              ),
+                })
+              ]),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "uk-button uk-button-default",
-                  attrs: { href: "/register" }
-                },
-                [_vm._v("Registrarse")]
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(2)
-          ])
-        ]
-      )
-    ])
-  ])
+              _c("div", { staticClass: "uk-margin" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password"
+                    }
+                  ],
+                  staticClass: "uk-input",
+                  attrs: {
+                    type: "password",
+                    name: "password",
+                    placeholder: "Password"
+                  },
+                  domProps: { value: _vm.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "uk-button uk-button-default",
+                    attrs: { disabled: !_vm.validLoginform || _vm.logging },
+                    on: { click: _vm.logIn }
+                  },
+                  [_vm._v("Ingresar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "uk-button uk-button-default",
+                    attrs: { href: "/register" }
+                  },
+                  [_vm._v("Registrarse")]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -75294,199 +75319,206 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "vh-100 book-wallpaper" }, [
-    _c("div", { staticClass: "uk-flex uk-flex-center uk-flex-wrap" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "uk-card uk-card-default uk-width-3-4 uk-width-2-3@s uk-width-1-3@m uk-margin"
-        },
-        [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "uk-card-body" },
-            [
-              _c("ValidationObserver", {
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(ref) {
-                      var invalid = ref.invalid
-                      return [
-                        _c(
-                          "form",
-                          {
-                            on: {
-                              submit: function($event) {
-                                $event.preventDefault()
-                                return _vm.registerUser($event)
-                              }
-                            }
-                          },
-                          [
-                            _c("v-input", {
-                              staticClass: "uk-margin-small-bottom",
-                              attrs: {
-                                inputClass: "uk-form-small uk-input ",
-                                placeholder: "Nombre"
-                              },
-                              model: {
-                                value: _vm.model.firstName,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.model, "firstName", $$v)
-                                },
-                                expression: "model.firstName"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-input", {
-                              staticClass: "uk-margin-small-bottom",
-                              attrs: {
-                                inputClass: " uk-form-small uk-input",
-                                placeholder: "Apellido"
-                              },
-                              model: {
-                                value: _vm.model.lastName,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.model, "lastName", $$v)
-                                },
-                                expression: "model.lastName"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-input", {
-                              staticClass: "uk-margin-small-bottom",
-                              attrs: {
-                                inputClass: " uk-form-small uk-input",
-                                placeholder: "Número de celular",
-                                rules: "required|numbers"
-                              },
-                              model: {
-                                value: _vm.model.phoneNumber,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.model, "phoneNumber", $$v)
-                                },
-                                expression: "model.phoneNumber"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-input", {
-                              staticClass: "uk-margin-small-bottom",
-                              attrs: {
-                                inputClass: " uk-form-small uk-input",
-                                placeholder: "Número de carné",
-                                rules: "required|numbers"
-                              },
-                              model: {
-                                value: _vm.model.licenseNumber,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.model, "licenseNumber", $$v)
-                                },
-                                expression: "model.licenseNumber"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-input", {
-                              staticClass: "uk-margin-small-bottom",
-                              attrs: {
-                                name: "email",
-                                inputClass: " uk-form-small uk-input",
-                                placeholder: "Email",
-                                rules: "required|email"
-                              },
-                              model: {
-                                value: _vm.model.email,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.model, "email", $$v)
-                                },
-                                expression: "model.email"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-input", {
-                              staticClass: "uk-margin-small-bottom",
-                              attrs: {
-                                name: "contraseña",
-                                type: "password",
-                                inputClass: " uk-form-small uk-input",
-                                placeholder: "Contraseña",
-                                vid: "confirmation",
-                                rules: "required|min:6"
-                              },
-                              model: {
-                                value: _vm.model.password,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.model, "password", $$v)
-                                },
-                                expression: "model.password"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-input", {
-                              staticClass: "uk-margin-small-bottom",
-                              attrs: {
-                                name: "confirmación contraseña",
-                                type: "password",
-                                mode: "lazy",
-                                inputClass: " uk-form-small uk-input",
-                                placeholder: "Conformación Contraseña",
-                                rules: "required|min:6|confirmed:confirmation"
-                              },
-                              model: {
-                                value: _vm.model.passwordConfirmation,
-                                callback: function($$v) {
-                                  _vm.$set(
-                                    _vm.model,
-                                    "passwordConfirmation",
-                                    $$v
-                                  )
-                                },
-                                expression: "model.passwordConfirmation"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "uk-button uk-button-default uk-display-block",
-                                attrs: {
-                                  type: "submit",
-                                  disabled: invalid || _vm.registering
+  return _c(
+    "div",
+    {
+      staticClass: "book-wallpaper",
+      attrs: { "uk-height-viewport": "offset-top: true" }
+    },
+    [
+      _c("div", { staticClass: "uk-flex uk-flex-center uk-flex-wrap" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-card uk-card-default uk-width-3-4 uk-width-2-3@s uk-width-1-3@m uk-margin"
+          },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "uk-card-body" },
+              [
+                _c("ValidationObserver", {
+                  scopedSlots: _vm._u([
+                    {
+                      key: "default",
+                      fn: function(ref) {
+                        var invalid = ref.invalid
+                        return [
+                          _c(
+                            "form",
+                            {
+                              on: {
+                                submit: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.registerUser($event)
                                 }
-                              },
-                              [_vm._v("Registrarse")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass:
-                                  "uk-link-muted uk-display-block uk-margin-top",
-                                attrs: { href: "login" }
-                              },
-                              [_vm._v("¿Ya tienes usuario? Inicia sesión")]
-                            )
-                          ],
-                          1
-                        )
-                      ]
+                              }
+                            },
+                            [
+                              _c("v-input", {
+                                staticClass: "uk-margin-small-bottom",
+                                attrs: {
+                                  inputClass: "uk-form-small uk-input ",
+                                  placeholder: "Nombre"
+                                },
+                                model: {
+                                  value: _vm.model.firstName,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.model, "firstName", $$v)
+                                  },
+                                  expression: "model.firstName"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-input", {
+                                staticClass: "uk-margin-small-bottom",
+                                attrs: {
+                                  inputClass: " uk-form-small uk-input",
+                                  placeholder: "Apellido"
+                                },
+                                model: {
+                                  value: _vm.model.lastName,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.model, "lastName", $$v)
+                                  },
+                                  expression: "model.lastName"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-input", {
+                                staticClass: "uk-margin-small-bottom",
+                                attrs: {
+                                  inputClass: " uk-form-small uk-input",
+                                  placeholder: "Número de celular",
+                                  rules: "required|digit"
+                                },
+                                model: {
+                                  value: _vm.model.phoneNumber,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.model, "phoneNumber", $$v)
+                                  },
+                                  expression: "model.phoneNumber"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-input", {
+                                staticClass: "uk-margin-small-bottom",
+                                attrs: {
+                                  inputClass: " uk-form-small uk-input",
+                                  placeholder: "Número de carné",
+                                  rules: "required|digit"
+                                },
+                                model: {
+                                  value: _vm.model.licenseNumber,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.model, "licenseNumber", $$v)
+                                  },
+                                  expression: "model.licenseNumber"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-input", {
+                                staticClass: "uk-margin-small-bottom",
+                                attrs: {
+                                  name: "email",
+                                  inputClass: " uk-form-small uk-input",
+                                  placeholder: "Email",
+                                  rules: "required|email"
+                                },
+                                model: {
+                                  value: _vm.model.email,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.model, "email", $$v)
+                                  },
+                                  expression: "model.email"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-input", {
+                                staticClass: "uk-margin-small-bottom",
+                                attrs: {
+                                  name: "contraseña",
+                                  type: "password",
+                                  inputClass: " uk-form-small uk-input",
+                                  placeholder: "Contraseña",
+                                  vid: "confirmation",
+                                  rules: "required|min:6"
+                                },
+                                model: {
+                                  value: _vm.model.password,
+                                  callback: function($$v) {
+                                    _vm.$set(_vm.model, "password", $$v)
+                                  },
+                                  expression: "model.password"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("v-input", {
+                                staticClass: "uk-margin-small-bottom",
+                                attrs: {
+                                  name: "confirmación contraseña",
+                                  type: "password",
+                                  mode: "lazy",
+                                  inputClass: " uk-form-small uk-input",
+                                  placeholder: "Conformación Contraseña",
+                                  rules: "required|min:6|confirmed:confirmation"
+                                },
+                                model: {
+                                  value: _vm.model.passwordConfirmation,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.model,
+                                      "passwordConfirmation",
+                                      $$v
+                                    )
+                                  },
+                                  expression: "model.passwordConfirmation"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "uk-button uk-button-default uk-display-block",
+                                  attrs: {
+                                    type: "submit",
+                                    disabled: invalid || _vm.registering
+                                  }
+                                },
+                                [_vm._v("Registrarse")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "uk-link-muted uk-display-block uk-margin-top",
+                                  attrs: { href: "login" }
+                                },
+                                [_vm._v("¿Ya tienes usuario? Inicia sesión")]
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      }
                     }
-                  }
-                ])
-              })
-            ],
-            1
-          )
-        ]
-      )
-    ])
-  ])
+                  ])
+                })
+              ],
+              1
+            )
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -75552,7 +75584,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "uk-width-medium" }, [
+    return _c("div", { staticClass: "uk-width-medium p-pointer" }, [
       _c("div", { staticClass: "uk-card-media-top" }, [
         _c("img", {
           attrs: {
@@ -75567,8 +75599,7 @@ var staticRenderFns = [
         _c(
           "div",
           {
-            staticClass:
-              "uk-grid-medium  uk-flex uk-flex-middle uk-flex-center",
+            staticClass: "uk-grid-medium uk-flex uk-flex-middle uk-flex-center",
             attrs: { "uk-grid": "" }
           },
           [
@@ -75591,7 +75622,16 @@ var staticRenderFns = [
                     staticClass:
                       "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
                   },
-                  [_vm._v(" Autor "), _c("br"), _vm._v(" Edición ")]
+                  [_vm._v("Autor")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
+                  },
+                  [_vm._v("Edición")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -75601,7 +75641,7 @@ var staticRenderFns = [
                       "uk-button uk-button-text uk-margin-small-bottom",
                     attrs: { href: "#modal-container", "uk-toggle": "" }
                   },
-                  [_vm._v(" Más información ")]
+                  [_vm._v("Más información")]
                 )
               ]
             )
@@ -76017,7 +76057,7 @@ var render = function() {
             attrs: { "uk-grid": "" }
           },
           _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
-            return _c("div", { key: i }, [_c("BookCard")], 1)
+            return _c("div", { key: i }, [_c("BookCard", {})], 1)
           }),
           0
         )
@@ -76150,10 +76190,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66& ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -76166,606 +76206,645 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.user
-    ? _c("div", { staticClass: "mvh-100", attrs: { "uk-grid": "" } }, [
-        _c("div", { staticClass: "uk-width-2-3@m uk-width-1-1" }, [
-          _c(
-            "h1",
-            {
-              staticClass:
-                "white uk-heading-small uk-heading-bullet uk-margin-top"
-            },
-            [_vm._v("Información del ususario")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-card uk-card-default uk-card-hover" }, [
-            _c("div", { staticClass: "uk-card-header" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "uk-grid uk-flex-middle",
-                  attrs: { "uk-grid": "" }
-                },
-                [
-                  _c("img", {
-                    staticClass:
-                      "uk-border-circle uk-width-1-6@m uk-border-circle uk-width-1-5@s uk-border-circle uk-width-1-4",
-                    attrs: { src: _vm.img }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "uk-margin uk-width-expand" }, [
-                    _c(
-                      "h3",
-                      { staticClass: "uk-card-title uk-margin-remove-bottom" },
-                      [
-                        _vm._v(
-                          _vm._s(_vm.user.first_name) +
-                            " " +
-                            _vm._s(_vm.user.last_name)
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "uk-text-meta uk-margin-remove-top" },
-                      [
-                        _vm._v(
-                          "\n              Usuario desde:\n              " +
-                            _vm._s(
-                              _vm
-                                .moment(_vm.user.created_at)
-                                .locale("es")
-                                .format("llll")
-                            ) +
-                            "\n            "
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ]),
+    ? _c(
+        "div",
+        { attrs: { "uk-grid": "", "uk-height-viewport": "offset-top: true" } },
+        [
+          _c("div", { staticClass: "uk-width-2-3@m uk-width-1-1" }, [
+            _c(
+              "h1",
+              {
+                staticClass:
+                  "white uk-heading-small uk-heading-bullet uk-margin-top"
+              },
+              [_vm._v("Información del ususario")]
+            ),
             _vm._v(" "),
             _c(
               "div",
-              {
-                staticClass: "uk-card-body uk-grid-match",
-                attrs: { "uk-grid": "" }
-              },
+              { staticClass: "uk-card uk-card-default uk-card-hover" },
               [
-                _c(
-                  "dl",
-                  {
-                    staticClass:
-                      "uk-description-list uk-description-list-divider uk-width-1-2@m uk-width1-1"
-                  },
-                  [
-                    _c("dt", { staticClass: "uk-text-large uk-text-bold" }, [
-                      _vm._v("Email")
-                    ]),
-                    _vm._v(" "),
-                    _c("dd", [_vm._v(_vm._s(_vm.user.email))]),
-                    _vm._v(" "),
-                    _c("dt", { staticClass: "uk-text-large uk-text-bold" }, [
-                      _vm._v("Cantidad de libros")
-                    ]),
-                    _vm._v(" "),
-                    _c("dd", [_vm._v(_vm._s(_vm.user.books_count))]),
-                    _vm._v(" "),
-                    _c("dt", { staticClass: "uk-text-large uk-text-bold" }, [
-                      _vm._v("Número de carne")
-                    ]),
-                    _vm._v(" "),
-                    _c("dd", [_vm._v(_vm._s(_vm.user.license_number))]),
-                    _vm._v(" "),
-                    _c("dt", { staticClass: "uk-text-large uk-text-bold" }, [
-                      _vm._v("Número de teléfono")
-                    ]),
-                    _vm._v(" "),
-                    _c("dd", [_vm._v(_vm._s(_vm.user.phone_number))])
-                  ]
-                ),
+                _c("div", { staticClass: "uk-card-header" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "uk-grid uk-flex-middle",
+                      attrs: { "uk-grid": "" }
+                    },
+                    [
+                      _c("img", {
+                        staticClass:
+                          "uk-border-circle uk-width-1-6@m uk-border-circle uk-width-1-5@s uk-border-circle uk-width-1-4",
+                        attrs: { src: _vm.img }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "uk-margin uk-width-expand" }, [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "uk-card-title uk-margin-remove-bottom"
+                          },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.user.first_name) +
+                                " " +
+                                _vm._s(_vm.user.last_name)
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          { staticClass: "uk-text-meta uk-margin-remove-top" },
+                          [
+                            _vm._v(
+                              "\n              Usuario desde:\n              " +
+                                _vm._s(
+                                  _vm
+                                    .moment(_vm.user.created_at)
+                                    .locale("es")
+                                    .format("llll")
+                                ) +
+                                "\n            "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
                   {
-                    staticClass:
-                      "uk-description-list uk-width-1-2@m uk-width1-1"
+                    staticClass: "uk-card-body uk-grid-match",
+                    attrs: { "uk-grid": "" }
                   },
                   [
                     _c(
-                      "dt",
+                      "dl",
                       {
                         staticClass:
-                          "uk-text-large uk-text-bold uk-margin-small-bottom"
+                          "uk-description-list uk-description-list-divider uk-width-1-2@m uk-width1-1"
                       },
-                      [_vm._v("Email")]
+                      [
+                        _c(
+                          "dt",
+                          { staticClass: "uk-text-large uk-text-bold" },
+                          [_vm._v("Email")]
+                        ),
+                        _vm._v(" "),
+                        _c("dd", [_vm._v(_vm._s(_vm.user.email))]),
+                        _vm._v(" "),
+                        _c(
+                          "dt",
+                          { staticClass: "uk-text-large uk-text-bold" },
+                          [_vm._v("Cantidad de libros")]
+                        ),
+                        _vm._v(" "),
+                        _c("dd", [_vm._v(_vm._s(_vm.user.books_count))]),
+                        _vm._v(" "),
+                        _c(
+                          "dt",
+                          { staticClass: "uk-text-large uk-text-bold" },
+                          [_vm._v("Número de carne")]
+                        ),
+                        _vm._v(" "),
+                        _c("dd", [_vm._v(_vm._s(_vm.user.license_number))]),
+                        _vm._v(" "),
+                        _c(
+                          "dt",
+                          { staticClass: "uk-text-large uk-text-bold" },
+                          [_vm._v("Número de teléfono")]
+                        ),
+                        _vm._v(" "),
+                        _c("dd", [_vm._v(_vm._s(_vm.user.phone_number))])
+                      ]
                     ),
                     _vm._v(" "),
-                    _c("ValidationObserver", {
-                      ref: "user-provider",
-                      staticStyle: { display: "inherit" },
-                      scopedSlots: _vm._u(
-                        [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "uk-description-list uk-width-1-2@m uk-width1-1"
+                      },
+                      [
+                        _c(
+                          "dt",
                           {
-                            key: "default",
-                            fn: function(ref) {
-                              var invalid = ref.invalid
-                              return [
-                                _c("v-input", {
-                                  staticClass: "uk-width-1-2",
-                                  attrs: {
-                                    name: "email",
-                                    rules: "required|email",
-                                    placeholder: "Ingresa tu nuevo usuario"
-                                  },
-                                  model: {
-                                    value: _vm.newUserModel.email,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.newUserModel, "email", $$v)
-                                    },
-                                    expression: "newUserModel.email"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
-                                    attrs: { disabled: invalid },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateUser(
-                                          "email",
-                                          _vm.newUserModel.email,
-                                          "user-provider"
-                                        )
+                            staticClass:
+                              "uk-text-large uk-text-bold uk-margin-small-bottom"
+                          },
+                          [_vm._v("Email")]
+                        ),
+                        _vm._v(" "),
+                        _c("ValidationObserver", {
+                          ref: "user-provider",
+                          staticStyle: { display: "inherit" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var invalid = ref.invalid
+                                  return [
+                                    _c("v-input", {
+                                      staticClass: "uk-width-1-2",
+                                      attrs: {
+                                        name: "email",
+                                        rules: "required|email",
+                                        placeholder: "Ingresa tu nuevo usuario"
+                                      },
+                                      model: {
+                                        value: _vm.newUserModel.email,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.newUserModel,
+                                            "email",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "newUserModel.email"
                                       }
-                                    }
-                                  },
-                                  [
-                                    _vm.changingField.email
-                                      ? _c("div", {
-                                          attrs: { "uk-spinner": "" }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(
-                                      "\n              " +
-                                        _vm._s(
-                                          !_vm.changingField.email
-                                            ? "Cambiar"
-                                            : "Cambiando"
-                                        ) +
-                                        "\n            "
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
+                                        attrs: { disabled: invalid },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.updateUser(
+                                              "email",
+                                              _vm.newUserModel.email,
+                                              "user-provider"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm.changingField.email
+                                          ? _c("div", {
+                                              attrs: { "uk-spinner": "" }
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(
+                                          "\n              " +
+                                            _vm._s(
+                                              !_vm.changingField.email
+                                                ? "Cambiar"
+                                                : "Cambiando"
+                                            ) +
+                                            "\n            "
+                                        )
+                                      ]
                                     )
                                   ]
-                                )
-                              ]
-                            }
-                          }
-                        ],
-                        null,
-                        false,
-                        3717322324
-                      )
-                    }),
-                    _vm._v(" "),
-                    _c("dt", { staticClass: "uk-text-large uk-text-bold" }, [
-                      _vm._v("Número de teléfono")
-                    ]),
-                    _vm._v(" "),
-                    _c("ValidationObserver", {
-                      ref: "phone-provider",
-                      staticStyle: { display: "inherit" },
-                      scopedSlots: _vm._u(
-                        [
-                          {
-                            key: "default",
-                            fn: function(ref) {
-                              var invalid = ref.invalid
-                              return [
-                                _c("v-input", {
-                                  staticClass: "uk-width-1-2",
-                                  attrs: {
-                                    rules: "required|numeric",
-                                    name: "número de teléfono",
-                                    placeholder:
-                                      "Ingresa tu nuevo numero de teléfono"
-                                  },
-                                  model: {
-                                    value: _vm.newUserModel.phoneNumber,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.newUserModel,
-                                        "phoneNumber",
-                                        $$v
-                                      )
-                                    },
-                                    expression: "newUserModel.phoneNumber"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
-                                    attrs: { disabled: invalid },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateUser(
-                                          "phone_number",
-                                          _vm.newUserModel.phoneNumber,
-                                          "phone-provider"
-                                        )
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            3717322324
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "dt",
+                          { staticClass: "uk-text-large uk-text-bold" },
+                          [_vm._v("Número de teléfono")]
+                        ),
+                        _vm._v(" "),
+                        _c("ValidationObserver", {
+                          ref: "phone-provider",
+                          staticStyle: { display: "inherit" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var invalid = ref.invalid
+                                  return [
+                                    _c("v-input", {
+                                      staticClass: "uk-width-1-2",
+                                      attrs: {
+                                        rules: "required|numeric",
+                                        name: "número de teléfono",
+                                        placeholder:
+                                          "Ingresa tu nuevo numero de teléfono"
+                                      },
+                                      model: {
+                                        value: _vm.newUserModel.phoneNumber,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.newUserModel,
+                                            "phoneNumber",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "newUserModel.phoneNumber"
                                       }
-                                    }
-                                  },
-                                  [
-                                    _vm.changingField["phone_number"]
-                                      ? _c("div", {
-                                          attrs: { "uk-spinner": "" }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(
-                                      "\n              " +
-                                        _vm._s(
-                                          !_vm.changingField["phone_number"]
-                                            ? "Cambiar"
-                                            : "Cambiando"
-                                        ) +
-                                        "\n            "
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
+                                        attrs: { disabled: invalid },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.updateUser(
+                                              "phone_number",
+                                              _vm.newUserModel.phoneNumber,
+                                              "phone-provider"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm.changingField["phone_number"]
+                                          ? _c("div", {
+                                              attrs: { "uk-spinner": "" }
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(
+                                          "\n              " +
+                                            _vm._s(
+                                              !_vm.changingField["phone_number"]
+                                                ? "Cambiar"
+                                                : "Cambiando"
+                                            ) +
+                                            "\n            "
+                                        )
+                                      ]
                                     )
                                   ]
-                                )
-                              ]
-                            }
-                          }
-                        ],
-                        null,
-                        false,
-                        2085697431
-                      )
-                    }),
-                    _vm._v(" "),
-                    _c("dt", { staticClass: "uk-text-large uk-text-bold" }, [
-                      _vm._v("Nombre")
-                    ]),
-                    _vm._v(" "),
-                    _c("ValidationObserver", {
-                      ref: "name-provider",
-                      staticStyle: { display: "inherit" },
-                      scopedSlots: _vm._u(
-                        [
-                          {
-                            key: "default",
-                            fn: function(ref) {
-                              var invalid = ref.invalid
-                              return [
-                                _c("v-input", {
-                                  staticClass: "uk-width-1-2",
-                                  attrs: {
-                                    rules: "required|alpha",
-                                    name: "Nombre",
-                                    placeholder:
-                                      "Ingresa tu nuevo numero nombre"
-                                  },
-                                  model: {
-                                    value: _vm.newUserModel.name,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.newUserModel, "name", $$v)
-                                    },
-                                    expression: "newUserModel.name"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
-                                    attrs: { disabled: invalid },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateUser(
-                                          "name",
-                                          _vm.newUserModel.name,
-                                          "name-provider"
-                                        )
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            2085697431
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "dt",
+                          { staticClass: "uk-text-large uk-text-bold" },
+                          [_vm._v("Nombre")]
+                        ),
+                        _vm._v(" "),
+                        _c("ValidationObserver", {
+                          ref: "name-provider",
+                          staticStyle: { display: "inherit" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var invalid = ref.invalid
+                                  return [
+                                    _c("v-input", {
+                                      staticClass: "uk-width-1-2",
+                                      attrs: {
+                                        rules: "required|alpha",
+                                        name: "Nombre",
+                                        placeholder:
+                                          "Ingresa tu nuevo numero nombre"
+                                      },
+                                      model: {
+                                        value: _vm.newUserModel.name,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.newUserModel,
+                                            "name",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "newUserModel.name"
                                       }
-                                    }
-                                  },
-                                  [
-                                    _vm.changingField.name
-                                      ? _c("div", {
-                                          attrs: { "uk-spinner": "" }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(
-                                      "\n              " +
-                                        _vm._s(
-                                          !_vm.changingField.name
-                                            ? "Cambiar"
-                                            : "Cambiando"
-                                        ) +
-                                        "\n            "
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
+                                        attrs: { disabled: invalid },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.updateUser(
+                                              "name",
+                                              _vm.newUserModel.name,
+                                              "name-provider"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm.changingField.name
+                                          ? _c("div", {
+                                              attrs: { "uk-spinner": "" }
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(
+                                          "\n              " +
+                                            _vm._s(
+                                              !_vm.changingField.name
+                                                ? "Cambiar"
+                                                : "Cambiando"
+                                            ) +
+                                            "\n            "
+                                        )
+                                      ]
                                     )
                                   ]
-                                )
-                              ]
-                            }
-                          }
-                        ],
-                        null,
-                        false,
-                        648393589
-                      )
-                    }),
-                    _vm._v(" "),
-                    _c("dt", { staticClass: "uk-text-large uk-text-bold" }, [
-                      _vm._v("Apellido")
-                    ]),
-                    _vm._v(" "),
-                    _c("ValidationObserver", {
-                      ref: "last-name-provider",
-                      staticStyle: { display: "inherit" },
-                      scopedSlots: _vm._u(
-                        [
-                          {
-                            key: "default",
-                            fn: function(ref) {
-                              var invalid = ref.invalid
-                              return [
-                                _c("v-input", {
-                                  staticClass: "uk-width-1-2",
-                                  attrs: {
-                                    name: "Apellido",
-                                    rules: "required|alpha",
-                                    placeholder: "Ingresa tu nuevo apellido"
-                                  },
-                                  model: {
-                                    value: _vm.newUserModel.lastName,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.newUserModel,
-                                        "lastName",
-                                        $$v
-                                      )
-                                    },
-                                    expression: "newUserModel.lastName"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
-                                    attrs: { disabled: invalid },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.updateUser(
-                                          "last_name",
-                                          _vm.newUserModel.lastName,
-                                          "last-name-provider"
-                                        )
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            648393589
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "dt",
+                          { staticClass: "uk-text-large uk-text-bold" },
+                          [_vm._v("Apellido")]
+                        ),
+                        _vm._v(" "),
+                        _c("ValidationObserver", {
+                          ref: "last-name-provider",
+                          staticStyle: { display: "inherit" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var invalid = ref.invalid
+                                  return [
+                                    _c("v-input", {
+                                      staticClass: "uk-width-1-2",
+                                      attrs: {
+                                        name: "Apellido",
+                                        rules: "required|alpha",
+                                        placeholder: "Ingresa tu nuevo apellido"
+                                      },
+                                      model: {
+                                        value: _vm.newUserModel.lastName,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.newUserModel,
+                                            "lastName",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "newUserModel.lastName"
                                       }
-                                    }
-                                  },
-                                  [
-                                    _vm.changingField["last_name"]
-                                      ? _c("div", {
-                                          attrs: { "uk-spinner": "" }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(
-                                      "\n              " +
-                                        _vm._s(
-                                          !_vm.changingField["last_name"]
-                                            ? "Cambiar"
-                                            : "Cambiando"
-                                        ) +
-                                        "\n            "
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left",
+                                        attrs: { disabled: invalid },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.updateUser(
+                                              "last_name",
+                                              _vm.newUserModel.lastName,
+                                              "last-name-provider"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm.changingField["last_name"]
+                                          ? _c("div", {
+                                              attrs: { "uk-spinner": "" }
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(
+                                          "\n              " +
+                                            _vm._s(
+                                              !_vm.changingField["last_name"]
+                                                ? "Cambiar"
+                                                : "Cambiando"
+                                            ) +
+                                            "\n            "
+                                        )
+                                      ]
                                     )
                                   ]
-                                )
-                              ]
-                            }
-                          }
-                        ],
-                        null,
-                        false,
-                        3836073065
-                      )
-                    })
-                  ],
-                  1
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            3836073065
+                          )
+                        })
+                      ],
+                      1
+                    )
+                  ]
                 )
               ]
             )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "uk-width-1-3@m uk-width-1-1" }, [
-          _c(
-            "h2",
-            {
-              staticClass:
-                "white uk-heading-small uk-heading-bullet uk-margin-top"
-            },
-            [_vm._v("Cambiar contraseña")]
-          ),
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "uk-card uk-card-default uk-card-hover uk-padding" },
-            [
-              _c("ValidationObserver", {
-                ref: "password-form",
-                staticStyle: { display: "inherit" },
-                scopedSlots: _vm._u(
-                  [
-                    {
-                      key: "default",
-                      fn: function(ref) {
-                        var invalid = ref.invalid
-                        return [
-                          _c(
-                            "form",
-                            {
-                              on: {
-                                submit: function($event) {
-                                  $event.preventDefault()
-                                  return _vm.updatePassword($event)
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "uk-text-lead uk-margin-small-bottom"
-                                },
-                                [_vm._v("Vieja contraseña")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "uk-width-1-1 uk-margin-bottom"
-                                },
-                                [
-                                  _c("v-input", {
-                                    attrs: {
-                                      name: "contraseña actual",
-                                      type: "password",
-                                      placeholder:
-                                        "Ingresa tu contraseña actual"
-                                    },
-                                    model: {
-                                      value: _vm.oldPassword,
-                                      callback: function($$v) {
-                                        _vm.oldPassword = $$v
-                                      },
-                                      expression: "oldPassword"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "uk-text-lead uk-margin-small-bottom"
-                                },
-                                [_vm._v("Nueva contraseña")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "uk-width-1-1 uk-margin-bottom"
-                                },
-                                [
-                                  _c("v-input", {
-                                    attrs: {
-                                      name: "contraseña",
-                                      type: "password",
-                                      vid: "confirmation",
-                                      rules: "required|min:6",
-                                      placeholder: "Ingresa tu nueva contraseña"
-                                    },
-                                    model: {
-                                      value: _vm.newPassword,
-                                      callback: function($$v) {
-                                        _vm.newPassword = $$v
-                                      },
-                                      expression: "newPassword"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "uk-text-lead uk-margin-small-bottom"
-                                },
-                                [_vm._v("Confirmar contraseña")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "uk-width-1-1 uk-margin-bottom"
-                                },
-                                [
-                                  _c("v-input", {
-                                    attrs: {
-                                      name: "confirmación contraseña nueva",
-                                      type: "password",
-                                      placeholder:
-                                        "Confirma tu nueva contraseña",
-                                      rules:
-                                        "required|min:6|confirmed:confirmation"
-                                    },
-                                    model: {
-                                      value: _vm.newPasswordConfrim,
-                                      callback: function($$v) {
-                                        _vm.newPasswordConfrim = $$v
-                                      },
-                                      expression: "newPasswordConfrim"
-                                    }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "uk-button uk-button-default uk-display-block",
-                                  attrs: {
-                                    type: "submit",
-                                    disabled: invalid || _vm.loading
+          _c("div", { staticClass: "uk-width-1-3@m uk-width-1-1" }, [
+            _c(
+              "h2",
+              {
+                staticClass:
+                  "white uk-heading-small uk-heading-bullet uk-margin-top"
+              },
+              [_vm._v("Cambiar contraseña")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "uk-card uk-card-default uk-card-hover uk-padding"
+              },
+              [
+                _c("ValidationObserver", {
+                  ref: "password-form",
+                  staticStyle: { display: "inherit" },
+                  scopedSlots: _vm._u(
+                    [
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var invalid = ref.invalid
+                          return [
+                            _c(
+                              "form",
+                              {
+                                on: {
+                                  submit: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.updatePassword($event)
                                   }
-                                },
-                                [
-                                  _vm.loading
-                                    ? _c("div", { attrs: { "uk-spinner": "" } })
-                                    : _vm._e(),
-                                  _vm._v(
-                                    "\n            " +
-                                      _vm._s(
-                                        _vm.loading ? "" : "Cambiar contraseña"
-                                      ) +
-                                      "\n          "
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ]
+                                }
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "uk-text-lead uk-margin-small-bottom"
+                                  },
+                                  [_vm._v("Vieja contraseña")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "uk-width-1-1 uk-margin-bottom"
+                                  },
+                                  [
+                                    _c("v-input", {
+                                      attrs: {
+                                        name: "contraseña actual",
+                                        type: "password",
+                                        placeholder:
+                                          "Ingresa tu contraseña actual"
+                                      },
+                                      model: {
+                                        value: _vm.oldPassword,
+                                        callback: function($$v) {
+                                          _vm.oldPassword = $$v
+                                        },
+                                        expression: "oldPassword"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "uk-text-lead uk-margin-small-bottom"
+                                  },
+                                  [_vm._v("Nueva contraseña")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "uk-width-1-1 uk-margin-bottom"
+                                  },
+                                  [
+                                    _c("v-input", {
+                                      attrs: {
+                                        name: "contraseña",
+                                        type: "password",
+                                        vid: "confirmation",
+                                        rules: "required|min:6",
+                                        placeholder:
+                                          "Ingresa tu nueva contraseña"
+                                      },
+                                      model: {
+                                        value: _vm.newPassword,
+                                        callback: function($$v) {
+                                          _vm.newPassword = $$v
+                                        },
+                                        expression: "newPassword"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "uk-text-lead uk-margin-small-bottom"
+                                  },
+                                  [_vm._v("Confirmar contraseña")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "uk-width-1-1 uk-margin-bottom"
+                                  },
+                                  [
+                                    _c("v-input", {
+                                      attrs: {
+                                        name: "confirmación contraseña nueva",
+                                        type: "password",
+                                        placeholder:
+                                          "Confirma tu nueva contraseña",
+                                        rules:
+                                          "required|min:6|confirmed:confirmation"
+                                      },
+                                      model: {
+                                        value: _vm.newPasswordConfrim,
+                                        callback: function($$v) {
+                                          _vm.newPasswordConfrim = $$v
+                                        },
+                                        expression: "newPasswordConfrim"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "uk-button uk-button-default uk-display-block",
+                                    attrs: {
+                                      type: "submit",
+                                      disabled: invalid || _vm.loading
+                                    }
+                                  },
+                                  [
+                                    _vm.loading
+                                      ? _c("div", {
+                                          attrs: { "uk-spinner": "" }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(
+                                      "\n            " +
+                                        _vm._s(
+                                          _vm.loading
+                                            ? ""
+                                            : "Cambiar contraseña"
+                                        ) +
+                                        "\n          "
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        }
                       }
-                    }
-                  ],
-                  null,
-                  false,
-                  2563232421
-                )
-              })
-            ],
-            1
-          )
-        ])
-      ])
+                    ],
+                    null,
+                    false,
+                    2563232421
+                  )
+                })
+              ],
+              1
+            )
+          ])
+        ]
+      )
     : _vm._e()
 }
 var staticRenderFns = []
@@ -89876,7 +89955,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Profile_vue_vue_type_template_id_ab2d3c66_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Profile.vue?vue&type=template&id=ab2d3c66&scoped=true& */ "./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&scoped=true&");
+/* harmony import */ var _Profile_vue_vue_type_template_id_ab2d3c66___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Profile.vue?vue&type=template&id=ab2d3c66& */ "./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&");
 /* harmony import */ var _Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Profile.vue?vue&type=script&lang=js& */ "./resources/js/components/dashboard/Profile/Profile.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -89888,11 +89967,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Profile_vue_vue_type_template_id_ab2d3c66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Profile_vue_vue_type_template_id_ab2d3c66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Profile_vue_vue_type_template_id_ab2d3c66___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Profile_vue_vue_type_template_id_ab2d3c66___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "ab2d3c66",
+  null,
   null
   
 )
@@ -89918,19 +89997,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&scoped=true&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&scoped=true& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66& ***!
+  \**********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_ab2d3c66_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Profile.vue?vue&type=template&id=ab2d3c66&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_ab2d3c66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_ab2d3c66___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Profile.vue?vue&type=template&id=ab2d3c66& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/Profile.vue?vue&type=template&id=ab2d3c66&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_ab2d3c66___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_ab2d3c66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profile_vue_vue_type_template_id_ab2d3c66___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

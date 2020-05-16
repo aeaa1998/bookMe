@@ -1,5 +1,5 @@
 <template>
-  <div class="vh-100 book-wallpaper">
+  <div class="book-wallpaper" uk-height-viewport="offset-top: true">
     <div class="uk-flex uk-flex-center uk-flex-wrap">
       <div class="uk-flex uk-flex-center uk-width-1-1 uk-flex-wrap uk-margin-medium-top">
         <img class="uk-width-small" src="images/bookMe-green-logo.svg" />
@@ -30,14 +30,14 @@
                 inputClass=" uk-form-small uk-input"
                 v-model="model.phoneNumber"
                 placeholder="Número de celular"
-                rules="required|numbers"
+                rules="required|digit"
               />
               <v-input
                 class="uk-margin-small-bottom"
                 inputClass=" uk-form-small uk-input"
                 v-model="model.licenseNumber"
                 placeholder="Número de carné"
-                rules="required|numbers"
+                rules="required|digit"
               />
               <v-input
                 name="email"
