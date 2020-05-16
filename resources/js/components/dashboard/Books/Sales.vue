@@ -1,7 +1,8 @@
+  
 <template>
   <div>
     <h1 class="uk-heading-line uk-heading-small uk-light uk-text-center">
-      <span>Venta de libros</span>
+      <span>Renta de libros</span>
     </h1>
 
     <div class="uk-grid" uk-grid>
@@ -37,6 +38,7 @@
             <span uk-pagination-previous></span>
           </a>
         </div>-->
+
         <div
           v-for="i in Array(pagination.last_page).keys()"
           :key="i"
@@ -45,6 +47,7 @@
         >
           <a @click="() => (fetchPage(undefined, i+1))">{{i + 1}}</a>
         </div>
+
         <!-- <div>
           <a v-if="pagination.prev_page_url" @click="() => (fetchPage(pagination.prev_page_url))">
             <span uk-pagination-next></span>
@@ -59,7 +62,14 @@
         class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding"
         uk-grid
       >
-        <BookCard v-for="book in this.pagination.data" :key="book.id" :book="book" />
+        <div
+          v-for="book in this.pagination.data"
+          :key="book.id"
+          v-on:click="selectBook(book)"
+          uk-toggle="target: #book-detail-modal"
+        >
+          <BookCard :book="book" />
+        </div>
       </div>
       <div v-else>
         <h1
@@ -68,7 +78,7 @@
         <h1 class="uk-heading-line uk-heading-large uk-light uk-text-center">:(</h1>
       </div>
     </div>
-    <!-- <BookModal /> -->
+    <BookModal :book="selectedBook" />
   </div>
 </template>
 
@@ -85,6 +95,11 @@ export default {
   },
   beforeMount() {
     this.pagination = this.payload;
+    this.selectedBook = this.pagination.data[0];
+
+    this.selectedBook.payment_detail = JSON.parse(
+      this.selectedBook.payment_detail
+    );
   },
   data: () => {
     return {
@@ -96,6 +111,10 @@ export default {
     };
   },
   methods: {
+    selectBook(book) {
+      this.selectedBook = book;
+      this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
+    },
     updateUser(fieldName, value, observer) {
       this.changingField[fieldName] = true;
       axios
@@ -155,3 +174,4 @@ export default {
   background: rgb(248, 250, 252, 0.95);
 }
 </style>
+

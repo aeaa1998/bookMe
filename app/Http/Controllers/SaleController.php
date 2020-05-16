@@ -9,7 +9,6 @@ class SaleController extends Controller
 {
     public function index(Request $request)
     {
-
         $hasQuery = false;
         if (request()->has('query')) {
             if (request()->get('query') != '') {
@@ -31,7 +30,8 @@ class SaleController extends Controller
                 'books' => $books,
             ]);
         }
-        return view('dashboard.rent')
+
+        return view('dashboard.sales')
             ->with('books', json_encode($books));
     }
 }

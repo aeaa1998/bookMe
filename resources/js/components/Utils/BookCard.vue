@@ -1,5 +1,4 @@
 <template>
-  <!-- <div href="#modal-container" uk-toggle> -->
   <div>
     <!-- <div :id="`modal-book-${}`" class="uk-flex-top" uk-modal>
       <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">

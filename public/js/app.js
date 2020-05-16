@@ -2253,7 +2253,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookCard",
   props: ["book"],
@@ -2279,6 +2278,26 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2580,6 +2599,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2591,6 +2618,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeMount: function beforeMount() {
     this.pagination = this.payload;
+    this.selectedBook = this.pagination.data[0];
+    this.selectedBook.payment_detail = JSON.parse(this.selectedBook.payment_detail);
   },
   data: function data() {
     return {
@@ -2602,6 +2631,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    selectBook: function selectBook(book) {
+      this.selectedBook = book;
+      this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
+      console.log("this.selectedBook", this.selectedBook);
+    },
     updateUser: function updateUser(fieldName, value, observer) {
       var _this = this;
 
@@ -2749,6 +2783,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2760,6 +2804,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeMount: function beforeMount() {
     this.pagination = this.payload;
+    this.selectedBook = this.pagination.data[0];
+    this.selectedBook.payment_detail = JSON.parse(this.selectedBook.payment_detail);
   },
   data: function data() {
     return {
@@ -2771,6 +2817,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    selectBook: function selectBook(book) {
+      this.selectedBook = book;
+      this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
+    },
     updateUser: function updateUser(fieldName, value, observer) {
       var _this = this;
 
@@ -77283,7 +77333,7 @@ var render = function() {
     "div",
     {
       staticClass: "uk-modal-container",
-      attrs: { id: "modal-container", "uk-modal": "" }
+      attrs: { id: "book-detail-modal", "uk-modal": "" }
     },
     [
       _c("div", { staticClass: "uk-modal-dialog" }, [
@@ -77298,48 +77348,47 @@ var render = function() {
           _c("div", { staticClass: "uk-flex uk-child-width-1-3" }, [
             _c("img", {
               staticClass: "uk-padding-large",
-              attrs: {
-                src:
-                  "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
-                alt: ""
-              }
+              attrs: { src: _vm.book.book_cover, alt: "" }
             }),
             _vm._v(" "),
             _c(
               "div",
               {
                 staticClass:
-                  "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-large uk-padding-medium-top"
+                  "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-padding-small uk-padding-large-top"
               },
               [
                 _c(
-                  "h1",
+                  "p",
                   {
-                    staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                    staticClass:
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
                   },
-                  [_vm._v(" " + _vm._s(_vm.book.title))]
+                  [_vm._v("Título: " + _vm._s(_vm.book.title))]
                 ),
                 _vm._v(" "),
                 _c(
-                  "h3",
+                  "p",
                   {
-                    staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                    staticClass:
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
                   },
-                  [_vm._v(" " + _vm._s(_vm.book.publisher))]
+                  [_vm._v("Publicador: " + _vm._s(_vm.book.publisher.name))]
                 ),
                 _vm._v(" "),
                 _c(
-                  "h3",
+                  "p",
                   {
-                    staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                    staticClass:
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
                   },
-                  [_vm._v(" " + _vm._s(_vm.book.user) + " ")]
+                  [_vm._v("Dueño: " + _vm._s(_vm.book.user.name))]
                 ),
                 _vm._v(" "),
                 _c(
                   "h4",
                   { staticClass: "uk-margin-small-top uk-margin-small-bottom" },
-                  [_vm._v(" " + _vm._s(_vm.Descripción) + " ")]
+                  [_vm._v("Descripción:")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -77349,13 +77398,7 @@ var render = function() {
                       "uk-text-meta uk-margin-remove-top uk-text-justify uk-padding-small",
                     staticStyle: { border: "0.5px solid" }
                   },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.book.description) +
-                        "\n                    "
-                    )
-                  ]
+                  [_vm._v(_vm._s(_vm.book.description))]
                 )
               ]
             ),
@@ -77374,7 +77417,7 @@ var render = function() {
                     {
                       staticClass: "uk-margin-remove-top uk-margin-small-bottom"
                     },
-                    [_vm._v(" Precios")]
+                    [_vm._v("Precios")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -77390,20 +77433,30 @@ var render = function() {
                           staticClass: "uk-text-light",
                           staticStyle: { "font-size": "18px" }
                         },
-                        [_vm._v(" Alquiler por semestre ")]
+                        [_vm._v("Alquiler por semestre")]
                       ),
                       _vm._v(" "),
                       _c("br"),
                       _vm._v(" "),
-                      _c(
-                        "button",
-                        { staticClass: "uk-button uk-button-default" },
-                        [
-                          _vm._v(
-                            "Q. " + _vm._s(_vm.book.detail.rent_detail.price)
+                      _vm.book.is_on_rent === 1
+                        ? _c(
+                            "button",
+                            { staticClass: "uk-button uk-button-default" },
+                            [
+                              _vm._v(
+                                "Q. " +
+                                  _vm._s(_vm.book.payment_detail.rent.price)
+                              )
+                            ]
                           )
-                        ]
-                      )
+                        : _c(
+                            "button",
+                            {
+                              staticClass:
+                                "uk-button uk-button-default uk-text-muted"
+                            },
+                            [_vm._v("No disponible")]
+                          )
                     ]
                   ),
                   _vm._v(" "),
@@ -77420,20 +77473,30 @@ var render = function() {
                           staticClass: "uk-text-light",
                           staticStyle: { "font-size": "18px" }
                         },
-                        [_vm._v(" Compra ")]
+                        [_vm._v("Venta")]
                       ),
                       _vm._v(" "),
                       _c("br"),
                       _vm._v(" "),
-                      _c(
-                        "button",
-                        { staticClass: "uk-button uk-button-default" },
-                        [
-                          _vm._v(
-                            "Q. " + _vm._s(_vm.book.detail.sale_details.price)
+                      _vm.book.is_on_sale === 1
+                        ? _c(
+                            "button",
+                            { staticClass: "uk-button uk-button-default" },
+                            [
+                              _vm._v(
+                                "Q. " +
+                                  _vm._s(_vm.book.payment_detail.sale.price)
+                              )
+                            ]
                           )
-                        ]
-                      )
+                        : _c(
+                            "button",
+                            {
+                              staticClass:
+                                "uk-button uk-button-default uk-text-muted"
+                            },
+                            [_vm._v("No disponible")]
+                          )
                     ]
                   )
                 ]
@@ -77454,7 +77517,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "uk-modal-header uk-text-center" }, [
       _c("h2", { staticClass: "uk-modal-title" }, [
-        _vm._v("Visualización de libro")
+        _vm._v("INFORMACION DEL LIBRO")
       ])
     ])
   },
@@ -77790,149 +77853,171 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "uk-grid", attrs: { "uk-grid": "" } }, [
-      _c(
-        "div",
-        {
-          staticClass: "uk-width-1-2@m uk-width-1-1 uk-grid",
-          attrs: { "uk-grid": "" }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "uk-search uk-search-default uk-width-1-2@m" },
-            [
-              _c("span", { attrs: { "uk-search-icon": "" } }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.filterTitle,
-                    expression: "filterTitle"
-                  }
-                ],
-                staticClass: "uk-search-input uk-width-1-1 transparent-white",
-                attrs: { type: "search", placeholder: "Buscar por nombre..." },
-                domProps: { value: _vm.filterTitle },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.filterTitle = $event.target.value
-                  }
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-width-1-4@m" }, [
-            _c(
-              "button",
-              {
-                staticClass: "uk-button uk-width-1-1 transparent-white",
-                on: {
-                  click: function() {
-                    return _vm.fetchPage(undefined, "1", true)
-                  }
-                }
-              },
-              [_vm._v("Buscar")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-width-1-4@m" }, [
-            _c(
-              "button",
-              {
-                staticClass: "uk-button uk-width-1-1 transparent-white",
-                on: {
-                  click: function() {
-                    return _vm.cleanPage()
-                  }
-                }
-              },
-              [_vm._v("Limpiar")]
-            )
-          ])
-        ]
-      ),
+  return _c(
+    "div",
+    [
+      _vm._m(0),
       _vm._v(" "),
-      _vm.pagination.data.length > 0
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "uk-width-1-2@m uk-width-1-1 overflow-y-auto uk-flex hide-scroll-bar uk-margin-left"
-            },
-            _vm._l(Array(_vm.pagination.last_page).keys(), function(i) {
-              return _c(
-                "div",
-                {
-                  key: i,
-                  staticClass: "white uk-margin-left uk-margin-right",
-                  class: { "uk-active": _vm.pagination.current_page == i }
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      on: {
-                        click: function() {
-                          return _vm.fetchPage(undefined, i + 1)
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(i + 1))]
-                  )
-                ]
-              )
-            }),
-            0
-          )
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-      _vm.pagination.data.length > 0
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
-              attrs: { "uk-grid": "" }
-            },
-            _vm._l(this.pagination.data, function(book) {
-              return _c("BookCard", { key: book.id, attrs: { book: book } })
-            }),
-            1
-          )
-        : _c("div", [
+      _c("div", { staticClass: "uk-grid", attrs: { "uk-grid": "" } }, [
+        _c(
+          "div",
+          {
+            staticClass: "uk-width-1-2@m uk-width-1-1 uk-grid",
+            attrs: { "uk-grid": "" }
+          },
+          [
             _c(
-              "h1",
-              {
-                staticClass:
-                  "uk-heading-line uk-heading-medium uk-light uk-text-center uk-medium-margin-top"
-              },
-              [_vm._v("No se encontro resultados")]
+              "div",
+              { staticClass: "uk-search uk-search-default uk-width-1-2@m" },
+              [
+                _c("span", { attrs: { "uk-search-icon": "" } }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filterTitle,
+                      expression: "filterTitle"
+                    }
+                  ],
+                  staticClass: "uk-search-input uk-width-1-1 transparent-white",
+                  attrs: {
+                    type: "search",
+                    placeholder: "Buscar por nombre..."
+                  },
+                  domProps: { value: _vm.filterTitle },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.filterTitle = $event.target.value
+                    }
+                  }
+                })
+              ]
             ),
             _vm._v(" "),
-            _c(
-              "h1",
+            _c("div", { staticClass: "uk-width-1-4@m" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "uk-button uk-width-1-1 transparent-white",
+                  on: {
+                    click: function() {
+                      return _vm.fetchPage(undefined, "1", true)
+                    }
+                  }
+                },
+                [_vm._v("Buscar")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "uk-width-1-4@m" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "uk-button uk-width-1-1 transparent-white",
+                  on: {
+                    click: function() {
+                      return _vm.cleanPage()
+                    }
+                  }
+                },
+                [_vm._v("Limpiar")]
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm.pagination.data.length > 0
+          ? _c(
+              "div",
               {
                 staticClass:
-                  "uk-heading-line uk-heading-large uk-light uk-text-center"
+                  "uk-width-1-2@m uk-width-1-1 overflow-y-auto uk-flex hide-scroll-bar uk-margin-left"
               },
-              [_vm._v(":(")]
+              _vm._l(Array(_vm.pagination.last_page).keys(), function(i) {
+                return _c(
+                  "div",
+                  {
+                    key: i,
+                    staticClass: "white uk-margin-left uk-margin-right",
+                    class: { "uk-active": _vm.pagination.current_page == i }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        on: {
+                          click: function() {
+                            return _vm.fetchPage(undefined, i + 1)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(i + 1))]
+                    )
+                  ]
+                )
+              }),
+              0
             )
-          ])
-    ])
-  ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+        _vm.pagination.data.length > 0
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
+                attrs: { "uk-grid": "" }
+              },
+              _vm._l(this.pagination.data, function(book) {
+                return _c(
+                  "div",
+                  {
+                    key: book.id,
+                    attrs: { "uk-toggle": "target: #available-modal" },
+                    on: {
+                      click: function($event) {
+                        return _vm.selectBook(book)
+                      }
+                    }
+                  },
+                  [_c("BookCard", { attrs: { book: book } })],
+                  1
+                )
+              }),
+              0
+            )
+          : _c("div", [
+              _c(
+                "h1",
+                {
+                  staticClass:
+                    "uk-heading-line uk-heading-medium uk-light uk-text-center uk-medium-margin-top"
+                },
+                [_vm._v("No se encontro resultados")]
+              ),
+              _vm._v(" "),
+              _c(
+                "h1",
+                {
+                  staticClass:
+                    "uk-heading-line uk-heading-large uk-light uk-text-center"
+                },
+                [_vm._v(":(")]
+              )
+            ])
+      ]),
+      _vm._v(" "),
+      _c("BookModal", { attrs: { book: _vm.selectedBook } })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -77969,149 +78054,171 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "uk-grid", attrs: { "uk-grid": "" } }, [
-      _c(
-        "div",
-        {
-          staticClass: "uk-width-1-2@m uk-width-1-1 uk-grid",
-          attrs: { "uk-grid": "" }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "uk-search uk-search-default uk-width-1-2@m" },
-            [
-              _c("span", { attrs: { "uk-search-icon": "" } }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.filterTitle,
-                    expression: "filterTitle"
-                  }
-                ],
-                staticClass: "uk-search-input uk-width-1-1 transparent-white",
-                attrs: { type: "search", placeholder: "Buscar por nombre..." },
-                domProps: { value: _vm.filterTitle },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.filterTitle = $event.target.value
-                  }
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-width-1-4@m" }, [
-            _c(
-              "button",
-              {
-                staticClass: "uk-button uk-width-1-1 transparent-white",
-                on: {
-                  click: function() {
-                    return _vm.fetchPage(undefined, "1", true)
-                  }
-                }
-              },
-              [_vm._v("Buscar")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-width-1-4@m" }, [
-            _c(
-              "button",
-              {
-                staticClass: "uk-button uk-width-1-1 transparent-white",
-                on: {
-                  click: function() {
-                    return _vm.cleanPage()
-                  }
-                }
-              },
-              [_vm._v("Limpiar")]
-            )
-          ])
-        ]
-      ),
+  return _c(
+    "div",
+    [
+      _vm._m(0),
       _vm._v(" "),
-      _vm.pagination.data.length > 0
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "uk-width-1-2@m uk-width-1-1 overflow-y-auto uk-flex hide-scroll-bar uk-margin-left"
-            },
-            _vm._l(Array(_vm.pagination.last_page).keys(), function(i) {
-              return _c(
-                "div",
-                {
-                  key: i,
-                  staticClass: "white uk-margin-left uk-margin-right",
-                  class: { "uk-active": _vm.pagination.current_page == i }
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      on: {
-                        click: function() {
-                          return _vm.fetchPage(undefined, i + 1)
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(i + 1))]
-                  )
-                ]
-              )
-            }),
-            0
-          )
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-      _vm.pagination.data.length > 0
-        ? _c(
-            "div",
-            {
-              staticClass:
-                "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
-              attrs: { "uk-grid": "" }
-            },
-            _vm._l(this.pagination.data, function(book) {
-              return _c("BookCard", { key: book.id, attrs: { book: book } })
-            }),
-            1
-          )
-        : _c("div", [
+      _c("div", { staticClass: "uk-grid", attrs: { "uk-grid": "" } }, [
+        _c(
+          "div",
+          {
+            staticClass: "uk-width-1-2@m uk-width-1-1 uk-grid",
+            attrs: { "uk-grid": "" }
+          },
+          [
             _c(
-              "h1",
-              {
-                staticClass:
-                  "uk-heading-line uk-heading-medium uk-light uk-text-center uk-medium-margin-top"
-              },
-              [_vm._v("No se encontro resultados")]
+              "div",
+              { staticClass: "uk-search uk-search-default uk-width-1-2@m" },
+              [
+                _c("span", { attrs: { "uk-search-icon": "" } }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filterTitle,
+                      expression: "filterTitle"
+                    }
+                  ],
+                  staticClass: "uk-search-input uk-width-1-1 transparent-white",
+                  attrs: {
+                    type: "search",
+                    placeholder: "Buscar por nombre..."
+                  },
+                  domProps: { value: _vm.filterTitle },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.filterTitle = $event.target.value
+                    }
+                  }
+                })
+              ]
             ),
             _vm._v(" "),
-            _c(
-              "h1",
+            _c("div", { staticClass: "uk-width-1-4@m" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "uk-button uk-width-1-1 transparent-white",
+                  on: {
+                    click: function() {
+                      return _vm.fetchPage(undefined, "1", true)
+                    }
+                  }
+                },
+                [_vm._v("Buscar")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "uk-width-1-4@m" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "uk-button uk-width-1-1 transparent-white",
+                  on: {
+                    click: function() {
+                      return _vm.cleanPage()
+                    }
+                  }
+                },
+                [_vm._v("Limpiar")]
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm.pagination.data.length > 0
+          ? _c(
+              "div",
               {
                 staticClass:
-                  "uk-heading-line uk-heading-large uk-light uk-text-center"
+                  "uk-width-1-2@m uk-width-1-1 overflow-y-auto uk-flex hide-scroll-bar uk-margin-left"
               },
-              [_vm._v(":(")]
+              _vm._l(Array(_vm.pagination.last_page).keys(), function(i) {
+                return _c(
+                  "div",
+                  {
+                    key: i,
+                    staticClass: "white uk-margin-left uk-margin-right",
+                    class: { "uk-active": _vm.pagination.current_page == i }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        on: {
+                          click: function() {
+                            return _vm.fetchPage(undefined, i + 1)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(i + 1))]
+                    )
+                  ]
+                )
+              }),
+              0
             )
-          ])
-    ])
-  ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+        _vm.pagination.data.length > 0
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
+                attrs: { "uk-grid": "" }
+              },
+              _vm._l(this.pagination.data, function(book) {
+                return _c(
+                  "div",
+                  {
+                    key: book.id,
+                    attrs: { "uk-toggle": "target: #book-detail-modal" },
+                    on: {
+                      click: function($event) {
+                        return _vm.selectBook(book)
+                      }
+                    }
+                  },
+                  [_c("BookCard", { attrs: { book: book } })],
+                  1
+                )
+              }),
+              0
+            )
+          : _c("div", [
+              _c(
+                "h1",
+                {
+                  staticClass:
+                    "uk-heading-line uk-heading-medium uk-light uk-text-center uk-medium-margin-top"
+                },
+                [_vm._v("No se encontro resultados")]
+              ),
+              _vm._v(" "),
+              _c(
+                "h1",
+                {
+                  staticClass:
+                    "uk-heading-line uk-heading-large uk-light uk-text-center"
+                },
+                [_vm._v(":(")]
+              )
+            ])
+      ]),
+      _vm._v(" "),
+      _c("BookModal", { attrs: { book: _vm.selectedBook } })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -78123,7 +78230,7 @@ var staticRenderFns = [
       {
         staticClass: "uk-heading-line uk-heading-small uk-light uk-text-center"
       },
-      [_c("span", [_vm._v("Venta de libros")])]
+      [_c("span", [_vm._v("Renta de libros")])]
     )
   }
 ]
