@@ -2453,6 +2453,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2463,10 +2486,11 @@ __webpack_require__.r(__webpack_exports__);
     BookModal: _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   beforeMount: function beforeMount() {
-    this.books = this.payload;
+    this.pagination = this.payload;
   },
   data: function data() {
     return {
+      pagination: {},
       selectedBook: undefined,
       books: []
     };
@@ -2496,6 +2520,18 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           _this.showErrorAlert("Error al editar el usuario.");
         }
+      });
+    },
+    fetchPage: function fetchPage() {
+      var _url,
+          _this2 = this;
+
+      var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+      var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      url = (_url = url) !== null && _url !== void 0 ? _url : this.pagination.path + "?dataOnly=true&page=";
+      axios.get(url + page).then(function (response) {
+        _this2.pagination = response.data.books;
+        console.log(_this2.pagination);
       });
     }
   }
@@ -76105,6 +76141,71 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
+    _c("div", { staticClass: "uk-flex uk-flex-center" }, [
+      _c(
+        "div",
+        { staticClass: "uk-width-1-2 overflow-y-auto uk-flex hide-scroll-bar" },
+        [
+          _c("div", [
+            _vm.pagination.prev_page_url
+              ? _c(
+                  "a",
+                  {
+                    on: {
+                      click: function() {
+                        return _vm.fetchPage(_vm.pagination.prev_page_url)
+                      }
+                    }
+                  },
+                  [_c("span", { attrs: { "uk-pagination-previous": "" } })]
+                )
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm._l(Array(_vm.pagination.last_page).keys(), function(i) {
+            return _c(
+              "div",
+              {
+                key: i,
+                staticClass: "white uk-margin-left uk-margin-right",
+                class: { "uk-active": _vm.pagination.current_page == i }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function() {
+                        return _vm.fetchPage(undefined, i + 1)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(i + 1))]
+                )
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _c("div", [
+            _vm.pagination.prev_page_url
+              ? _c(
+                  "a",
+                  {
+                    on: {
+                      click: function() {
+                        return _vm.fetchPage(_vm.pagination.prev_page_url)
+                      }
+                    }
+                  },
+                  [_c("span", { attrs: { "uk-pagination-next": "" } })]
+                )
+              : _vm._e()
+          ])
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
       _c(
         "div",
@@ -76113,7 +76214,7 @@ var render = function() {
             "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
           attrs: { "uk-grid": "" }
         },
-        _vm._l(_vm.books, function(book) {
+        _vm._l(this.pagination.data, function(book) {
           return _c("BookCard", { key: book.id, attrs: { book: book } })
         }),
         1

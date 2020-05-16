@@ -31,7 +31,19 @@
 .white {
     color: white;
 }
-
+.overflow-y-auto{
+	overflow-y: auto;
+}
+.overflow-y-hidden{
+	overflow-y: hidden;
+}
+.hide-scroll-bar {
+    -ms-overflow-style: none!important;  /* Internet Explorer 10+ */
+    scrollbar-width: none!important;  /* Firefox */
+}
+.hide-scroll-bar::-webkit-scrollbar { 
+    display: none!important;  /* Safari and Chrome */
+}
 .mvh-100 {
     min-height:100vh;
 }

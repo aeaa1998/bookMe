@@ -12,10 +12,15 @@ class RentController extends Controller
         $books = Book::with('publisher', 'course', 'user', 'status')
             ->where('is_on_rent', 1)
             ->where('status_id', 1)
-            ->limit(12)
-            ->get();
-        // ->paginate(20);
+            ->paginate(12)
+            ->appends(['dataOnly' => 'true']);
         // dd($books->items());
-        return view('dashboard.rent')->with('books', $books);
+        if (request()->has('dataOnly')) {
+            return response()->json([
+                'books' => $books,
+            ]);
+        }
+        return view('dashboard.rent')
+            ->with('books', json_encode($books));
     }
 }

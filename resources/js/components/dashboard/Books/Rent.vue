@@ -3,12 +3,35 @@
     <h1 class="uk-heading-line uk-heading-small uk-light uk-text-center">
       <span>Renta de libros</span>
     </h1>
+
+    <div class="uk-flex uk-flex-center">
+      <div class="uk-width-1-2 overflow-y-auto uk-flex hide-scroll-bar">
+        <div>
+          <a v-if="pagination.prev_page_url" @click="() => (fetchPage(pagination.prev_page_url))">
+            <span uk-pagination-previous></span>
+          </a>
+        </div>
+        <div
+          v-for="i in Array(pagination.last_page).keys()"
+          :key="i"
+          class="white uk-margin-left uk-margin-right"
+          :class="{'uk-active': pagination.current_page == i}"
+        >
+          <a @click="() => (fetchPage(undefined, i+1))">{{i + 1}}</a>
+        </div>
+        <div>
+          <a v-if="pagination.prev_page_url" @click="() => (fetchPage(pagination.prev_page_url))">
+            <span uk-pagination-next></span>
+          </a>
+        </div>
+      </div>
+    </div>
     <div uk-height-viewport="offset-top: true">
       <div
         class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding"
         uk-grid
       >
-        <BookCard v-for="book in books" :key="book.id" :book="book" />
+        <BookCard v-for="book in this.pagination.data" :key="book.id" :book="book" />
       </div>
     </div>
     <!-- <BookModal /> -->
@@ -27,10 +50,11 @@ export default {
     BookModal
   },
   beforeMount() {
-    this.books = this.payload;
+    this.pagination = this.payload;
   },
   data: () => {
     return {
+      pagination: {},
       selectedBook: undefined,
       books: []
     };
@@ -61,6 +85,13 @@ export default {
             this.showErrorAlert("Error al editar el usuario.");
           }
         });
+    },
+    fetchPage(url = undefined, page = "") {
+      url = url ?? this.pagination.path + "?dataOnly=true&page=";
+      axios.get(url + page).then(response => {
+        this.pagination = response.data.books;
+        console.log(this.pagination);
+      });
     }
   }
 };
