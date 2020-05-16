@@ -8,19 +8,28 @@
       type="button"
       :uk-toggle="`target: #modal-add-book`"
     >Agregar libro</button>
-    <div v-for="(books, index) in userBooks" :key="index">
-      <h1 class="uk-heading-line white uk-margin">
-        <span>{{index}}</span>
-      </h1>
+    <div v-if="userBooks.length > 0">
+      <div v-for="(books, index) in userBooks" :key="index">
+        <h1 class="uk-heading-line white uk-margin">
+          <span>{{index}}</span>
+        </h1>
 
-      <div class="overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex">
-        <BookCard
-          class="mw-25 uk-margin-left uk-margin-right"
-          v-for="book in books"
-          :key="book.id"
-          :book="book"
-        />
+        <div class="overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex">
+          <BookCard
+            class="mw-25 uk-margin-left uk-margin-right"
+            v-for="book in books"
+            :key="book.id"
+            :book="book"
+          />
+        </div>
       </div>
+    </div>
+    <div v-else>
+      <h2 class="uk-heading-line uk-heading-medium uk-light uk-text-center uk-margin">
+        No hay libros :(
+        <br />
+        <br />Puede agregar uno con el boton de arriba
+      </h2>
     </div>
     <AddBook :callback="onSuccessBookCreated" :booksinfo="booksinfo" />
   </div>
@@ -60,7 +69,7 @@ export default {
 </script>
 <style scoped>
 .mw-25 {
-  min-width: max(25%, 300px);
+  min-width: max(25%, 30lo de0px);
 }
 .fixed-btn {
   max-width: max(15%, 150px) !important;

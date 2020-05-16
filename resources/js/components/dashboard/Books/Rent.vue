@@ -108,7 +108,6 @@ export default {
     };
   },
   methods: {
-<<<<<<< Updated upstream
     selectBook(book) {
       this.selectedBook = book;
       this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
@@ -141,14 +140,6 @@ export default {
         });
     },
     fetchPage(url = undefined, page = "", query = false) {
-=======
-      selectBook(book){
-          this.selectedBook = book;
-          this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
-          console.log('this.selectedBook', this.selectedBook);
-      },
-    fetchPage(url = undefined, page = "") {
->>>>>>> Stashed changes
       url = url ?? this.pagination.path + "?dataOnly=true&page=";
       let fullUrl = url + page;
       if (query || this.hasScope) {
