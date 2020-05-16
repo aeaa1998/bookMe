@@ -43,6 +43,9 @@ class SaleController extends Controller
         $book->status_id = 3;
         $book->save();
 
+        $book = Book::with('publisher', 'course', 'user', 'status')
+        ->find($request->id);
+
         return $book;
     }
 }

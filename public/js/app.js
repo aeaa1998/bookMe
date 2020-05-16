@@ -2246,13 +2246,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookCard",
   props: ["book"],
@@ -2327,24 +2320,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookModal",
   props: ["book"],
@@ -2358,6 +2333,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.$props.book = response.data;
 
         _this.showSuccessAlert("Comprado con éxito!");
+
+        console.log("SALE", _this.$props.book);
       })["catch"](function (e) {
         _this.showErrorAlert("No se pudo realizar la transacción", "Intente de nuevo.");
       });
@@ -2369,6 +2346,7 @@ __webpack_require__.r(__webpack_exports__);
         id: book.id
       }).then(function (response) {
         _this2.$props.book = response.data;
+        console.log("RENT", _this2.$props.book);
 
         _this2.showSuccessAlert("Rentado con éxito!");
       })["catch"](function (e) {
@@ -2662,41 +2640,14 @@ __webpack_require__.r(__webpack_exports__);
     selectBook: function selectBook(book) {
       this.selectedBook = book;
       this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
-      console.log("this.selectedBook", this.selectedBook);
-    },
-    updateUser: function updateUser(fieldName, value, observer) {
-      var _this = this;
-
-      this.changingField[fieldName] = true;
-      axios.post("user/update", {
-        field: fieldName,
-        value: value
-      }).then(function (response) {
-        _this.user = response.data;
-        _this.changingField[fieldName] = false;
-
-        _this.cleanForm(observer);
-
-        _this.showSuccessAlert("Se edito el usuario exitosamente.");
-      })["catch"](function (e) {
-        _this.changingField[fieldName] = false;
-
-        _this.cleanForm(observer);
-
-        if (fieldName == "email") {
-          _this.showErrorAlert("Error al editar el usuario.", "Ese email ya ha sido tomado.");
-        } else {
-          _this.showErrorAlert("Error al editar el usuario.");
-        }
-      });
+      console.log('this.selectedBook', this.selectedBook);
     },
     fetchPage: function fetchPage() {
       var _url,
-          _this2 = this;
+          _this = this;
 
       var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
       var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
-      var query = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       url = (_url = url) !== null && _url !== void 0 ? _url : this.pagination.path + "?dataOnly=true&page=";
       var fullUrl = url + page;
 
@@ -2708,17 +2659,17 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.get(fullUrl).then(function (response) {
-        _this2.pagination = response.data.books;
+        _this.pagination = response.data.books;
       });
     },
     cleanPage: function cleanPage() {
-      var _this3 = this;
+      var _this2 = this;
 
       var url = this.pagination.path + "?dataOnly=true&page=";
       this.hasScope = false;
       this.filterTitle = "";
       axios.get(url).then(function (response) {
-        _this3.pagination = response.data.books;
+        _this2.pagination = response.data.books;
       });
     }
   }
@@ -2825,7 +2776,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["payload"],
-  name: "Rent",
+  name: "Sales",
   components: {
     BookCard: _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     BookModal: _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -77269,35 +77220,16 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "uk-card uk-card-default p-pointer" }, [
       _c("div", { staticClass: "uk-card-media-top" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
-            attrs: {
-              "uk-lightbox": "",
-              "data-src": _vm.resolveUrl(_vm.book.book_cover),
-              "uk-img": "",
-              alt: ""
-            }
-          },
-          [
-            _c("div", { staticClass: "uk-card-media-top" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small",
-                  attrs: {
-                    href: _vm.resolveUrl(_vm.book.book_cover),
-                    "data-caption": "Titulo del libro"
-                  }
-                },
-                [_vm._v("Agrandar")]
-              )
-            ])
-          ]
-        )
+        _c("div", {
+          staticClass:
+            "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
+          attrs: {
+            "uk-lightbox": "",
+            "data-src": _vm.resolveUrl(_vm.book.book_cover),
+            "uk-img": "",
+            alt: ""
+          }
+        })
       ]),
       _vm._v(" "),
       _c(
@@ -77366,186 +77298,251 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "uk-modal-container",
-      attrs: { id: "book-detail-modal", "uk-modal": "" }
-    },
-    [
-      _c("div", { staticClass: "uk-modal-dialog" }, [
-        _c("button", {
-          staticClass: "uk-modal-close-default",
-          attrs: { type: "button", "uk-close": "" }
-        }),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "uk-modal-body" }, [
-          _c("div", { staticClass: "uk-flex uk-child-width-1-3" }, [
-            _c("img", {
-              staticClass: "uk-padding-large",
-              attrs: { src: _vm.book.book_cover, alt: "" }
+  return _vm.book !== undefined
+    ? _c(
+        "div",
+        {
+          staticClass: "uk-modal-container",
+          attrs: { id: "book-detail-modal", "uk-modal": "" }
+        },
+        [
+          _c("div", { staticClass: "uk-modal-dialog" }, [
+            _c("button", {
+              staticClass: "uk-modal-close-default",
+              attrs: { type: "button", "uk-close": "" }
             }),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-padding-small uk-padding-large-top"
-              },
-              [
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
-                  },
-                  [_vm._v("Título: " + _vm._s(_vm.book.title))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
-                  },
-                  [_vm._v("Publicador: " + _vm._s(_vm.book.publisher.name))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
-                  },
-                  [_vm._v("Dueño: " + _vm._s(_vm.book.user.name))]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h4",
-                  { staticClass: "uk-margin-small-top uk-margin-small-bottom" },
-                  [_vm._v("Descripción:")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "uk-text-meta uk-margin-remove-top uk-text-justify uk-padding-small",
-                    staticStyle: { border: "0.5px solid" }
-                  },
-                  [_vm._v(_vm._s(_vm.book.description))]
-                )
-              ]
-            ),
+            _vm._m(0),
             _vm._v(" "),
-            _c("div", { staticClass: "uk-padding-large" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-medium",
-                  staticStyle: { border: "0.5px solid" }
-                },
-                [
+            _c("div", { staticClass: "uk-modal-body" }, [
+              _c("div", { staticClass: "uk-flex uk-child-width-1-3" }, [
+                _c("img", {
+                  staticClass: "uk-padding-large",
+                  attrs: { src: _vm.book.book_cover, alt: "" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-padding-small uk-padding-large-top"
+                  },
+                  [
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticStyle: { "text-decoration": "underline" } },
+                          [_vm._v(" Publicador:")]
+                        ),
+                        _vm._v(" " + _vm._s(_vm.book.publisher.name) + " ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticStyle: { "text-decoration": "underline" } },
+                          [_vm._v(" Título:")]
+                        ),
+                        _vm._v(" " + _vm._s(_vm.book.title))
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticStyle: { "text-decoration": "underline" } },
+                          [_vm._v(" Edición:")]
+                        ),
+                        _vm._v(" " + _vm._s(_vm.book.edition_number) + " ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticStyle: { "text-decoration": "underline" } },
+                          [_vm._v(" Dueño:")]
+                        ),
+                        _vm._v(" " + _vm._s(_vm.book.user.name) + " ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticStyle: { "text-decoration": "underline" } },
+                          [_vm._v(" Curso:")]
+                        ),
+                        _vm._v(" " + _vm._s(_vm.book.course.name) + " ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass:
+                          "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticStyle: { "text-decoration": "underline" } },
+                          [_vm._v(" Estado:")]
+                        ),
+                        _vm._v(" " + _vm._s(_vm.book.status.name) + " ")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "uk-padding-large" }, [
                   _c(
-                    "h2",
+                    "div",
                     {
-                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
-                    },
-                    [_vm._v("Precios")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass: "uk-text-center",
-                      attrs: { "uk-margin": "" }
+                      staticClass:
+                        "uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-medium uk-text-lead",
+                      staticStyle: { border: "0.5px solid" }
                     },
                     [
+                      _vm._m(1),
+                      _vm._v(" "),
                       _c(
-                        "span",
+                        "p",
                         {
-                          staticClass: "uk-text-light",
-                          staticStyle: { "font-size": "18px" }
+                          staticClass: "uk-text-center",
+                          attrs: { "uk-margin": "" }
                         },
-                        [_vm._v("Alquiler por semestre")]
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "uk-text-light",
+                              staticStyle: { "font-size": "18px" }
+                            },
+                            [_vm._v(" Renta ")]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _vm.book.is_on_rent === 1
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "uk-button uk-button-default uk-text-success uk-modal-close",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.rentBook(_vm.book)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "Q. " +
+                                      _vm._s(_vm.book.payment_detail.rent.price)
+                                  )
+                                ]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "uk-button uk-button-default uk-text-muted"
+                                },
+                                [_vm._v(" No disponible ")]
+                              )
+                        ]
                       ),
                       _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _vm.book.is_on_rent === 1
-                        ? _c(
-                            "button",
-                            { staticClass: "uk-button uk-button-default" },
-                            [
-                              _vm._v(
-                                "Q. " +
-                                  _vm._s(_vm.book.payment_detail.rent.price)
-                              )
-                            ]
-                          )
-                        : _c(
-                            "button",
-                            {
-                              staticClass:
-                                "uk-button uk-button-default uk-text-muted"
-                            },
-                            [_vm._v("No disponible")]
-                          )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass: "uk-text-center",
-                      attrs: { "uk-margin": "" }
-                    },
-                    [
                       _c(
-                        "span",
+                        "p",
                         {
-                          staticClass: "uk-text-light",
-                          staticStyle: { "font-size": "18px" }
+                          staticClass: "uk-text-center",
+                          attrs: { "uk-margin": "" }
                         },
-                        [_vm._v("Venta")]
-                      ),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _vm.book.is_on_sale === 1
-                        ? _c(
-                            "button",
-                            { staticClass: "uk-button uk-button-default" },
-                            [
-                              _vm._v(
-                                "Q. " +
-                                  _vm._s(_vm.book.payment_detail.sale.price)
-                              )
-                            ]
-                          )
-                        : _c(
-                            "button",
+                        [
+                          _c(
+                            "span",
                             {
-                              staticClass:
-                                "uk-button uk-button-default uk-text-muted"
+                              staticClass: "uk-text-light",
+                              staticStyle: { "font-size": "18px" }
                             },
-                            [_vm._v("No disponible")]
-                          )
+                            [_vm._v(" Venta ")]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _vm.book.is_on_sale === 1
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "uk-button uk-button-default uk-text-success",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.buyBook(_vm.book)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "Q. " +
+                                      _vm._s(_vm.book.payment_detail.sale.price)
+                                  )
+                                ]
+                              )
+                            : _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "uk-button uk-button-default uk-text-muted"
+                                },
+                                [_vm._v(" No disponible ")]
+                              )
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(2)
           ])
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
-      ])
-    ]
-  )
+        ]
+      )
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
@@ -77554,9 +77551,23 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "uk-modal-header uk-text-center" }, [
       _c("h2", { staticClass: "uk-modal-title" }, [
-        _vm._v("INFORMACIÓN DEL LIBRO")
+        _vm._v("Información del libro")
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h2",
+      { staticClass: "uk-margin-remove-top uk-margin-small-bottom" },
+      [
+        _c("span", { staticStyle: { "text-decoration": "underline" } }, [
+          _vm._v(" Precios ")
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -77569,7 +77580,7 @@ var staticRenderFns = [
           staticClass: "uk-button uk-button-default uk-modal-close",
           attrs: { type: "button" }
         },
-        [_vm._v("Cancel")]
+        [_vm._v(" Cancel ")]
       ),
       _vm._v(" "),
       _c(
@@ -77578,7 +77589,7 @@ var staticRenderFns = [
           staticClass: "uk-button uk-button-primary",
           attrs: { type: "button" }
         },
-        [_vm._v("Save")]
+        [_vm._v(" Save ")]
       )
     ])
   }
@@ -78017,7 +78028,7 @@ var render = function() {
                   "div",
                   {
                     key: book.id,
-                    attrs: { "uk-toggle": "target: #available-modal" },
+                    attrs: { "uk-toggle": "target: #book-detail-modal" },
                     on: {
                       click: function($event) {
                         return _vm.selectBook(book)
@@ -93307,8 +93318,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/tito/www/bookMe/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/tito/www/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

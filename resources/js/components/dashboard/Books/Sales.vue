@@ -88,7 +88,7 @@ import BookModal from "../../Utils/BookModal.vue";
 
 export default {
   props: ["payload"],
-  name: "Rent",
+  name: "Sales",
   components: {
     BookCard,
     BookModal
@@ -97,9 +97,7 @@ export default {
     this.pagination = this.payload;
     this.selectedBook = this.pagination.data[0];
 
-    this.selectedBook.payment_detail = JSON.parse(
-      this.selectedBook.payment_detail
-    );
+    this.selectedBook.payment_detail = JSON.parse(this.selectedBook.payment_detail);
   },
   data: () => {
     return {
