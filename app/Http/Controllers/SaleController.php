@@ -34,4 +34,15 @@ class SaleController extends Controller
         return view('dashboard.sales')
             ->with('books', json_encode($books));
     }
+
+    public function buyBook(Request $request)
+    {
+        $book = Book::find($request->id);
+        $book->is_on_rent = 0;
+        $book->is_on_sale = 0;
+        $book->status_id = 3;
+        $book->save();
+
+        return $book;
+    }
 }

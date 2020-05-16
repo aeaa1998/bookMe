@@ -2326,6 +2326,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< Updated upstream
 //
 //
 //
@@ -2345,9 +2346,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+=======
+>>>>>>> Stashed changes
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookModal",
-  props: ["book"]
+  props: ["book"],
+  methods: {
+    buyBook: function buyBook(book) {
+      var _this = this;
+
+      axios.post("buy/book", {
+        id: book.id
+      }).then(function (response) {
+        _this.$props.book = response.data;
+
+        _this.showSuccessAlert("Comprado con éxito!");
+      })["catch"](function (e) {
+        _this.showErrorAlert("No se pudo realizar la transacción", "Intente de nuevo.");
+      });
+    },
+    rentBook: function rentBook(book) {
+      var _this2 = this;
+
+      axios.post("rent/book", {
+        id: book.id
+      }).then(function (response) {
+        _this2.$props.book = response.data;
+
+        _this2.showSuccessAlert("Rentado con éxito!");
+      })["catch"](function (e) {
+        _this2.showErrorAlert("No se pudo realizar la transacción", "Intente de nuevo.");
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2568,6 +2599,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< Updated upstream
+=======
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["payload"],
+  name: "Rent",
+  components: {
+    BookCard: _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    BookModal: _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  beforeMount: function beforeMount() {
+    this.pagination = this.payload;
+    this.selectedBook = this.pagination.data[0];
+    this.selectedBook.payment_detail = JSON.parse(this.selectedBook.payment_detail);
+  },
+  data: function data() {
+    return {
+      pagination: {},
+      selectedBook: undefined,
+      books: []
+    };
+  },
+  methods: {
+    selectBook: function selectBook(book) {
+      this.selectedBook = book;
+      this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
+      console.log('this.selectedBook', this.selectedBook);
+    },
+    fetchPage: function fetchPage() {
+      var _url,
+          _this = this;
+
+      var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+      var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      url = (_url = url) !== null && _url !== void 0 ? _url : this.pagination.path + "?dataOnly=true&page=";
+      axios.get(url + page).then(function (response) {
+        _this.pagination = response.data.books;
+        console.log(_this.pagination);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Books/Sales.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Books/Sales.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Utils/BookCard.vue */ "./resources/js/components/Utils/BookCard.vue");
+/* harmony import */ var _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Utils/BookModal.vue */ "./resources/js/components/Utils/BookModal.vue");
+//
+//
+//
+//
+>>>>>>> Stashed changes
 //
 //
 //
@@ -77362,26 +77455,49 @@ var render = function() {
                   "p",
                   {
                     staticClass:
-                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
                   },
+<<<<<<< Updated upstream
                   [_vm._v("Título: " + _vm._s(_vm.book.title))]
+=======
+                  [
+                    _c(
+                      "span",
+                      { staticStyle: { "text-decoration": "underline" } },
+                      [_vm._v(" Publicador:")]
+                    ),
+                    _vm._v(" " + _vm._s(_vm.book.publisher.name) + " ")
+                  ]
+>>>>>>> Stashed changes
                 ),
                 _vm._v(" "),
                 _c(
                   "p",
                   {
                     staticClass:
-                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
                   },
+<<<<<<< Updated upstream
                   [_vm._v("Publicador: " + _vm._s(_vm.book.publisher.name))]
+=======
+                  [
+                    _c(
+                      "span",
+                      { staticStyle: { "text-decoration": "underline" } },
+                      [_vm._v(" Título:")]
+                    ),
+                    _vm._v(" " + _vm._s(_vm.book.title))
+                  ]
+>>>>>>> Stashed changes
                 ),
                 _vm._v(" "),
                 _c(
                   "p",
                   {
                     staticClass:
-                      "uk-margin-remove-top uk-margin-small-bottom uk-text-center uk-text-lead uk-text-large"
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
                   },
+<<<<<<< Updated upstream
                   [_vm._v("Dueño: " + _vm._s(_vm.book.user.name))]
                 ),
                 _vm._v(" "),
@@ -77389,16 +77505,68 @@ var render = function() {
                   "h4",
                   { staticClass: "uk-margin-small-top uk-margin-small-bottom" },
                   [_vm._v("Descripción:")]
+=======
+                  [
+                    _c(
+                      "span",
+                      { staticStyle: { "text-decoration": "underline" } },
+                      [_vm._v(" Edición:")]
+                    ),
+                    _vm._v(" " + _vm._s(_vm.book.edition_number) + " ")
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
                   "p",
                   {
                     staticClass:
-                      "uk-text-meta uk-margin-remove-top uk-text-justify uk-padding-small",
-                    staticStyle: { border: "0.5px solid" }
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
                   },
+                  [
+                    _c(
+                      "span",
+                      { staticStyle: { "text-decoration": "underline" } },
+                      [_vm._v(" Dueño:")]
+                    ),
+                    _vm._v(" " + _vm._s(_vm.book.user.name) + " ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticStyle: { "text-decoration": "underline" } },
+                      [_vm._v(" Curso:")]
+                    ),
+                    _vm._v(" " + _vm._s(_vm.book.course.name) + " ")
+                  ]
+>>>>>>> Stashed changes
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "uk-margin-remove-top uk-margin-small-bottom uk-text-left uk-text-lead"
+                  },
+<<<<<<< Updated upstream
                   [_vm._v(_vm._s(_vm.book.description))]
+=======
+                  [
+                    _c(
+                      "span",
+                      { staticStyle: { "text-decoration": "underline" } },
+                      [_vm._v(" Estado:")]
+                    ),
+                    _vm._v(" " + _vm._s(_vm.book.status.name) + " ")
+                  ]
+>>>>>>> Stashed changes
                 )
               ]
             ),
@@ -77408,10 +77576,11 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-medium",
+                    "uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-medium uk-text-lead",
                   staticStyle: { border: "0.5px solid" }
                 },
                 [
+<<<<<<< Updated upstream
                   _c(
                     "h2",
                     {
@@ -77419,6 +77588,9 @@ var render = function() {
                     },
                     [_vm._v("Precios")]
                   ),
+=======
+                  _vm._m(1),
+>>>>>>> Stashed changes
                   _vm._v(" "),
                   _c(
                     "p",
@@ -77433,7 +77605,11 @@ var render = function() {
                           staticClass: "uk-text-light",
                           staticStyle: { "font-size": "18px" }
                         },
+<<<<<<< Updated upstream
                         [_vm._v("Alquiler por semestre")]
+=======
+                        [_vm._v(" Renta ")]
+>>>>>>> Stashed changes
                       ),
                       _vm._v(" "),
                       _c("br"),
@@ -77441,7 +77617,15 @@ var render = function() {
                       _vm.book.is_on_rent === 1
                         ? _c(
                             "button",
-                            { staticClass: "uk-button uk-button-default" },
+                            {
+                              staticClass:
+                                "uk-button uk-button-default uk-text-success uk-modal-close",
+                              on: {
+                                click: function($event) {
+                                  return _vm.rentBook(_vm.book)
+                                }
+                              }
+                            },
                             [
                               _vm._v(
                                 "Q. " +
@@ -77481,7 +77665,15 @@ var render = function() {
                       _vm.book.is_on_sale === 1
                         ? _c(
                             "button",
-                            { staticClass: "uk-button uk-button-default" },
+                            {
+                              staticClass:
+                                "uk-button uk-button-default uk-text-success",
+                              on: {
+                                click: function($event) {
+                                  return _vm.buyBook(_vm.book)
+                                }
+                              }
+                            },
                             [
                               _vm._v(
                                 "Q. " +
@@ -77505,7 +77697,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(2)
       ])
     ]
   )
@@ -77517,9 +77709,23 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "uk-modal-header uk-text-center" }, [
       _c("h2", { staticClass: "uk-modal-title" }, [
-        _vm._v("INFORMACION DEL LIBRO")
+        _vm._v("Información del libro")
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h2",
+      { staticClass: "uk-margin-remove-top uk-margin-small-bottom" },
+      [
+        _c("span", { staticStyle: { "text-decoration": "underline" } }, [
+          _vm._v(" Precios ")
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this

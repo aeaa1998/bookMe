@@ -33,4 +33,16 @@ class RentController extends Controller
         return view('dashboard.rent')
             ->with('books', json_encode($books));
     }
+
+    public function rentBook(Request $request)
+    {
+        $book = Book::find($request->id);
+        $book->is_on_rent = 0;
+        $book->is_on_sale = 0;
+        $book->status_id = 2;
+        $book->save();
+
+        return $book;
+    }
+
 }

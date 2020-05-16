@@ -29,9 +29,9 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/profile', 'ProfileController@index');
 	Route::get('/rent', 'RentController@index');
-	Route::get('/sale', 'SaleController@index');
-	// Route::view('/sales', 'dashboard.sales');
-	// Route::view('/rent', 'dashboard.rent');
+	Route::post('/rent/book', 'RentController@rentBook');
+	Route::post('/buy/book', 'SaleController@buyBook');
+	Route::get('/sales', 'SaleController@index');
 	Route::view('/home', 'dashboard.home');
 	Route::view('/', 'dashboard.home');
 	Route::group(['prefix' => 'user'], function () {
