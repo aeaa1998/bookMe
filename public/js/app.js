@@ -2239,6 +2239,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookCard",
   props: ["book"]
@@ -75584,18 +75589,42 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "uk-width-medium p-pointer" }, [
-      _c("div", { staticClass: "uk-card-media-top" }, [
-        _c("img", {
-          attrs: {
-            src:
-              "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
-            alt: "Book Image"
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "uk-card uk-card-default" }, [
+    return _c("div", { attrs: { href: "#modal-container", "uk-toggle": "" } }, [
+      _c("div", { staticClass: "uk-card uk-card-default p-pointer" }, [
+        _c("div", { staticClass: "uk-card-media-top" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
+              attrs: {
+                "uk-lightbox": "",
+                "data-src":
+                  "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+                "uk-img": "",
+                alt: ""
+              }
+            },
+            [
+              _c("div", { staticClass: "uk-card-media-top" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small",
+                    attrs: {
+                      href:
+                        "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+                      "data-caption": "Titulo del libro"
+                    }
+                  },
+                  [_vm._v("Agrandar")]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           {
@@ -75632,16 +75661,6 @@ var staticRenderFns = [
                       "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
                   },
                   [_vm._v("Edición")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "uk-button uk-button-text uk-margin-small-bottom",
-                    attrs: { href: "#modal-container", "uk-toggle": "" }
-                  },
-                  [_vm._v("Más información")]
                 )
               ]
             )
@@ -76057,7 +76076,7 @@ var render = function() {
             attrs: { "uk-grid": "" }
           },
           _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
-            return _c("div", { key: i }, [_c("BookCard", {})], 1)
+            return _c("div", { key: i }, [_c("BookCard")], 1)
           }),
           0
         )
