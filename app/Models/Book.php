@@ -39,13 +39,6 @@ class Book extends Model
         return $this->belongsTo('App\Models\BookStatus');
     }
 
-    /**
-     * Get book type associated with this book
-     */
-    public function type()
-    {
-        return $this->belongsTo('App\Models\BookType');
-    }
 
     /**
      * Get book records associated with this book

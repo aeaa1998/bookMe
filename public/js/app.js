@@ -2239,6 +2239,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookCard",
   props: ["book"]
@@ -2451,16 +2456,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["payload"],
   name: "Rent",
   components: {
     BookCard: _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     BookModal: _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ["books"],
+  beforeMount: function beforeMount() {
+    this.books = this.payload;
+  },
   data: function data() {
     return {
       selectedBook: undefined,
-      books: {}
+      books: []
     };
   },
   methods: {
@@ -75610,94 +75618,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { href: "#modal-container", "uk-toggle": "" } }, [
-      _c("div", { staticClass: "uk-card uk-card-default p-pointer" }, [
-        _c("div", { staticClass: "uk-card-media-top" }, [
+  return _c("div", [
+    _c("div", { staticClass: "uk-card uk-card-default p-pointer" }, [
+      _c("div", { staticClass: "uk-card-media-top" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
+            attrs: {
+              "uk-lightbox": "",
+              "data-src": _vm.book.book_cover,
+              "uk-img": "",
+              alt: ""
+            }
+          },
+          [
+            _c("div", { staticClass: "uk-card-media-top" }, [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small",
+                  attrs: {
+                    href: _vm.book.book_cover,
+                    "data-caption": "Titulo del libro"
+                  }
+                },
+                [_vm._v("Agrandar")]
+              )
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "uk-grid-medium uk-flex uk-flex-middle uk-flex-center",
+          attrs: { "uk-grid": "" }
+        },
+        [
           _c(
             "div",
             {
               staticClass:
-                "uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative",
-              attrs: {
-                "uk-lightbox": "",
-                "data-src":
-                  "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
-                "uk-img": "",
-                alt: ""
-              }
+                "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle"
             },
             [
-              _c("div", { staticClass: "uk-card-media-top" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "uk-button uk-button-text uk-position-absolute uk-position-bottom-right uk-position-small",
-                    attrs: {
-                      href:
-                        "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
-                      "data-caption": "Titulo del libro"
-                    }
-                  },
-                  [_vm._v("Agrandar")]
-                )
-              ])
+              _c(
+                "h3",
+                { staticClass: "uk-card-title uk-margin-remove-bottom" },
+                [_vm._v(_vm._s(_vm.book.title))]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                {
+                  staticClass:
+                    "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
+                },
+                [_vm._v(_vm._s(_vm.book.publisher.name))]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                {
+                  staticClass:
+                    "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
+                },
+                [_vm._v("Edición no. " + _vm._s(_vm.book.edition_number))]
+              )
             ]
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "uk-grid-medium uk-flex uk-flex-middle uk-flex-center",
-            attrs: { "uk-grid": "" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle"
-              },
-              [
-                _c(
-                  "h3",
-                  { staticClass: "uk-card-title uk-margin-remove-bottom" },
-                  [_vm._v("Título")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
-                  },
-                  [_vm._v("Autor")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
-                  },
-                  [_vm._v("Edición")]
-                )
-              ]
-            )
-          ]
-        )
-      ])
+        ]
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -76103,30 +76102,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
-            attrs: { "uk-grid": "" }
-          },
-          _vm._l(_vm.books, function(book) {
-            return _c("BookCard", { key: book.id, attrs: { book: book } })
-          }),
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("BookModal")
-    ],
-    1
-  )
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { attrs: { "uk-height-viewport": "offset-top: true" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
+          attrs: { "uk-grid": "" }
+        },
+        _vm._l(_vm.books, function(book) {
+          return _c("BookCard", { key: book.id, attrs: { book: book } })
+        }),
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {

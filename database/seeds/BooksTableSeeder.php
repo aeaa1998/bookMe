@@ -52,6 +52,8 @@ class BooksTableSeeder extends Seeder
                 'user_id' => $users->random()->id,
                 'course_id' => $courses->random()->id,
                 'publisher_id' => $publishers->random()->id,
+                'is_on_sale' => rand(0, 1),
+                'is_on_rent' => rand(0, 1),
                 'status_id' => 1,
             ];
             array_push($books, array_merge($book, $tArray));

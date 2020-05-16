@@ -8,10 +8,10 @@
         class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding"
         uk-grid
       >
-        <BookCard v-for="book in books" v-bind:key="book.id" :book="book" />
+        <BookCard v-for="book in books" :key="book.id" :book="book" />
       </div>
     </div>
-    <BookModal />
+    <!-- <BookModal /> -->
   </div>
 </template>
 
@@ -20,16 +20,19 @@ import BookCard from "../../Utils/BookCard.vue";
 import BookModal from "../../Utils/BookModal.vue";
 
 export default {
+  props: ["payload"],
   name: "Rent",
   components: {
     BookCard,
     BookModal
   },
-  props: ["books"],
+  beforeMount() {
+    this.books = this.payload;
+  },
   data: () => {
     return {
       selectedBook: undefined,
-      books: {}
+      books: []
     };
   },
   methods: {
