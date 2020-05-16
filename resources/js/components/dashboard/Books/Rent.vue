@@ -8,8 +8,10 @@
         class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding"
         uk-grid
       >
-        <div v-for="i in [1,2,3,4,5,6,7,8,9,10]" v-bind:key="i">
-          <BookCard class />
+        <div v-for="book in books" v-bind:key="book.id">
+          <div href="#modal-container" uk-toggle>
+            <BookCard v-bind:book="book"/>
+          </div>
         </div>
       </div>
     </div>
@@ -18,15 +20,48 @@
 </template>
 
 <script>
-import BookCard from "../../Utils/BookCard.vue";
-import BookModal from "../../Utils/BookModal.vue";
+import BookCard from '../../Utils/BookCard.vue';
+import BookModal from '../../Utils/BookModal.vue';
 
 export default {
-  name: "Rent",
-  components: {
-    BookCard,
-    BookModal
-  },
-  props: ["books"]
-};
+    name: "Rent",
+    components:{
+        BookCard,
+        BookModal,
+    },
+    props: ['books'],
+    data: () => {
+    return {
+        selectedBook: undefined,
+        books: {},
+    }
+    },
+    methods: {
+    updateUser(fieldName, value, observer) {
+        this.changingField[fieldName] = true;
+        axios.post("user/update", {
+          field: fieldName,
+          value: value
+        })
+        .then(response => {
+          this.user = response.data;
+          this.changingField[fieldName] = false;
+          this.cleanForm(observer);
+          this.showSuccessAlert("Se edito el usuario exitosamente.");
+        })
+        .catch(e => {
+          this.changingField[fieldName] = false;
+          this.cleanForm(observer);
+          if (fieldName == "email") {
+            this.showErrorAlert(
+              "Error al editar el usuario.",
+              "Ese email ya ha sido tomado."
+            );
+          } else {
+            this.showErrorAlert("Error al editar el usuario.");
+          }
+        });
+    },
+  }
+}
 </script>

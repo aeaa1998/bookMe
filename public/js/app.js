@@ -1908,7 +1908,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Utils/BookCard.vue */ "./resources/js/components/Utils/BookCard.vue");
 //
 //
 //
@@ -1961,12 +1960,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Home",
-  components: {
-    BookCard: _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  name: "Home"
 });
 
 /***/ }),
@@ -2303,7 +2298,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "BookModal"
+  name: "BookModal",
+  props: ["book"]
 });
 
 /***/ }),
@@ -2449,6 +2445,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2457,7 +2455,45 @@ __webpack_require__.r(__webpack_exports__);
     BookCard: _Utils_BookCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     BookModal: _Utils_BookModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
+<<<<<<< Updated upstream
   props: ["books"]
+=======
+  props: ['books'],
+  data: function data() {
+    return {
+      selectedBook: undefined,
+      books: {}
+    };
+  },
+  methods: {
+    updateUser: function updateUser(fieldName, value, observer) {
+      var _this = this;
+
+      this.changingField[fieldName] = true;
+      axios.post("user/update", {
+        field: fieldName,
+        value: value
+      }).then(function (response) {
+        _this.user = response.data;
+        _this.changingField[fieldName] = false;
+
+        _this.cleanForm(observer);
+
+        _this.showSuccessAlert("Se edito el usuario exitosamente.");
+      })["catch"](function (e) {
+        _this.changingField[fieldName] = false;
+
+        _this.cleanForm(observer);
+
+        if (fieldName == "email") {
+          _this.showErrorAlert("Error al editar el usuario.", "Ese email ya ha sido tomado.");
+        } else {
+          _this.showErrorAlert("Error al editar el usuario.");
+        }
+      });
+    }
+  }
+>>>>>>> Stashed changes
 });
 
 /***/ }),
@@ -75577,13 +75613,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "uk-width-medium" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "uk-card uk-card-default" }, [
+      _c(
+        "div",
+        {
+          staticClass: "uk-grid-medium  uk-flex uk-flex-middle uk-flex-center",
+          attrs: { "uk-grid": "" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle"
+            },
+            [
+              _c(
+                "h3",
+                { staticClass: "uk-card-title uk-margin-remove-bottom" },
+                [_vm._v(_vm._s(_vm.book.title))]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                {
+                  staticClass:
+                    "uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
+                },
+                [
+                  _vm._v(" " + _vm._s(_vm.book.publisher) + " "),
+                  _c("br"),
+                  _vm._v(" " + _vm._s(_vm.book.edition) + " ")
+                ]
+              )
+            ]
+          )
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< Updated upstream
     return _c("div", { staticClass: "uk-width-medium p-pointer" }, [
       _c("div", { staticClass: "uk-card-media-top" }, [
         _c("img", {
@@ -75648,6 +75726,16 @@ var staticRenderFns = [
           ]
         )
       ])
+=======
+    return _c("div", { staticClass: "uk-card-media-top" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+          alt: "Book Image"
+        }
+      })
+>>>>>>> Stashed changes
     ])
   }
 ]
@@ -75672,195 +75760,208 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass: "uk-modal-container",
+      attrs: { id: "modal-container", "uk-modal": "" }
+    },
+    [
+      _c("div", { staticClass: "uk-modal-dialog" }, [
+        _c("button", {
+          staticClass: "uk-modal-close-default",
+          attrs: { type: "button", "uk-close": "" }
+        }),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-modal-body" }, [
+          _c("div", { staticClass: "uk-flex uk-child-width-1-3" }, [
+            _c("img", {
+              staticClass: "uk-padding-large",
+              attrs: {
+                src:
+                  "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
+                alt: ""
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-large uk-padding-medium-top"
+              },
+              [
+                _c(
+                  "h1",
+                  {
+                    staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                  },
+                  [_vm._v(" " + _vm._s(_vm.book.title))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h3",
+                  {
+                    staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                  },
+                  [_vm._v(" " + _vm._s(_vm.book.publisher))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h3",
+                  {
+                    staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                  },
+                  [_vm._v(" " + _vm._s(_vm.book.user) + " ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h4",
+                  { staticClass: "uk-margin-small-top uk-margin-small-bottom" },
+                  [_vm._v(" " + _vm._s(_vm.Descripción) + " ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "uk-text-meta uk-margin-remove-top uk-text-justify uk-padding-small",
+                    staticStyle: { border: "0.5px solid" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.book.description) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "uk-padding-large" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-medium",
+                  staticStyle: { border: "0.5px solid" }
+                },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
+                    },
+                    [_vm._v(" Precios")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "uk-text-center",
+                      attrs: { "uk-margin": "" }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "uk-text-light",
+                          staticStyle: { "font-size": "18px" }
+                        },
+                        [_vm._v(" Alquiler por semestre ")]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "uk-button uk-button-default" },
+                        [
+                          _vm._v(
+                            "Q. " + _vm._s(_vm.book.detail.rent_detail.price)
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "uk-text-center",
+                      attrs: { "uk-margin": "" }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "uk-text-light",
+                          staticStyle: { "font-size": "18px" }
+                        },
+                        [_vm._v(" Compra ")]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "uk-button uk-button-default" },
+                        [
+                          _vm._v(
+                            "Q. " + _vm._s(_vm.book.detail.sale_details.price)
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "uk-modal-container",
-        attrs: { id: "modal-container", "uk-modal": "" }
-      },
-      [
-        _c("div", { staticClass: "uk-modal-dialog" }, [
-          _c("button", {
-            staticClass: "uk-modal-close-default",
-            attrs: { type: "button", "uk-close": "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-modal-header uk-text-center" }, [
-            _c("h2", { staticClass: "uk-modal-title" }, [
-              _vm._v("Visualización de libro")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-modal-body" }, [
-            _c("div", { staticClass: "uk-flex uk-child-width-1-3" }, [
-              _c("img", {
-                staticClass: "uk-padding-large",
-                attrs: {
-                  src:
-                    "https://www.bookcoversclub.com/wp-content/uploads/2017/07/book-cover-338.jpg",
-                  alt: ""
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-large uk-padding-medium-top"
-                },
-                [
-                  _c(
-                    "h1",
-                    {
-                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
-                    },
-                    [_vm._v(" Título")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "h3",
-                    {
-                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
-                    },
-                    [_vm._v(" Edición")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "h3",
-                    {
-                      staticClass: "uk-margin-remove-top uk-margin-small-bottom"
-                    },
-                    [_vm._v(" Dueño ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "h4",
-                    {
-                      staticClass: "uk-margin-small-top uk-margin-small-bottom"
-                    },
-                    [_vm._v(" Descripción ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "uk-text-meta uk-margin-remove-top uk-text-justify uk-padding-small",
-                      staticStyle: { border: "0.5px solid" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, expedita iste impedit obcaecati quam delectus et molestiae sequi veritatis aliquid velit nihil laudantium. Officia reprehenderit numquam quo accusantium deleniti maiores.\n                    "
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "uk-padding-large" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-padding-medium",
-                    staticStyle: { border: "0.5px solid" }
-                  },
-                  [
-                    _c(
-                      "h2",
-                      {
-                        staticClass:
-                          "uk-margin-remove-top uk-margin-small-bottom"
-                      },
-                      [_vm._v(" Precios")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "uk-text-center",
-                        attrs: { "uk-margin": "" }
-                      },
-                      [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "uk-text-light",
-                            staticStyle: { "font-size": "18px" }
-                          },
-                          [_vm._v(" Alquiler por semestre ")]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "uk-button uk-button-default" },
-                          [_vm._v("Q. Precio")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "p",
-                      {
-                        staticClass: "uk-text-center",
-                        attrs: { "uk-margin": "" }
-                      },
-                      [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "uk-text-light",
-                            staticStyle: { "font-size": "18px" }
-                          },
-                          [_vm._v(" Compra ")]
-                        ),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          { staticClass: "uk-button uk-button-default" },
-                          [_vm._v("Q. Precio")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "uk-modal-footer uk-text-right" }, [
-            _c(
-              "button",
-              {
-                staticClass: "uk-button uk-button-default uk-modal-close",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Cancel")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "uk-button uk-button-primary",
-                attrs: { type: "button" }
-              },
-              [_vm._v("Save")]
-            )
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "uk-modal-header uk-text-center" }, [
+      _c("h2", { staticClass: "uk-modal-title" }, [
+        _vm._v("Visualización de libro")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "uk-modal-footer uk-text-right" }, [
+      _c(
+        "button",
+        {
+          staticClass: "uk-button uk-button-default uk-modal-close",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Cancel")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "uk-button uk-button-primary",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Save")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -76056,8 +76157,20 @@ var render = function() {
               "uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l uk-grid-small uk-grid-match uk-padding",
             attrs: { "uk-grid": "" }
           },
+<<<<<<< Updated upstream
           _vm._l([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], function(i) {
             return _c("div", { key: i }, [_c("BookCard", {})], 1)
+=======
+          _vm._l(_vm.books, function(book) {
+            return _c("div", { key: book.id }, [
+              _c(
+                "div",
+                { attrs: { href: "#modal-container", "uk-toggle": "" } },
+                [_c("BookCard", { attrs: { book: book } })],
+                1
+              )
+            ])
+>>>>>>> Stashed changes
           }),
           0
         )
@@ -90102,8 +90215,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/tito/www/bookMe/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/tito/www/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

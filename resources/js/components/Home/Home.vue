@@ -51,12 +51,8 @@
 </template>
 
 <script>
-import BookCard from "../Utils/BookCard.vue";
 
 export default {
   name: "Home",
-  components: {
-    BookCard
-  }
 };
 </script>
