@@ -9,15 +9,15 @@
       :uk-toggle="`target: #modal-add-book`"
     >Agregar libro</button>
     <div v-if="userBooks.length > 0">
-      <div v-for="(books, index) in userBooks" :key="index">
+      <div v-for="(bookType) in bookTypes" :key="bookType.title">
         <h1 class="uk-heading-line white uk-margin">
-          <span>{{index}}</span>
+          <span>{{bookType.title}}</span>
         </h1>
 
         <div class="overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex">
           <BookCard
             class="mw-25 uk-margin-left uk-margin-right"
-            v-for="book in books"
+            v-for="book in bookType.callback(books)"
             :key="book.id"
             :book="book"
           />
@@ -45,7 +45,21 @@ export default {
   },
   props: ["payload", "user", "booksinfo"],
   data: () => ({
-    userBooks: []
+    userBooks: [],
+    bookTypes: [
+      {
+        title: "Venta",
+        callback: book => book.is_on_sale == 1 && book.is_on_rent != 1
+      },
+      {
+        title: "Renta",
+        callback: book => book.is_on_sale != 1 && book.is_on_rent == 1
+      },
+      {
+        title: "Venta y Renta",
+        callback: book => book.is_on_sale == 1 && book.is_on_rent == 1
+      }
+    ]
   }),
   mounted() {
     this.userBooks = this.payload;
@@ -53,13 +67,7 @@ export default {
   methods: {
     onSuccessBookCreated(response) {
       response = response.data;
-      if (response.is_on_sale == 1 && response.is_on_rent == 1) {
-        this.userBooks["Venta y renta"].push(response);
-      } else if (response.is_on_sale == 1) {
-        this.userBooks["Venta"].push(response);
-      } else {
-        this.userBooks["Renta"].push(response);
-      }
+      this.userBooks.push(response);
       this.showSuccessAlert(
         "Se ingreso el nuevo libro " + response.title + " con exito"
       );

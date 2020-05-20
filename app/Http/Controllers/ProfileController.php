@@ -52,13 +52,8 @@ class ProfileController extends Controller
         $booksAvailable = $books
             ->filter(function ($book) {
                 return $book->status_id = 1;
-            })
-            ->mapToGroups(function ($book) {
-                if ($book->is_on_rent == 1 && $book->is_on_sale == 1) {
-                    return ['Venta y renta' => $book];
-                }
-                return [$book->is_on_rent == 1 ? 'Renta' : 'Venta' => $book];
             });
+
         $publishers = Publisher::all();
         // $statuses = BookStatus::all();
         $courses = Course::all();
