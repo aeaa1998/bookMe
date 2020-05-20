@@ -17,7 +17,7 @@
         <div class="overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex">
           <BookCard
             class="mw-25 uk-margin-left uk-margin-right"
-            v-for="book in bookType.callback(books)"
+            v-for="book in userBooks.filter(bookType.callback)"
             :key="book.id"
             :book="book"
           />
