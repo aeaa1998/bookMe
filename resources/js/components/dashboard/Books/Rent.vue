@@ -64,7 +64,7 @@
           v-for="book in this.pagination.data"
           :key="book.id"
           v-on:click="selectBook(book)"
-          uk-toggle="target: #available-modal"
+          uk-toggle="target: #book-detail-modal"
         >
           <BookCard :book="book" />
         </div>
@@ -108,38 +108,12 @@ export default {
     };
   },
   methods: {
-    selectBook(book) {
-      this.selectedBook = book;
-      this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
-      console.log("this.selectedBook", this.selectedBook);
-    },
-    updateUser(fieldName, value, observer) {
-      this.changingField[fieldName] = true;
-      axios
-        .post("user/update", {
-          field: fieldName,
-          value: value
-        })
-        .then(response => {
-          this.user = response.data;
-          this.changingField[fieldName] = false;
-          this.cleanForm(observer);
-          this.showSuccessAlert("Se edito el usuario exitosamente.");
-        })
-        .catch(e => {
-          this.changingField[fieldName] = false;
-          this.cleanForm(observer);
-          if (fieldName == "email") {
-            this.showErrorAlert(
-              "Error al editar el usuario.",
-              "Ese email ya ha sido tomado."
-            );
-          } else {
-            this.showErrorAlert("Error al editar el usuario.");
-          }
-        });
-    },
-    fetchPage(url = undefined, page = "", query = false) {
+      selectBook(book){
+          this.selectedBook = book;
+          this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
+          console.log('this.selectedBook', this.selectedBook);
+      },
+    fetchPage(url = undefined, page = "") {
       url = url ?? this.pagination.path + "?dataOnly=true&page=";
       let fullUrl = url + page;
       if (query || this.hasScope) {

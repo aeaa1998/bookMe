@@ -42,6 +42,9 @@ class RentController extends Controller
         $book->status_id = 2;
         $book->save();
 
+        $book = Book::with('publisher', 'course', 'user', 'status')
+        ->find($request->id);
+
         return $book;
     }
 
