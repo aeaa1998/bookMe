@@ -251,8 +251,9 @@ export default {
             Object.keys(this.newBook["payment_detail"]).forEach(key => {
               Object.keys(this.newBook["payment_detail"][key]).forEach(
                 keyNested => {
+                  console.log(key + "_" + keyNested);
                   formData.append(
-                    key + "." + keyNested,
+                    key + "_" + keyNested,
                     this.newBook["payment_detail"][key][keyNested]
                   );
                 }
@@ -262,6 +263,8 @@ export default {
             formData.append(key, this.newBook[key]);
           }
         });
+        console.log(this.newBook);
+        console.log(formData);
         axios
           .post("/user/book", formData, {
             headers: {
@@ -270,8 +273,8 @@ export default {
           })
           .then(response => {
             this.callback(response);
-            this.cleanForm();
-            UIkit.modal("#modal-add-book").hide();
+            // this.cleanForm();
+            // UIkit.modal("#modal-add-book").hide();
           })
           .catch(e => {
             console.log(e);

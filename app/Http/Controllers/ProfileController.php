@@ -74,12 +74,11 @@ class ProfileController extends Controller
         $book->course_id = $request->course_id;
         $paymentDetail = [];
 
-
-        if ($request->sale_active) {
+        if ($request->sale_active == 'true') {
             $book->is_on_sale = 1;
             $paymentDetail['sale'] = ['price' => $request->sale_price];
         }
-        if ($request->rent_active) {
+        if ($request->rent_active == 'true') {
             $book->is_on_rent = 1;
             $paymentDetail['rent'] = ['price' => $request->rent_price];
         }

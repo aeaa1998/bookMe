@@ -3131,23 +3131,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (key == "payment_detail") {
           Object.keys(_this2.newBook["payment_detail"]).forEach(function (key) {
             Object.keys(_this2.newBook["payment_detail"][key]).forEach(function (keyNested) {
-              formData.append(key + "." + keyNested, _this2.newBook["payment_detail"][key][keyNested]);
+              console.log(key + "_" + keyNested);
+              formData.append(key + "_" + keyNested, _this2.newBook["payment_detail"][key][keyNested]);
             });
           });
         } else {
           formData.append(key, _this2.newBook[key]);
         }
       });
+      console.log(this.newBook);
+      console.log(formData);
       axios.post("/user/book", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
       }).then(function (response) {
-        _this2.callback(response);
+        _this2.callback(response); // this.cleanForm();
+        // UIkit.modal("#modal-add-book").hide();
 
-        _this2.cleanForm();
-
-        uikit__WEBPACK_IMPORTED_MODULE_0___default.a.modal("#modal-add-book").hide();
       })["catch"](function (e) {
         console.log(e);
 
@@ -3208,6 +3209,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3218,24 +3226,33 @@ __webpack_require__.r(__webpack_exports__);
   props: ["payload", "user", "booksinfo"],
   data: function data() {
     return {
-      userBooks: []
+      userBooks: [],
+      bookTypes: [{
+        title: "Venta",
+        callback: function callback(book) {
+          return book.is_on_sale == 1 && book.is_on_rent != 1;
+        }
+      }, {
+        title: "Renta",
+        callback: function callback(book) {
+          return book.is_on_sale != 1 && book.is_on_rent == 1;
+        }
+      }, {
+        title: "Venta y Renta",
+        callback: function callback(book) {
+          return book.is_on_sale == 1 && book.is_on_rent == 1;
+        }
+      }]
     };
   },
   mounted: function mounted() {
+    console.log(this.payload);
     this.userBooks = this.payload;
   },
   methods: {
     onSuccessBookCreated: function onSuccessBookCreated(response) {
       response = response.data;
-
-      if (response.is_on_sale == 1 && response.is_on_rent == 1) {
-        this.userBooks["Venta y renta"].push(response);
-      } else if (response.is_on_sale == 1) {
-        this.userBooks["Venta"].push(response);
-      } else {
-        this.userBooks["Renta"].push(response);
-      }
-
+      this.userBooks.push(response);
       this.showSuccessAlert("Se ingreso el nuevo libro " + response.title + " con exito");
     }
   }
@@ -8191,10 +8208,10 @@ exports.push([module.i, "\n#preview[data-v-4587c264] {\n  border-color: lightsla
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8203,7 +8220,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.mw-25[data-v-6d164602] {\n  min-width: max(25%, 30lo de0px);\n}\n.fixed-btn[data-v-6d164602] {\n  max-width: max(15%, 150px) !important;\n}\n.transparent-white[data-v-6d164602] {\n  background: rgb(248, 250, 252, 0.8);\n}\n", ""]);
+exports.push([module.i, "\n.mw-25 {\n  min-width: max(25%, 300px);\n}\n.fixed-btn {\n  max-width: max(15%, 150px) !important;\n}\n.transparent-white {\n  background: rgb(248, 250, 252, 0.8);\n}\n", ""]);
 
 // exports
 
@@ -60299,15 +60316,15 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MyBooks.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -78987,10 +79004,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602& ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -79028,27 +79045,38 @@ var render = function() {
       _vm.userBooks.length > 0
         ? _c(
             "div",
-            _vm._l(_vm.userBooks, function(books, index) {
-              return _c("div", { key: index }, [
+            _vm._l(_vm.bookTypes, function(bookType) {
+              return _c("div", { key: bookType.title }, [
                 _c("h1", { staticClass: "uk-heading-line white uk-margin" }, [
-                  _c("span", [_vm._v(_vm._s(index))])
+                  _c("span", [_vm._v(_vm._s(bookType.title))])
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex"
-                  },
-                  _vm._l(books, function(book) {
-                    return _c("BookCard", {
-                      key: book.id,
-                      staticClass: "mw-25 uk-margin-left uk-margin-right",
-                      attrs: { book: book }
-                    })
-                  }),
-                  1
-                )
+                _vm.userBooks.filter(bookType.callback).length > 0
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex"
+                      },
+                      _vm._l(_vm.userBooks.filter(bookType.callback), function(
+                        book
+                      ) {
+                        return _c("BookCard", {
+                          key: book.id,
+                          staticClass: "mw-25 uk-margin-left uk-margin-right",
+                          attrs: { book: book }
+                        })
+                      }),
+                      1
+                    )
+                  : _c(
+                      "div",
+                      {
+                        staticClass:
+                          "uk-heading-line uk-heading-medium uk-light uk-text-center uk-margin"
+                      },
+                      [_vm._v("No hay libros en esta categoria")]
+                    )
               ])
             }),
             0
@@ -93084,9 +93112,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MyBooks_vue_vue_type_template_id_6d164602_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyBooks.vue?vue&type=template&id=6d164602&scoped=true& */ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&scoped=true&");
+/* harmony import */ var _MyBooks_vue_vue_type_template_id_6d164602___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyBooks.vue?vue&type=template&id=6d164602& */ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&");
 /* harmony import */ var _MyBooks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyBooks.vue?vue&type=script&lang=js& */ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _MyBooks_vue_vue_type_style_index_0_id_6d164602_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css& */ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _MyBooks_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MyBooks.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -93098,11 +93126,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _MyBooks_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MyBooks_vue_vue_type_template_id_6d164602_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _MyBooks_vue_vue_type_template_id_6d164602_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _MyBooks_vue_vue_type_template_id_6d164602___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MyBooks_vue_vue_type_template_id_6d164602___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "6d164602",
+  null,
   null
   
 )
@@ -93128,35 +93156,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css&":
-/*!************************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css& ***!
-  \************************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_id_6d164602_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&id=6d164602&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_id_6d164602_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_id_6d164602_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_id_6d164602_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_id_6d164602_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_id_6d164602_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MyBooks.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&scoped=true&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&scoped=true& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602& ***!
+  \**********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_template_id_6d164602_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MyBooks.vue?vue&type=template&id=6d164602&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_template_id_6d164602_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_template_id_6d164602___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MyBooks.vue?vue&type=template&id=6d164602& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/dashboard/Profile/MyBooks.vue?vue&type=template&id=6d164602&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_template_id_6d164602___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_template_id_6d164602_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyBooks_vue_vue_type_template_id_6d164602___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -93318,8 +93346,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/tito/www/bookMe/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tito/www/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

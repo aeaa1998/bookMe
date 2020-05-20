@@ -14,7 +14,10 @@
           <span>{{bookType.title}}</span>
         </h1>
 
-        <div class="overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex">
+        <div
+          v-if="userBooks.filter(bookType.callback).length >0"
+          class="overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex"
+        >
           <BookCard
             class="mw-25 uk-margin-left uk-margin-right"
             v-for="book in userBooks.filter(bookType.callback)"
@@ -22,6 +25,10 @@
             :book="book"
           />
         </div>
+        <div
+          v-else
+          class="uk-heading-line uk-heading-medium uk-light uk-text-center uk-margin"
+        >No hay libros en esta categoria</div>
       </div>
     </div>
     <div v-else>
@@ -62,6 +69,7 @@ export default {
     ]
   }),
   mounted() {
+    console.log(this.payload);
     this.userBooks = this.payload;
   },
   methods: {
@@ -75,9 +83,9 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style>
 .mw-25 {
-  min-width: max(25%, 30lo de0px);
+  min-width: max(25%, 300px);
 }
 .fixed-btn {
   max-width: max(15%, 150px) !important;
