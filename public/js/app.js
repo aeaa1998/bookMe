@@ -79051,6 +79051,7 @@ var render = function() {
                   _c("span", [_vm._v(_vm._s(bookType.title))])
                 ]),
                 _vm._v(" "),
+<<<<<<< Updated upstream
                 _vm.userBooks.filter(bookType.callback).length > 0
                   ? _c(
                       "div",
@@ -79077,6 +79078,25 @@ var render = function() {
                       },
                       [_vm._v("No hay libros en esta categoria")]
                     )
+=======
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "overflow-y-auto hide-scroll-bar uk-width-1-1 uk-flex"
+                  },
+                  _vm._l(_vm.userBooks.filter(bookType.callback), function(
+                    book
+                  ) {
+                    return _c("BookCard", {
+                      key: book.id,
+                      staticClass: "mw-25 uk-margin-left uk-margin-right",
+                      attrs: { book: book }
+                    })
+                  }),
+                  1
+                )
+>>>>>>> Stashed changes
               ])
             }),
             0

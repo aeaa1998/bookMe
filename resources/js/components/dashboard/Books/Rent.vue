@@ -81,8 +81,9 @@
 </template>
 
 <script>
-import BookCard from "../../Utils/BookCard.vue";
-import BookModal from "../../Utils/BookModal.vue";
+import BookCard from "./BookCard.vue";
+import BookModal from "./BookModal.vue";
+
 export default {
   props: ["payload"],
   name: "Rent",
