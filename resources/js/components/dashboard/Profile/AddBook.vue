@@ -273,8 +273,8 @@ export default {
           })
           .then(response => {
             this.callback(response);
-            // this.cleanForm();
-            // UIkit.modal("#modal-add-book").hide();
+            this.cleanForm();
+            UIkit.modal("#modal-add-book").hide();
           })
           .catch(e => {
             console.log(e);

@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import BookCard from "./Utils/BookCard.vue";
 
 export default {
   data: () => {

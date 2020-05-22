@@ -42,7 +42,7 @@
   </div>
 </template>
 <script>
-import BookCard from "../../Utils/BookCard.vue";
+import BookCard from "../Books/BookCard.vue";
 import AddBook from "./AddBook";
 
 export default {

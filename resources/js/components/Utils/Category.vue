@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import BookCard from './BookCard.vue';
+import BookCard from '../dashboard/Books/BookCard.vue';
 
 export default {
     name: 'Category',

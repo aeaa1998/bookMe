@@ -37,14 +37,15 @@
           </div>
         </a>
 
-        <div class="uk-height-medium p-pointer" href="\user\books">
+        <a class="uk-height-medium p-pointer" href="\user\books">
           <div
             class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light"
             style="background-image: url(https://images.assetsdelivery.com/compings_v2/alexzaitsev/alexzaitsev1611/alexzaitsev161100001.jpg);"
           >
             <h1>Mis libros</h1>
           </div>
-        </div>
+        </a>
+
       </div>
     </div>
   </div>
