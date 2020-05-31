@@ -55,7 +55,6 @@
                 >Q. {{ book.payment_detail.rent.price }}</button>
                 <button class="uk-button uk-button-default uk-text-muted" v-else>No disponible</button>
               </p>
-
               <p class="uk-text-center" uk-margin>
                 <span class="uk-text-light" style="font-size: 18px;">Venta</span>
                 <br />

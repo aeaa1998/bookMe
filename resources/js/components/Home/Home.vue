@@ -52,6 +52,7 @@
               </div>
             </a>
           </div>
+
           <div>
             <a class="uk-link-reset uk-animation-scale-down" href="\user\books">
               <div class="uk-inline">
