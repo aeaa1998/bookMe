@@ -80791,7 +80791,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("input", {
                                 staticClass:
-                                  "white uk-border-circle centered-input uk-text-center",
+                                  "white-placeholder uk-border-circle centered-input uk-text-center",
                                 style:
                                   "width: " +
                                   _vm.width +

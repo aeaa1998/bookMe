@@ -25,7 +25,7 @@
                 />
                 <input
                   :style="`width: ${width}px!important; line-height: ${height}px!important; height: ${height}px!important; font-size: 32px; border: 0;`"
-                  class="white uk-border-circle centered-input uk-text-center"
+                  class="white-placeholder uk-border-circle centered-input uk-text-center"
                   type="text"
                   placeholder="+"
                   disabled

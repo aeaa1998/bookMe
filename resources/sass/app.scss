@@ -67,24 +67,24 @@
     object-fit: cover!important;
 }
 
-.white,
+.white-placeholder >
 ::-webkit-input-placeholder {
   color: white !important;
 }
 
-.white,
+.white-placeholder >
 :-moz-placeholder {
   /* Firefox 18- */
   color: white !important;
 }
 
-.white,
+.white-placeholder >
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: white !important;
 }
 
-.white,
+.white-placeholder >
 :-ms-input-placeholder {
   color: white !important;
 }
