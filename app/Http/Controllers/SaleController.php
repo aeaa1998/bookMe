@@ -18,6 +18,7 @@ class SaleController extends Controller
         $books = Book::with('publisher', 'course', 'user', 'status')
             ->where('is_on_sale', 1)
             ->where('status_id', 1)
+            ->where('user_id', '!=', $request->user()->id)
             ->when($hasQuery, function ($query) {
                 $queryString = request()->get('query');
                 return $query->where('title', 'like', "%{$queryString}%");
@@ -44,7 +45,7 @@ class SaleController extends Controller
         $book->save();
 
         $book = Book::with('publisher', 'course', 'user', 'status')
-        ->find($request->id);
+            ->find($request->id);
 
         return $book;
     }
