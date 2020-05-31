@@ -1,3 +1,23 @@
 .vh-100{
     height: 100vh !important;
 }
+
+@for $i from 1 through 12 {
+    .square-#{$i * 50}{
+        height: $i * 50px!important;
+        width: $i * 50px!important;
+    }
+  }
+
+  @for $i from 1 through 24 {
+    .fh-#{$i * 25}{
+        height: $i * 25px!important;
+    }
+  }
+
+  @for $i from 1 through 24 {
+    .fw-#{$i * 25}{
+        width: $i * 25px!important;
+    }
+  }
+  

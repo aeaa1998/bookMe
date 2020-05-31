@@ -59,3 +59,32 @@
 	cursor: pointer!important;
 }
 
+.p-pointer:hover {
+	cursor: pointer!important;
+}
+
+.img-cover{
+    object-fit: cover!important;
+}
+
+.white,
+::-webkit-input-placeholder {
+  color: white !important;
+}
+
+.white,
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white !important;
+}
+
+.white,
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white !important;
+}
+
+.white,
+:-ms-input-placeholder {
+  color: white !important;
+}

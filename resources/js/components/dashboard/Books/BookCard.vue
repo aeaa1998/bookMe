@@ -14,8 +14,7 @@
           :data-src="resolveUrl(book.book_cover)"
           uk-img
           alt
-        >
-        </div>
+        ></div>
       </div>
       <div class="uk-grid-medium uk-flex uk-flex-middle uk-flex-center" uk-grid>
         <div class="uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle">

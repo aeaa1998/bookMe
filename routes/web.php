@@ -37,7 +37,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::group(['prefix' => 'user'], function () {
 		Route::get('books', 'ProfileController@getUserBooks');
 		Route::post('book', 'ProfileController@addUserBook');
+		Route::post('book/edit/{book_id}', 'ProfileController@editUserBook');
 		Route::post('update', 'ProfileController@updateUserFields');
+		Route::post('update/profile/pic', 'ProfileController@changeProfilePic');
 		Route::post('update/password', 'ProfileController@changePassword');
 	});
 	Route::group(['namespace' => 'Auth'], function () {

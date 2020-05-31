@@ -1,57 +1,84 @@
 <template>
-  <div
-    class="uk-background-cover"
-    style="background-image: url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg);"
-  >
-    <navbar :showItems="false" />
-    <div class="uk-container-expand uk-margin-large-top" uk-height-viewport="offset-top: true">
-      <div class="uk-grid-collapse uk-child-width-1-3@m uk-child-width-1-1 uk-flex-center" uk-grid>
-        <a class="uk-height-medium p-pointer" href="\sale">
-          <div
-            class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light"
-            style="background-image: url(https://wallpaperaccess.com/full/969895.jpg);"
-          >
-            <h1>Compra de libros</h1>
+  <navbar :showItems="false">
+    <div
+      slot="content"
+      uk-height-viewport="offset-top: true; offset-bottom: 15px"
+      class="uk-flex uk-flex-center"
+    >
+      <div class="uk-container-large">
+        <div class="uk-grid uk-flex uk-flex-center" uk-grid>
+          <div class="uk-width-1-3@m uk-width-1-1">
+            <a class="uk-link-reset uk-animation-scale-down" href="\sale">
+              <div class="uk-inline">
+                <img
+                  class="fh-275 img-cover h-shadow uk-width-1-1"
+                  src="https://images.gr-assets.com/misc/1576518043-1576518043_goodreads_misc.gif"
+                  alt
+                />
+                <div class="uk-overlay uk-overlay-default uk-position-bottom">
+                  <h2>Compra de libros</h2>
+                  <p>Compra tus libros a los mejores precios</p>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
-
-        <a class="uk-height-medium p-pointer" href="\rent">
-          <div
-            class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light"
-            style="background-image: url(https://wallpaperaccess.com/full/93553.jpg);"
-          >
-            <h1>Renta de libros</h1>
+          <div class="uk-width-1-3@m uk-width-1-1">
+            <a class="uk-link-reset uk-animation-scale-down" href="\rent">
+              <div class="uk-inline">
+                <img
+                  class="fh-275 img-cover h-shadow uk-width-1-1"
+                  src="https://images.gr-assets.com/misc/1576518436-1576518436_goodreads_misc.gif"
+                  alt
+                />
+                <div class="uk-overlay uk-overlay-default uk-position-bottom">
+                  <h2>Renta de libros</h2>
+                  <p>Renta los libros de tus compañeros dentro de la universidad.</p>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
-      <div
-        class="uk-grid-collapse uk-grid-small@m uk-child-width-1-3@m uk-child-width-1-1 uk-flex-center"
-        uk-grid
-      >
-        <a class="uk-height-medium p-pointer" href="\profile">
-          <div
-            class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light"
-            style="background-image: url(https://image.freepik.com/foto-gratis/textura-negra_1160-804.jpg);"
-          >
-            <h1>Manejar perfil</h1>
+          <div class="uk-width-1-3@m uk-width-1-1">
+            <a class="uk-link-reset uk-animation-scale-down" href="\profile">
+              <div class="uk-inline">
+                <img
+                  class="fh-275 img-cover h-shadow uk-width-1-1"
+                  src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pf-icon4-jir2064-por-03-l.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&mark=&markalpha=90&markpad=13&markscale=10&markx=25&q=65&usm=15&vib=3&w=1400&s=c07ad57f8e886355249445682e37c9e6"
+                  alt
+                />
+                <div class="uk-overlay uk-overlay-default uk-position-bottom">
+                  <h2>Manejar perfil</h2>
+                  <p>Ten acceso a tu perfil y confugralo a tu placer.</p>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
-
-        <div class="uk-height-medium p-pointer" href="\user\books">
-          <div
-            class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle uk-light"
-            style="background-image: url(https://images.assetsdelivery.com/compings_v2/alexzaitsev/alexzaitsev1611/alexzaitsev161100001.jpg);"
-          >
-            <h1>Mis libros</h1>
+          <div>
+            <a class="uk-link-reset uk-animation-scale-down" href="\user\books">
+              <div class="uk-inline">
+                <img
+                  class="fh-400 uk-width-1-1 img-cover h-shadow"
+                  src="https://miro.medium.com/max/10000/1*RRzmy1VPuNDYNr72RExGWQ.jpeg"
+                  alt
+                />
+                <div class="uk-overlay uk-overlay-default uk-position-bottom">
+                  <h2>Mis libros</h2>
+                  <p>Maneja tus libros en venta y en renta.</p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </navbar>
 </template>
 
 <script>
+import UIkit from "uikit";
 export default {
-  name: "Home"
+  name: "Home",
+  mounted() {
+    // UIkit.toggle("#test");
+  }
 };
 </script>

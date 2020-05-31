@@ -51,6 +51,7 @@
                 <br />
                 <button
                   class="uk-button uk-button-default uk-text-success uk-modal-close"
+                  v-on:click="rentBook(book)"
                   v-if="book.is_on_rent===1"
                 >Q. {{ book.payment_detail.rent.price }}</button>
                 <button class="uk-button uk-button-default uk-text-muted" v-else>No disponible</button>
@@ -61,6 +62,7 @@
                 <br />
                 <button
                   class="uk-button uk-button-default uk-text-success"
+                  v-on:click="buyBook(book)"
                   v-if="book.is_on_sale===1"
                 >Q. {{ book.payment_detail.sale.price }}</button>
                 <button class="uk-button uk-button-default uk-text-muted" v-else>No disponible</button>
@@ -71,18 +73,7 @@
       </div>
       <div class="uk-modal-footer uk-text-right">
         <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-        <button
-          v-if="book.is_on_rent===1"
-          v-on:click="rentBook(book)"
-          class="uk-button uk-button-primary"
-          type="button"
-        >Rentar</button>
-        <button
-          v-if="book.is_on_sale===1"
-          v-on:click="buyBook(book)"
-          class="uk-button uk-button-primary"
-          type="button"
-        >Comprar</button>
+        <button class="uk-button uk-button-primary" type="button">Save</button>
       </div>
     </div>
   </div>
@@ -93,32 +84,15 @@ export default {
   name: "BookModal",
   props: ["book"],
   methods: {
-    buyBook(book) {
+    deleteBook() {
       axios
-        .post("buy/book", {
+        .delete("delete/book/" + book.id, {
           id: book.id
         })
         .then(response => {
           this.$props.book = response.data;
           this.showSuccessAlert("Comprado con éxito!");
           console.log("SALE", this.$props.book);
-        })
-        .catch(e => {
-          this.showErrorAlert(
-            "No se pudo realizar la transacción",
-            "Intente de nuevo."
-          );
-        });
-    },
-    rentBook(book) {
-      axios
-        .post("rent/book", {
-          id: book.id
-        })
-        .then(response => {
-          this.$props.book = response.data;
-          console.log("RENT", this.$props.book);
-          this.showSuccessAlert("Rentado con éxito!");
         })
         .catch(e => {
           this.showErrorAlert(

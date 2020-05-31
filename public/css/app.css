@@ -4,6 +4,258 @@
   height: 100vh !important;
 }
 
+.square-50 {
+  height: 50px !important;
+  width: 50px !important;
+}
+
+.square-100 {
+  height: 100px !important;
+  width: 100px !important;
+}
+
+.square-150 {
+  height: 150px !important;
+  width: 150px !important;
+}
+
+.square-200 {
+  height: 200px !important;
+  width: 200px !important;
+}
+
+.square-250 {
+  height: 250px !important;
+  width: 250px !important;
+}
+
+.square-300 {
+  height: 300px !important;
+  width: 300px !important;
+}
+
+.square-350 {
+  height: 350px !important;
+  width: 350px !important;
+}
+
+.square-400 {
+  height: 400px !important;
+  width: 400px !important;
+}
+
+.square-450 {
+  height: 450px !important;
+  width: 450px !important;
+}
+
+.square-500 {
+  height: 500px !important;
+  width: 500px !important;
+}
+
+.square-550 {
+  height: 550px !important;
+  width: 550px !important;
+}
+
+.square-600 {
+  height: 600px !important;
+  width: 600px !important;
+}
+
+.fh-25 {
+  height: 25px !important;
+}
+
+.fh-50 {
+  height: 50px !important;
+}
+
+.fh-75 {
+  height: 75px !important;
+}
+
+.fh-100 {
+  height: 100px !important;
+}
+
+.fh-125 {
+  height: 125px !important;
+}
+
+.fh-150 {
+  height: 150px !important;
+}
+
+.fh-175 {
+  height: 175px !important;
+}
+
+.fh-200 {
+  height: 200px !important;
+}
+
+.fh-225 {
+  height: 225px !important;
+}
+
+.fh-250 {
+  height: 250px !important;
+}
+
+.fh-275 {
+  height: 275px !important;
+}
+
+.fh-300 {
+  height: 300px !important;
+}
+
+.fh-325 {
+  height: 325px !important;
+}
+
+.fh-350 {
+  height: 350px !important;
+}
+
+.fh-375 {
+  height: 375px !important;
+}
+
+.fh-400 {
+  height: 400px !important;
+}
+
+.fh-425 {
+  height: 425px !important;
+}
+
+.fh-450 {
+  height: 450px !important;
+}
+
+.fh-475 {
+  height: 475px !important;
+}
+
+.fh-500 {
+  height: 500px !important;
+}
+
+.fh-525 {
+  height: 525px !important;
+}
+
+.fh-550 {
+  height: 550px !important;
+}
+
+.fh-575 {
+  height: 575px !important;
+}
+
+.fh-600 {
+  height: 600px !important;
+}
+
+.fw-25 {
+  width: 25px !important;
+}
+
+.fw-50 {
+  width: 50px !important;
+}
+
+.fw-75 {
+  width: 75px !important;
+}
+
+.fw-100 {
+  width: 100px !important;
+}
+
+.fw-125 {
+  width: 125px !important;
+}
+
+.fw-150 {
+  width: 150px !important;
+}
+
+.fw-175 {
+  width: 175px !important;
+}
+
+.fw-200 {
+  width: 200px !important;
+}
+
+.fw-225 {
+  width: 225px !important;
+}
+
+.fw-250 {
+  width: 250px !important;
+}
+
+.fw-275 {
+  width: 275px !important;
+}
+
+.fw-300 {
+  width: 300px !important;
+}
+
+.fw-325 {
+  width: 325px !important;
+}
+
+.fw-350 {
+  width: 350px !important;
+}
+
+.fw-375 {
+  width: 375px !important;
+}
+
+.fw-400 {
+  width: 400px !important;
+}
+
+.fw-425 {
+  width: 425px !important;
+}
+
+.fw-450 {
+  width: 450px !important;
+}
+
+.fw-475 {
+  width: 475px !important;
+}
+
+.fw-500 {
+  width: 500px !important;
+}
+
+.fw-525 {
+  width: 525px !important;
+}
+
+.fw-550 {
+  width: 550px !important;
+}
+
+.fw-575 {
+  width: 575px !important;
+}
+
+.fw-600 {
+  width: 600px !important;
+}
+
 .book-wallpaper {
   background: url("/../images/booksWallpaper.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -23,6 +275,14 @@
 
 .warning-bg {
   background: #fff3cd;
+}
+
+.h-shadow:hover {
+  box-shadow: 6px -6px 6px rgba(33, 33, 33, 0.2);
+}
+
+.blur-black {
+  background-color: rgba(33, 33, 33, 0.5);
 }
 
 /*!
@@ -26760,5 +27020,36 @@ iframe.uk-cover {
 
 .p-pointer {
   cursor: pointer !important;
+}
+
+.p-pointer:hover {
+  cursor: pointer !important;
+}
+
+.img-cover {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
+
+.white,
+::-webkit-input-placeholder {
+  color: white !important;
+}
+
+.white,
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white !important;
+}
+
+.white,
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white !important;
+}
+
+.white,
+:-ms-input-placeholder {
+  color: white !important;
 }
 

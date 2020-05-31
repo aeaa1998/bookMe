@@ -93,4 +93,50 @@ class ProfileController extends Controller
         $book = Book::with('publisher', 'course', 'user', 'status')->find($book->id);
         return $book;
     }
+    public function editUserBook(Request $request, $book_id)
+    {
+        $user = $request->user();
+
+        $book = Book::find($book_id);
+
+        $book->title = $request->title;
+        $book->year = $request->year;
+        $book->edition_number = $request->edition_number;
+        $book->publisher_id = $request->publisher_id;
+        $book->course_id = $request->course_id;
+        $paymentDetail = [];
+
+        if ($request->sale_active == 'true') {
+            $book->is_on_sale = 1;
+            $paymentDetail['sale'] = ['price' => $request->sale_price];
+        } else {
+            $book->is_on_sale = 0;
+        }
+        if ($request->rent_active == 'true') {
+            $book->is_on_rent = 1;
+            $paymentDetail['rent'] = ['price' => $request->rent_price];
+        } else {
+            $book->is_on_rent = 0;
+        }
+        $book->payment_detail = json_encode($paymentDetail);
+        if ($request->file && $request->file != "") {
+            $path = Storage::disk("public")->put("books", $request->file('file'));
+            $book->book_cover = $path;
+        }
+        $book->user_id = $user->id;
+        $book->status_id = 1;
+        // return $path;
+        $book->save();
+        $book = Book::with('publisher', 'course', 'user', 'status')->find($book->id);
+        return $book;
+    }
+    public function changeProfilePic(Request $request)
+    {
+        $user = $request->user();
+        $user = User::withCount('books')->find($user->id);
+        $path = Storage::disk("public")->put("profiles", $request->file('file'));
+        $user->profile_path = $path;
+        $user->save();
+        return $user->profile_path;
+    }
 }

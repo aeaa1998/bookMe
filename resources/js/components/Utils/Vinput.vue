@@ -4,7 +4,9 @@
       <input
         v-bind="$attrs"
         class="uk-input"
-        :class="[{'uk-form-danger v-invalid': failed}]"
+        @blur="blurFlag = true"
+        @focus="blurFlag = false"
+        :class="[{'uk-form-danger v-invalid': failed, 'uk-animation-shake': errors.length > 0 && blurFlag}]"
         v-bind:value="value"
         v-on:input="onInput($event)"
       />
@@ -32,6 +34,9 @@ export default {
       default: ""
     }
   },
+  data: () => ({
+    blurFlag: false
+  }),
   methods: {
     onInput(event) {
       if (this.$attrs["type"] != "file") {

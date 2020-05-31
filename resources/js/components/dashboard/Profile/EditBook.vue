@@ -1,12 +1,12 @@
 <template>
-  <div id="modal-add-book" class="uk-modal-container" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+  <div id="modal-edit-book" class="uk-modal-container" uk-modal>
+    <div v-if="selectedBook" class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
       <div class="uk-modal-header">
-        <h2 class="uk-modal-title">Agrega un libro</h2>
+        <h2 class="uk-modal-title">Editar un libro</h2>
       </div>
       <div class="uk-margin">
         <ValidationObserver ref="add-book-form" style="display: inherit" v-slot="{ invalid }">
-          <form @submit.prevent="uploadBook">
+          <form @submit.prevent="editBook">
             <ul uk-tab>
               <li>
                 <a href="#">Información</a>
@@ -181,9 +181,9 @@
 <script>
 import UIkit from "uikit";
 export default {
-  props: ["booksinfo"],
   props: {
     booksinfo: [Object, Array],
+    selectedBook: [Object],
     callback: {
       type: [Function],
       default: () => {}
@@ -216,6 +216,19 @@ export default {
       if (value != "" && value) {
         this.preview = URL.createObjectURL(value);
       }
+    },
+    selectedBook(value) {
+      let detail = this.newBook.payment_detail;
+      this.newBook = { ...value };
+      this.newBook.payment_detail = detail;
+      const holder = JSON.parse(value.payment_detail);
+      if (value.is_on_rent == 1) {
+        this.newBook.payment_detail.rent.price = holder.rent.price;
+      }
+      if (value.is_on_sale == 1) {
+        this.newBook.payment_detail.sale.price = holder.sale.price;
+      }
+      this.preview = `/storage/${value.book_cover}`;
     }
   },
   methods: {
@@ -239,51 +252,45 @@ export default {
       this.preview = "";
       this.file = "";
     },
-    uploadBook() {
-      if (this.file == "") {
-        this.showErrorAlert("Porfavor asegurate de subir una foto tambien");
-      } else {
-        this.uploading = true;
-        let formData = new FormData();
-        formData.append("file", this.file);
-        Object.keys(this.newBook).forEach(key => {
-          if (key == "payment_detail") {
-            Object.keys(this.newBook["payment_detail"]).forEach(key => {
-              Object.keys(this.newBook["payment_detail"][key]).forEach(
-                keyNested => {
-                  console.log(key + "_" + keyNested);
-                  formData.append(
-                    key + "_" + keyNested,
-                    this.newBook["payment_detail"][key][keyNested]
-                  );
-                }
-              );
-            });
-          } else {
-            formData.append(key, this.newBook[key]);
-          }
-        });
-        console.log(this.newBook);
-        console.log(formData);
-        axios
-          .post("/user/book", formData, {
-            headers: {
-              "Content-Type": "multipart/form-data"
-            }
-          })
-          .then(response => {
-            this.callback(response);
-            this.cleanForm();
-            UIkit.modal("#modal-add-book").hide();
-          })
-          .catch(e => {
-            console.log(e);
-            this.showErrorAlert("Error al ingresar el libro.");
-          })
-          .finally(() => {
-            this.uploading = false;
+    editBook() {
+      this.uploading = true;
+      let formData = new FormData();
+      formData.append("file", this.file);
+      Object.keys(this.newBook).forEach(key => {
+        if (key == "payment_detail") {
+          Object.keys(this.newBook["payment_detail"]).forEach(key => {
+            Object.keys(this.newBook["payment_detail"][key]).forEach(
+              keyNested => {
+                console.log(key + "_" + keyNested);
+                formData.append(
+                  key + "_" + keyNested,
+                  this.newBook["payment_detail"][key][keyNested]
+                );
+              }
+            );
           });
-      }
+        } else {
+          formData.append(key, this.newBook[key]);
+        }
+      });
+      axios
+        .post("/user/book/edit/" + this.newBook.id, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+        .then(response => {
+          this.callback(response);
+          this.cleanForm();
+          UIkit.modal("#modal-edit-book").hide();
+        })
+        .catch(e => {
+          console.log(e);
+          this.showErrorAlert("Error al ingresar el libro.");
+        })
+        .finally(() => {
+          this.uploading = false;
+        });
     }
   }
 };
