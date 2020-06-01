@@ -169,6 +169,7 @@
                 :disabled="invalid || uploading"
               >
                 <div v-if="uploading" uk-spinner></div>
+
                 {{uploading ? 'Cargando' : 'Editar libro'}}
               </button>
             </p>

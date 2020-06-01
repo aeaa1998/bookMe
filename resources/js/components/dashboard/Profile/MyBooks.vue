@@ -1,8 +1,16 @@
 <template>
   <div class="uk-position-relative" uk-height-viewport="offset-top: true">
-    <h1
-      class="uk-heading-line uk-heading-medium uk-light uk-text-center uk-margin"
-    >Libros de {{this.user.first_name}}</h1>
+    <div class="uk-width-expand uk-flex uk-flex-between uk-flex-middle">
+      <div class="uk-margin-large-right uk-margin-large-left"></div>
+      <h1 class="uk-heading-line uk-heading-medium uk-light uk-text-center uk-margin uk-margin-left-small uk-margin-right-small"> Libros de {{this.user.first_name}} </h1>
+      <div
+        :uk-toggle="`target: #modal-add-book`"
+        class="uk-card uk-card-default uk-flex uk-flex-middle uk-flex-center p-pointer uk-width-1-6@m uk-width-1-5@s uk-width-1-4 uk-margin-small-right add-btn"
+      >
+        <div class="uk-text-emphasis uk-text-lead uk-margin-right">Agregar</div>
+        <img class="uk-light add" src="/images/plus-sm.png" uk-img />
+      </div>
+    </div>
 
     <div v-if="userBooks.length > 0">
       <div v-for="(bookType) in bookTypes" :key="bookType.title">
@@ -23,22 +31,6 @@
           >
             <BookCard :book="book" />
           </div>
-          <div
-            :uk-toggle="`target: #modal-add-book`"
-            class="uk-card uk-card-default p-pointer mw-25 uk-margin-left uk-margin-right"
-          >
-            <div class="uk-card-media-top uk-flex uk-flex-center">
-              <img class="uk-height-medium uk-light add" src="/images/plus-sm.png" uk-img />
-            </div>
-            <div class="uk-grid-medium uk-flex uk-flex-middle uk-flex-center" uk-grid>
-              <div class="uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle">
-                <h3 class="uk-card-title uk-margin-remove-bottom">Agregar</h3>
-                <p
-                  class="uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
-                >Agreaga mas libros a para que los demas puedan alquilar o rentar</p>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           v-else
@@ -50,25 +42,7 @@
       <div>
         <h2
           class="uk-heading-line uk-heading-medium uk-light uk-text-center uk-margin"
-        >No hay libros :(</h2>
-      </div>
-      <div class="uk-flex uk-flex-center">
-        <div
-          :uk-toggle="`target: #modal-add-book`"
-          class="uk-card uk-card-default p-pointer uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-left uk-margin-right"
-        >
-          <div class="uk-card-media-top uk-flex uk-flex-center">
-            <img class="uk-height-medium uk-light add" src="/images/plus-sm.png" uk-img />
-          </div>
-          <div class="uk-grid-medium uk-flex uk-flex-middle uk-flex-center" uk-grid>
-            <div class="uk-width-expand uk-flex uk-flex-column uk-flex-center uk-flex-middle">
-              <h3 class="uk-card-title uk-margin-remove-bottom">Agregar</h3>
-              <p
-                class="uk-text-meta uk-margin-remove-top uk-text-center uk-margin-small-bottom"
-              >Agreaga mas libros a para que los demas puedan alquilar o rentar</p>
-            </div>
-          </div>
-        </div>
+        >Aún no tienes libros.</h2>
       </div>
     </div>
     <AddBook :callback="onSuccessBookCreated" :booksinfo="booksinfo" />
@@ -144,5 +118,11 @@ export default {
 }
 .add {
   object-fit: scale-down;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.add-btn {
+  height: 3rem;
+  border-radius: 2rem;
 }
 </style>
