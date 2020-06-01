@@ -109,12 +109,12 @@ export default {
     };
   },
   methods: {
-      selectBook(book){
-          this.selectedBook = book;
-          this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
-          console.log('this.selectedBook', this.selectedBook);
-      },
-    fetchPage(url = undefined, page = "") {
+    selectBook(book) {
+      this.selectedBook = book;
+      this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
+      console.log("this.selectedBook", this.selectedBook);
+    },
+    fetchPage(url = undefined, page = "", query = false) {
       url = url ?? this.pagination.path + "?dataOnly=true&page=";
       let fullUrl = url + page;
       if (query || this.hasScope) {

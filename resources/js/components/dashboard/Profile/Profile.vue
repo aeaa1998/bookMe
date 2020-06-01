@@ -122,14 +122,14 @@
                   v-slot="{ invalid }"
                 >
                   <v-input
-                    v-model="newUserModel.name"
+                    v-model="newUserModel.first_name"
                     class="uk-width-1-2"
-                    rules="required|alpha"
+                    rules="required"
                     name="Nombre"
                     placeholder="Ingresa tu nuevo numero nombre"
                   />
                   <button
-                    @click="updateUser('name', newUserModel.name, 'name-provider')"
+                    @click="updateUser('first_name', newUserModel.name, 'name-provider')"
                     :disabled="invalid"
                     class="uk-button uk-button-default uk-button-small uk-width-1-3 uk-margin-left"
                   >
@@ -225,13 +225,13 @@ export default {
     loading: false,
     img: "",
     newUserModel: {
-      name: "",
+      first_name: "",
       email: "",
       phoneNumber: "",
       lastName: ""
     },
     changingField: {
-      name: false,
+      first_name: false,
       email: false,
       phone_number: false,
       last_name: false
