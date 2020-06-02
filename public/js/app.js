@@ -2466,6 +2466,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var uikit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uikit */ "./node_modules/uikit/dist/js/uikit.js");
+/* harmony import */ var uikit__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(uikit__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2555,9 +2557,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BookModal",
-  props: ["book"],
+  props: ["book", "callback"],
   methods: {
     buyBook: function buyBook(book) {
       var _this = this;
@@ -2567,9 +2570,10 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this.$props.book = response.data;
 
-        _this.showSuccessAlert("Comprado con éxito!");
+        _this.showSuccessAlert("Comprado con éxito!"); // this.callback(response);
 
-        console.log("SALE", _this.$props.book);
+
+        uikit__WEBPACK_IMPORTED_MODULE_0___default.a.modal("#book-detail-modal").hide();
       })["catch"](function (e) {
         _this.showErrorAlert("No se pudo realizar la transacción", "Intente de nuevo.");
       });
@@ -2580,10 +2584,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("rent/book", {
         id: book.id
       }).then(function (response) {
-        _this2.$props.book = response.data;
-        console.log("RENT", _this2.$props.book);
+        _this2.$props.book = response.data; // this.callback(response);
 
         _this2.showSuccessAlert("Rentado con éxito!");
+
+        uikit__WEBPACK_IMPORTED_MODULE_0___default.a.modal("#book-detail-modal").hide();
       })["catch"](function (e) {
         _this2.showErrorAlert("No se pudo realizar la transacción", "Intente de nuevo.");
       });
@@ -2713,7 +2718,7 @@ __webpack_require__.r(__webpack_exports__);
     selectBook: function selectBook(book) {
       this.selectedBook = book;
       this.selectedBook.payment_detail = JSON.parse(book.payment_detail);
-      console.log('this.selectedBook', this.selectedBook);
+      console.log("this.selectedBook", this.selectedBook);
     },
     fetchPage: function fetchPage() {
       var _url,
@@ -2721,6 +2726,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
       var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      var query = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       url = (_url = url) !== null && _url !== void 0 ? _url : this.pagination.path + "?dataOnly=true&page=";
       var fullUrl = url + page;
 
@@ -2733,6 +2739,12 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get(fullUrl).then(function (response) {
         _this.pagination = response.data.books;
+      });
+    },
+    callback: function callback(response) {
+      var book = response.data;
+      this.pagination.data = this.pagination.data.filter(function (b) {
+        return b.id != book.id;
       });
     },
     cleanPage: function cleanPage() {
@@ -2918,6 +2930,12 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get(fullUrl).then(function (response) {
         _this2.pagination = response.data.books;
+      });
+    },
+    callback: function callback(response) {
+      var book = response.data;
+      this.pagination.data = this.pagination.data.filter(function (b) {
+        return b.id != book.id;
       });
     },
     cleanPage: function cleanPage() {
@@ -3254,6 +3272,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -3917,13 +3936,13 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       img: "",
       newUserModel: {
-        name: "",
+        first_name: "",
         email: "",
         phoneNumber: "",
         lastName: ""
       },
       changingField: {
-        name: false,
+        first_name: false,
         email: false,
         phone_number: false,
         last_name: false
@@ -4092,15 +4111,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     showItems: {
       type: Boolean,
       "default": true
+    },
+    bg: {
+      type: String,
+      "default": "https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg"
     }
   }
 });
@@ -77481,7 +77501,7 @@ var render = function() {
                     attrs: { disabled: !_vm.validLoginform || _vm.logging },
                     on: { click: _vm.logIn }
                   },
-                  [_vm._v("Ingresar")]
+                  [_vm._v(_vm._s(_vm.logging ? "Cargando..." : "Ingresar"))]
                 ),
                 _vm._v(" "),
                 _c(
@@ -77746,7 +77766,15 @@ var render = function() {
                                     disabled: invalid || _vm.registering
                                   }
                                 },
-                                [_vm._v("Registrarse")]
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.registering
+                                        ? "Cargando..."
+                                        : "Registrarse"
+                                    )
+                                  )
+                                ]
                               ),
                               _vm._v(" "),
                               _c(
@@ -78720,7 +78748,9 @@ var render = function() {
             ])
       ]),
       _vm._v(" "),
-      _c("BookModal", { attrs: { book: _vm.selectedBook } })
+      _c("BookModal", {
+        attrs: { book: _vm.selectedBook, callback: _vm.callback }
+      })
     ],
     1
   )
@@ -78921,7 +78951,9 @@ var render = function() {
             ])
       ]),
       _vm._v(" "),
-      _c("BookModal", { attrs: { book: _vm.selectedBook } })
+      _c("BookModal", {
+        attrs: { book: _vm.selectedBook, callback: _vm.callback }
+      })
     ],
     1
   )
@@ -80361,11 +80393,11 @@ var render = function() {
                                             })
                                           : _vm._e(),
                                         _vm._v(
-                                          "\n              " +
+                                          "\n\n              " +
                                             _vm._s(
                                               _vm.uploading
                                                 ? "Cargando"
-                                                : "Confirmar"
+                                                : "Editar libro"
                                             ) +
                                             "\n            "
                                         )
@@ -80380,7 +80412,7 @@ var render = function() {
                       ],
                       null,
                       false,
-                      304148493
+                      3548237035
                     )
                   })
                 ],
@@ -80965,21 +80997,22 @@ var render = function() {
                                         _c("v-input", {
                                           staticClass: "uk-width-1-2",
                                           attrs: {
-                                            rules: "required|alpha",
+                                            rules: "required",
                                             name: "Nombre",
                                             placeholder:
                                               "Ingresa tu nuevo numero nombre"
                                           },
                                           model: {
-                                            value: _vm.newUserModel.name,
+                                            value: _vm.newUserModel.first_name,
                                             callback: function($$v) {
                                               _vm.$set(
                                                 _vm.newUserModel,
-                                                "name",
+                                                "first_name",
                                                 $$v
                                               )
                                             },
-                                            expression: "newUserModel.name"
+                                            expression:
+                                              "newUserModel.first_name"
                                           }
                                         }),
                                         _vm._v(" "),
@@ -80992,7 +81025,7 @@ var render = function() {
                                             on: {
                                               click: function($event) {
                                                 return _vm.updateUser(
-                                                  "name",
+                                                  "first_name",
                                                   _vm.newUserModel.name,
                                                   "name-provider"
                                                 )
@@ -81022,7 +81055,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                368154741
+                                3893959485
                               )
                             }),
                             _vm._v(" "),
@@ -81389,10 +81422,7 @@ var render = function() {
       "div",
       {
         staticClass: "uk-background-cover",
-        staticStyle: {
-          "background-image":
-            "url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg)"
-        }
+        style: "background-image: url(" + _vm.bg + ");"
       },
       [
         _c(
@@ -94977,8 +95007,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/douglasdeleon/DouglasJr/semestre5/HCI/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/tito/www/bookMe/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tito/www/bookMe/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -37,10 +37,7 @@
         </div>
       </nav>
     </div>
-    <div
-      class="uk-background-cover"
-      style="background-image: url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg);"
-    >
+    <div class="uk-background-cover" :style="`background-image: url(${bg});`">
       <!-- <div
       class="uk-background-cover"
       style="background-image: url(https://pngimage.net/wp-content/uploads/2018/05/book-bg-png-6.png);"
@@ -58,6 +55,11 @@ export default {
     showItems: {
       type: Boolean,
       default: true
+    },
+    bg: {
+      type: String,
+      default:
+        "https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg"
     }
   }
 };

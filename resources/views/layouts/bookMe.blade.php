@@ -26,9 +26,9 @@
     <div id="app">
 
 
-        <div class="uk-background-cover" style="background-image: url(https://images.wallpaperscraft.com/image/books_shelf_stairs_125930_3840x2400.jpg);">
-            @yield('content')
-        </div>
+
+        @yield('content')
+
 
 
     </div>

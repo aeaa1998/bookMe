@@ -30,7 +30,7 @@
               @click="logIn"
               class="uk-button uk-button-default"
               :disabled="!validLoginform || logging"
-            >Ingresar</button>
+            >{{logging ? 'Cargando...' : 'Ingresar'}}</button>
             <a href="/register" class="uk-button uk-button-default">Registrarse</a>
           </div>
           <div class="uk-margin-top">

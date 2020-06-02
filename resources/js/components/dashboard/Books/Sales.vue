@@ -78,7 +78,7 @@
         <h1 class="uk-heading-line uk-heading-large uk-light uk-text-center">:(</h1>
       </div>
     </div>
-    <BookModal :book="selectedBook" />
+    <BookModal :book="selectedBook" :callback="callback" />
   </div>
 </template>
 
@@ -153,6 +153,10 @@ export default {
       axios.get(fullUrl).then(response => {
         this.pagination = response.data.books;
       });
+    },
+    callback(response) {
+      const book = response.data;
+      this.pagination.data = this.pagination.data.filter(b => b.id != book.id);
     },
     cleanPage() {
       let url = this.pagination.path + "?dataOnly=true&page=";

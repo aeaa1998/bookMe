@@ -88,9 +88,10 @@
 </template>
 
 <script>
+import UIkit from "uikit";
 export default {
   name: "BookModal",
-  props: ["book"],
+  props: ["book", "callback"],
   methods: {
     buyBook(book) {
       axios
@@ -100,7 +101,8 @@ export default {
         .then(response => {
           this.$props.book = response.data;
           this.showSuccessAlert("Comprado con éxito!");
-          console.log("SALE", this.$props.book);
+          // this.callback(response);
+          UIkit.modal("#book-detail-modal").hide();
         })
         .catch(e => {
           this.showErrorAlert(
@@ -116,8 +118,9 @@ export default {
         })
         .then(response => {
           this.$props.book = response.data;
-          console.log("RENT", this.$props.book);
+          // this.callback(response);
           this.showSuccessAlert("Rentado con éxito!");
+          UIkit.modal("#book-detail-modal").hide();
         })
         .catch(e => {
           this.showErrorAlert(

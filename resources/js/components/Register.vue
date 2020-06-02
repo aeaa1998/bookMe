@@ -75,7 +75,7 @@
                 type="submit"
                 class="uk-button uk-button-default uk-display-block"
                 :disabled="invalid || registering"
-              >Registrarse</button>
+              >{{registering ? 'Cargando...' : 'Registrarse'}}</button>
               <a
                 href="login"
                 class="uk-link-muted uk-display-block uk-margin-top"
